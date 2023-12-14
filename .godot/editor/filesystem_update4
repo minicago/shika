@@ -1,0 +1,4 @@
+res://scripts/UI/card.gd
+res://tscns/card.tscn
+res://scripts/lowlevel/card.gd
+res://scripts/function/card.gd

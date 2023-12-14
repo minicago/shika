@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0qhgs4dwoxda"]
+
+[ext_resource type="Texture2D" uid="uid://dev5x0yhmcyis" path="res://images/common/block.png" id="1_ccnlw"]
+[ext_resource type="Script" path="res://scripts/UI/card.gd" id="1_il1ev"]
+[ext_resource type="Texture2D" uid="uid://dpmx6hovq0jfd" path="res://images/card/1.png" id="2_qjbhy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2ac7"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjqdt"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_il1ev")
+
+[node name="Base" type="TextureRect" parent="."]
+offset_right = 152.0
+offset_bottom = 200.0
+texture = ExtResource("1_ccnlw")
+expand_mode = 1
+
+[node name="Image" type="TextureRect" parent="Base"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 91.0
+texture = ExtResource("2_qjbhy")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 144.0
+offset_bottom = 120.0
+text = "shoot!"
+label_settings = SubResource("LabelSettings_h2ac7")
+horizontal_alignment = 1
+
+[node name="DescriptLabel" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 120.0
+offset_right = 144.0
+offset_bottom = 192.0
+text = "shoot your enemy"
+label_settings = SubResource("LabelSettings_tjqdt")
+horizontal_alignment = 1
