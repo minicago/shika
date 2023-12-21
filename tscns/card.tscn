@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dev5x0yhmcyis" path="res://images/common/block.png" id="1_ccnlw"]
 [ext_resource type="Script" path="res://scripts/UI/card.gd" id="1_il1ev"]
-[ext_resource type="Texture2D" uid="uid://dpmx6hovq0jfd" path="res://images/card/1.png" id="2_qjbhy"]
+[ext_resource type="Texture2D" uid="uid://dpmx6hovq0jfd" path="res://images/normal/1.png" id="2_qjbhy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h2ac7"]
 font_color = Color(1, 0, 0, 1)

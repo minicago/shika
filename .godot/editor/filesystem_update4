@@ -1,4 +1,5 @@
-res://scripts/UI/card.gd
 res://tscns/card.tscn
-res://scripts/lowlevel/card.gd
-res://scripts/function/card.gd
+res://shaders/Background.gdshader
+res://tests/camera test/camera Test.tscn
+res://tscns/rider.tscn
+res://tscns/world.tscn
