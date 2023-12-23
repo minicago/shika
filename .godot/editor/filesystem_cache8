@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1703167301
+::res://::1703313428
 icon.svg::CompressedTexture2D::4221202064463072780::1702471328::1702471334::1::::<><>::
 README.md::TextFile::-1::1702471432::0::1::::<><>::
 ::res://images/::1703076690
@@ -9,22 +9,37 @@ README.md::TextFile::-1::1702471432::0::1::::<><>::
 background.png::CompressedTexture2D::6002868567135120228::1703126711::1703125961::1::::<><>::
 block.png::CompressedTexture2D::7485233292002744754::1702472274::1702472286::1::::<><>::
 void.png::CompressedTexture2D::3031289391696968822::1702472649::1702472652::1::::<><>::
-::res://images/normal/::1703121704
-1.png::CompressedTexture2D::8238319479410417977::1703121701::1703121704::1::::<><>::
+::res://images/normal/::1703312901
+home.png::CompressedTexture2D::8238319479410417977::1703121701::1703312901::1::::<><>::
 ::res://scripts/::1703076632
-::res://scripts/function/::1703066757
+::res://scripts/function/::1703311493
 card.gd::GDScript::-1::1702473962::0::1::::Card_function<>Node<>::
-::res://scripts/lowlevel/::1702473796
+world.gd::GDScript::-1::1703274513::0::1::::World_function<>Node2D<>::
+::res://scripts/function/objs/::1703313331
+obj.gd::GDScript::-1::1703313326::0::1::::Obj_function<>Node<>::
+rider.gd::GDScript::-1::1703313331::0::1::::Rider_function<>Obj_function<>::
+::res://scripts/lowlevel/::1703311474
 card.gd::GDScript::-1::1702473796::0::1::::Card_lowlevel<>Node<>::
-::res://scripts/UI/::1703128021
-card.gd::GDScript::-1::1702473687::0::1::::Card_UI<>Node2D<>::
-rider.gd::GDScript::-1::1703128021::0::1::::Rider<>Node2D<>::
-::res://shaders/::1703151156
-Background.gdshader::Shader::-1::1703151156::0::1::::<><>::
-::res://tests/::1703062657
-::res://tests/camera test/::1703151041
-camera Test.tscn::PackedScene::5867267857549194906::1703151041::0::1::::<><>::uid://dtfnnks4xvt8u::::res://tscns/rider.tscn<>uid://dpmx6hovq0jfd::::res://images/normal/1.png
-::res://tscns/::1703151041
-card.tscn::PackedScene::8947449910193777074::1703151041::0::1::::<><>::uid://dev5x0yhmcyis::::res://images/common/block.png<>res://scripts/UI/card.gd<>uid://dpmx6hovq0jfd::::res://images/normal/1.png
-rider.tscn::PackedScene::8503985059588137466::1703151041::0::1::::<><>::res://scripts/UI/rider.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png<>res://shaders/Background.gdshader<>uid://crr3mryrk0vw3::::res://images/common/background.png
-world.tscn::PackedScene::1022906017684621473::1703151041::0::1::::<><>::uid://dtfnnks4xvt8u::::res://tscns/rider.tscn
+world.gd::GDScript::-1::1703274566::0::1::::World<>Node<>::
+::res://scripts/lowlevel/objs/::1703312792
+obj.gd::GDScript::-1::1703312792::0::1::::Obj<>Node<>::
+rider.gd::GDScript::-1::1703311556::0::1::::Rider<>Obj<>::
+::res://scripts/UI/::1703312784
+card.gd::GDScript::-1::1703254430::0::1::::Card_UI<>Node2D<>::
+obj.gd::GDScript::-1::1703312784::0::1::::Obj_UI<>Node2D<>::
+world.gd::GDScript::-1::1703311113::0::1::::World_UI<>Node2D<>::
+::res://shaders/::1703313422
+Background.gdshader::Shader::-1::1703313422::0::1::::<><>::
+::res://tests/::1703273039
+::res://tests/camera test/::1703313352
+camera Test.tscn::PackedScene::5867267857549194906::1703313352::0::1::::<><>::res://scripts/lowlevel/objs/rider.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+::res://tests/world test/::1703313352
+world Test.gd::GDScript::-1::1703311648::0::1::::<>Control<>::
+world Test.tscn::PackedScene::8833290926626292817::1703313352::0::1::::<><>::res://tests/world test/world Test.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn
+::res://tscns/::1703313351
+card.tscn::PackedScene::8947449910193777074::1703313351::0::1::::<><>::uid://dev5x0yhmcyis::::res://images/common/block.png<>res://scripts/UI/card.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+world.tscn::PackedScene::1022906017684621473::1703312900::0::1::::<><>::res://scripts/UI/world.gd<>res://shaders/Background.gdshader<>uid://crr3mryrk0vw3::::res://images/common/background.png<>uid://dpmx6hovq0jfd::::res://images/normal/home.png<>uid://dtfnnks4xvt8u::::res://tscns/objs/rider/glassy.tscn
+::res://tscns/objs/::1703313352
+home.tscn::PackedScene::8749276169298724426::1703313352::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+::res://tscns/objs/rider/::1703313352
+glassy.tscn::PackedScene::8503985059588137466::1703313352::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png

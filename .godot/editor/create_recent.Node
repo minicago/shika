@@ -1,11 +1,14 @@
-Control
+Polygon2D
+CollisionPolygon2D
 TextureRect
+Camera2D
+Rider
+Control
 ColorRect
 RemoteTransform2D
 Sprite2D
 Node2D
 TileMap
-Camera2D
 Label
 RichTextLabel
 Node

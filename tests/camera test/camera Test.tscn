@@ -1,15 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpufbrk6aca2u"]
+[gd_scene load_steps=2 format=3 uid="uid://cpufbrk6aca2u"]
 
-[ext_resource type="PackedScene" uid="uid://dtfnnks4xvt8u" path="res://tscns/rider.tscn" id="1_8arvn"]
-[ext_resource type="Texture2D" uid="uid://dpmx6hovq0jfd" path="res://images/normal/1.png" id="2_mowyu"]
+[ext_resource type="Script" path="res://scripts/lowlevel/objs/rider.gd" id="2_6v7m8"]
 
 [node name="CameraTest" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Rider" parent="." instance=ExtResource("1_8arvn")]
-
-[node name="1" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(360, -48)
-texture = ExtResource("2_mowyu")
+[node name="Riders" type="Node" parent="."]
+script = ExtResource("2_6v7m8")

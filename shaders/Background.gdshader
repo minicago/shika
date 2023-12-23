@@ -18,7 +18,7 @@ float logistic(float a){
 }
 
 void fragment() {
-	vec2 tmp =  (size * UV  + pos) / 500.0;
+	vec2 tmp =  (size * (UV - vec2(0.5, 0.5)) + pos) / 500.0;
 	
 	/*
 	if(int(abs(tmp.x)) % 500 < 10 || int(abs(tmp.y)) % 500 < 10 )
@@ -28,13 +28,14 @@ void fragment() {
 	*/
 	
 	COLOR = texture(TEXTURE, tmp - floor(tmp));
+	
 	vec2 tmp2 = floor(tmp * 100.0);
 	//tmp3.y *= 2.2; 
 	float seed0 = logistic(logistic(tmp2.y) + logistic(tmp2.x) * tmp2.y +tmp2.x - tmp2.y);
 	float seed1 = sin(tmp.x * tmp.y) * 0.5 +0.5;
 	
 	if(seed0 < 0.001) 
-		COLOR = mix(vec4(1.0,1.0,0.0,1.0),COLOR,0.3);	
+		COLOR = mix(vec4(1.0,1.0,0.0,1.0),COLOR,sin(TIME + 2.0 * PI * seed0 / 0.001) * 0.4 + 0.6);	
 	else if(seed0 < 0.002) 
 		COLOR = mix(vec4(1.0,1.0,1.0,seed1),COLOR,0.3);
 	COLOR = mix(COLOR , vec4(1.0,1.0,0.0,1.0), -tmp.y / 10000.0);

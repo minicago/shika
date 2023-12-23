@@ -15,21 +15,7 @@ script = ExtResource("1_wu1q8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Image" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_tc075")
-
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="Camera2D"]
 z_index = -5
 material = SubResource("ShaderMaterial_wi44y")
 anchors_preset = 8
@@ -44,3 +30,17 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_l5bfj")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tc075")
