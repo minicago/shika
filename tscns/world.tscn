@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://otrd3idnjn42"]
+[gd_scene load_steps=5 format=3 uid="uid://otrd3idnjn42"]
 
 [ext_resource type="Script" path="res://scripts/UI/world.gd" id="1_iwmv8"]
 [ext_resource type="Shader" path="res://shaders/Background.gdshader" id="2_2jh25"]
 [ext_resource type="Texture2D" uid="uid://crr3mryrk0vw3" path="res://images/common/background.png" id="3_cewru"]
-[ext_resource type="PackedScene" uid="uid://dtfnnks4xvt8u" path="res://tscns/objs/rider/glassy.tscn" id="5_jxob4"]
-[ext_resource type="PackedScene" uid="uid://dwwhkhb77aybi" path="res://tscns/objs/home.tscn" id="5_qp3ng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_abj17"]
 shader = ExtResource("2_2jh25")
@@ -21,10 +19,3 @@ material = SubResource("ShaderMaterial_abj17")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_cewru")
-
-[node name="Rider" parent="." instance=ExtResource("5_jxob4")]
-z_index = 2
-
-[node name="Home" parent="." instance=ExtResource("5_qp3ng")]
-z_index = 1
-scale = Vector2(10, 10)

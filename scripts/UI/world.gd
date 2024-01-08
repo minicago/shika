@@ -17,6 +17,9 @@ func get_home_UI():
 
 func get_rider():
 	return lowlevel.get_rider()
+	
+func function_process(delta):
+	return lowlevel.function_process(delta)
 
 func get_camera_zoom():
 	return max (0.8 * log(get_rider().get_speed().length() / 100),1)
@@ -42,18 +45,23 @@ func camera_aim_position(pos : Vector2 ):
 	shader.set_shader_parameter("pos", pos )
 	shader.set_shader_parameter("size", get_viewport_rect().size * 10)
 	
-func get_objs():
-	var ret : Array[Obj]
-	for child:Obj_UI in find_children("*","Obj_UI") : 
-		ret.append(child.lowlevel)
+func get_objs() -> Array[Obj]:
+	var ret : Array[Obj] 
+	
+	#for child in get_children() : 
+	#	print(child)
+	
+	for child:Obj_UI in find_children("*","Obj_UI",false,false) : 
+
+		if child.lowlevel!=null : 
+			ret.append(child.lowlevel)
 	return ret
 
 func _process(delta):
-	Bump_manager.manager_process(get_objs(), delta)
-	if Input.is_action_pressed("click"):
-		camera_aim_position(Vector2(0,0))
-	else:
-		if get_rider() != null :
-			camera_aim_rider()
-	
-	pass
+	if lowlevel != null : 
+		function_process(delta)
+		if Input.is_action_pressed("click"):
+			camera_aim_position(Vector2(0,0))
+		else:
+			if get_rider() != null :
+				camera_aim_rider()

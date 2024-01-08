@@ -1,16 +1,15 @@
-res://tscns/objs/home.tscn
-res://shaders/Background.gdshader
-res://scripts/lowlevel/objs/obj.gd
-res://scripts/function/objs/obj.gd
-res://scripts/UI/obj.gd
-res://scripts/lowlevel/bump_manager.gd
 res://tscns/card.tscn
+res://shaders/Background.gdshader
 res://tests/camera test/camera Test.tscn
 res://tscns/objs/rider/glassy.tscn
-res://tests/world test/world Test.tscn
+res://tscns/objs/home.tscn
+res://tscns/objs/rider/pain.tscn
 res://tscns/world.tscn
-res://scripts/lowlevel/objs/rider.gd
-res://scripts/UI/world.gd
-res://scripts/lowlevel/world.gd
-res://scripts/function/world.gd
+res://tests/world test/world Test.tscn
 res://scripts/function/objs/rider.gd
+res://scripts/function/objs/obj.gd
+res://tscns/objs/monster/1.tscn
+res://scripts/function/objs/bump_handlers.gd
+res://scripts/function/objs/register_table.gd
+res://scripts/lowlevel/objs/rider.gd
+res://scripts/lowlevel/objs/obj.gd

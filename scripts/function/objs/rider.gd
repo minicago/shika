@@ -1,7 +1,6 @@
 extends Obj_function
 class_name Rider_function
 
-var speed : Vector2 = Vector2.ZERO
 var resist : float = 0.9
 var lineResist : float = 50.0
 var rtimes :float = 10.0
@@ -11,17 +10,11 @@ var power : float = 1000.0
 var spinRate : float = PI
 var spinLoss : float = 0.8
 
-func get_speed():
-	return speed
-
 func function_process(delta):
 	speed *= exp(-resist*delta)
-
 	set_obj_position( position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	
-	
 	if Input.is_action_pressed("up") : 
-		
 		speed.x += power * delta
 	 
 		
@@ -29,7 +22,6 @@ func function_process(delta):
 		var tmp = - spinRate * delta
 		toward = toward.rotated(tmp)
 		speed = speed.rotated(tmp) * spinLoss + speed * (1 - spinLoss)
-		
 		
 		
 	if Input.is_action_pressed("right") : 
@@ -53,10 +45,18 @@ func function_process(delta):
 		else : if(speed.y > 0) : speed.y -= lineResist * rtimes * delta
 		else : speed.y += lineResist * rtimes * delta
 
-func bump_handler(info : Dictionary):
-	if info.get("once",true):
-		if not banlist.get(info.get("collider"), false):
-			banlist[info.get("collider")] = true
-		else : return
+func bump_handler_init():
+	bump_handler_append("once")
+	bump_handler_append("home")
+
+
+func bump_info_init():
+	bump_info_append("collider", lowlevel)
+	bump_info_append("type","rider")
+
+static func bump_handler_home(collidee :Rider_function, info : Dictionary):
 	if info.get("type", "") == "home":
 		print("back home")
+
+static func _static_init():
+	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")

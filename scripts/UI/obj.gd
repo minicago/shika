@@ -23,12 +23,10 @@ func function_process(delta):
 	return lowlevel.function_process(delta)
 
 func _process(delta):
-	
-	function_process(delta)
-	
-	rotation = get_toward().angle() + PI / 2
-
-	position = get_obj_position()
+	if lowlevel != null : 
+		function_process(delta)
+		rotation = get_toward().angle() + PI / 2
+		position = get_obj_position()
 	
 func free():
 	get_parent().remove_child(self)
