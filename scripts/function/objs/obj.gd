@@ -10,6 +10,7 @@ var global_polygon:PackedVector2Array = PackedVector2Array()
 var banlist : Dictionary
 var bump_handler_dic : Dictionary = {}
 var speed : Vector2 = Vector2.ZERO
+var AI_dic : Dictionary = {}
 
 func get_speed():
 	return speed
@@ -31,11 +32,17 @@ func get_polygon():
 	return lowlevel.get_polygon()
 
 func function_process(delta):
+	for function in AI_dic:
+		AI_dic[function].call(self, delta)
 	pass
 
 func bump_handler(info : Dictionary):
 	for handler in bump_handler_dic :
 		bump_handler_dic[handler].call(self, info)
+		
+func all_init():
+	bump_init()
+	AI_init()
 
 ########################################################################
 # bump
@@ -64,8 +71,15 @@ func bump_info_append(key , value):
 func allow_bump(collider : Obj):
 	return not banlist.get(collider, false)
 	
-static func bump_handler_reg(str : String):
-	Register_table.handlers[str] = Callable(Obj_function,"bump_handler_"+str)
+########################################################################
+# AI
+########################################################################
+
+func AI_append(name):
+	AI_dic[name] = Register_table.AI[name]
+
+func AI_init():
+	pass
 	
 ########################################################################
 # customized
@@ -78,7 +92,9 @@ static func bump_handler_once(collidee :Obj_function, info : Dictionary):
 		else : return
 
 static func _static_init():
-	bump_handler_reg("once")
+	Register_table.handlers["once"] = Callable(Obj_function, "bump_handler_once")
+	Register_table.obj_type["obj"] = Obj_function
+	print("obj function static init done")
 	
 func bump_handler_init():
 	bump_handler_append("once")

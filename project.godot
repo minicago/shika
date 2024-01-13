@@ -15,6 +15,10 @@ run/main_scene="res://tests/world test/world Test.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+rider_function="res://scripts/function/objs/rider.gd"
+
 [importer_defaults]
 
 texture={

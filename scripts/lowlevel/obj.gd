@@ -31,16 +31,16 @@ func bump_handler(info : Dictionary):
 func function_process(delta):
 	return function.function_process(delta)
 
-func obj_init( path : String ,binder : Obj_UI = null , father = null):
+func obj_init(func_type : String ,path : String ,binder : Obj_UI = null , father = null):
 	if binder == null :
 		UI = load(path).instantiate()
 		if father != null : father.add_child(UI)
 	else : 
 		UI = binder
-	function = Obj_function.new()
+	function = Register_table.obj_type[func_type].new()
 	UI.lowlevel = self
 	function.lowlevel = self
-	function.bump_init()
+	function.all_init()
 	
 func bump_info_append(key , value):
 	function.bump_info_append(key, value)
