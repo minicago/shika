@@ -7,8 +7,9 @@ res://tscns/objs/rider/pain.tscn
 res://tscns/world.tscn
 res://tests/world test/world Test.tscn
 res://tscns/objs/monster/1.tscn
-res://scripts/lowlevel/objs/obj.gd
+res://tscns/objs/default.tscn
+res://scripts/function/objs/home.gd
+res://scripts/function/objs/monster.gd
 res://scripts/function/objs/rider.gd
-res://scripts/function/objs/obj.gd
 res://scripts/function/world.gd
-res://scripts/lowlevel/obj.gd
+res://scripts/function/objs/obj.gd

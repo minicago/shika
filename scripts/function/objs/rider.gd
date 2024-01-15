@@ -12,8 +12,6 @@ var spinLoss : float
 
 static func rider_AI(_self:Rider_function ,delta):
 	_self.speed *= exp(-_self.resist*delta)
-	_self.set_obj_position( _self.position + _self.toward * _self.speed.x * delta 
-	+ _self.toward.rotated(- PI / 2) * _self.speed.y * delta)
 	
 	if Input.is_action_pressed("up") : 
 		_self.speed.x += _self.power * delta
@@ -49,6 +47,7 @@ static func rider_AI(_self:Rider_function ,delta):
 func bump_handler_init():
 	bump_handler_append("once")
 	bump_handler_append("home")
+	bump_handler_append("monster")
 
 
 func bump_info_init():
@@ -56,6 +55,7 @@ func bump_info_init():
 	bump_info_append("type","rider")
 	
 func AI_data_init():
+	spinable = true
 	resist = 0.9
 	lineResist = 50.0
 	rtimes = 10.0
@@ -63,7 +63,7 @@ func AI_data_init():
 	power = 1000.0
 
 	spinRate = PI
-	spinLoss = 0.8	
+	spinLoss = 0.8
 	
 func AI_init():
 	AI_data_init()
@@ -72,9 +72,21 @@ func AI_init():
 static func bump_handler_home(collidee :Rider_function, info : Dictionary):
 	if info.get("type", "") == "home":
 		print("back home")
+		
+static func bump_handler_monster(collidee :Rider_function, info : Dictionary):
+	if info.get("type", "") == "monster":
+		print("hurt")
 
 static func _static_init():
 	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")
+	Register_table.handlers["monster"] = Callable(Rider_function,"bump_handler_monster")
+	
 	Register_table.AI["rider"] = Callable(Rider_function,"rider_AI")
+	
 	Register_table.obj_type["rider"] = Rider_function
+	
 	print("rider function static init done")
+
+static func UI_instance() -> Obj_UI:
+	var tscn=load("res://tscns/objs/rider/glassy.tscn")
+	return tscn.instantiate()

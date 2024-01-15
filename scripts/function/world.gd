@@ -18,19 +18,17 @@ func get_rider():
 
 func instance_rider():
 	rider = Obj.new()
-	rider.obj_init("rider","res://tscns/objs/rider/pain.tscn",get_rider_UI(),lowlevel.UI)
+	rider.obj_init("rider",get_rider_UI(),lowlevel.UI)
 
 func instance_home():
 	home = Obj.new()
-	home.obj_init("obj","res://tscns/objs/home.tscn",get_home_UI(),lowlevel.UI)
+	home.obj_init("home",get_home_UI(),lowlevel.UI)
 	home.set_obj_position(Vector2(500,500))
-	home.bump_info_append("type","home")
 	
 func instance_monster():
 	var monster = Obj.new()
-	monster.obj_init("obj","res://tscns/objs/monster/1.tscn",null,lowlevel.UI)
+	monster.obj_init("monster",null,lowlevel.UI)
 	monster.set_obj_position(Vector2(randi_range(-200,200),randi_range(-200,200)))
-	monster.bump_info_append("type","monster")
 	monsters.append(monster)
 
 func get_objs() -> Array[Obj]:

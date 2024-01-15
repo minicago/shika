@@ -3,6 +3,7 @@ class_name Obj_function
 
 var lowlevel : Obj
 
+var spinable = false
 var toward : Vector2 = Vector2(0,-1.0)
 var position : Vector2
 var bump_info : Dictionary
@@ -16,7 +17,10 @@ func get_speed():
 	return speed
 
 func get_toward():
-	return toward
+	if spinable : 
+		return toward
+	else :
+		return Vector2(0,-1.0)
 
 func get_obj_position():
 	return position
@@ -34,6 +38,7 @@ func get_polygon():
 func function_process(delta):
 	for function in AI_dic:
 		AI_dic[function].call(self, delta)
+	set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass
 
 func bump_handler(info : Dictionary):
@@ -101,3 +106,7 @@ func bump_handler_init():
 	
 func bump_info_init():
 	bump_info_append("collider", lowlevel)
+
+static func UI_instance() -> Obj_UI:
+	var tscn=load("res://tscns/objs/default.tscn")
+	return tscn.instantiate()
