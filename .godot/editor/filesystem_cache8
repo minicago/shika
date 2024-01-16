@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1705301421
+::res://::1705368386
 icon.svg::CompressedTexture2D::4221202064463072780::1702471328::1702471334::1::::<><>::
 README.md::TextFile::-1::1702471432::0::1::::<><>::
 ::res://images/::1704322689
@@ -14,41 +14,43 @@ void.png::CompressedTexture2D::3031289391696968822::1702472649::1702472652::1:::
 1.png::CompressedTexture2D::548659492572152707::1704323354::1704323355::1::::<><>::
 ::res://images/normal/::1703312901
 home.png::CompressedTexture2D::8238319479410417977::1703121701::1703312901::1::::<><>::
-::res://scripts/::1703076632
-::res://scripts/function/::1705301323
-card.gd::GDScript::-1::1702473962::0::1::::Card_function<>Node<>::
-world.gd::GDScript::-1::1705301323::0::1::::World_function<>Node2D<>::
-::res://scripts/function/objs/::1705301307
-home.gd::GDScript::-1::1705301163::0::1::::Home_function<>Obj_function<>::
-monster.gd::GDScript::-1::1705301307::0::1::::Monster_function<>Obj_function<>::
-obj.gd::GDScript::-1::1705301003::0::1::::Obj_function<>Node<>::
+::res://scripts/::1705368386
 register_table.gd::GDScript::-1::1705149334::0::1::::Register_table<>Object<>::
-rider.gd::GDScript::-1::1705301078::0::1::::Rider_function<>Obj_function<>::
-::res://scripts/lowlevel/::1705300723
+::res://scripts/function/::1705368378
+card.gd::GDScript::-1::1702473962::0::1::::Card_function<>Node<>::
+world.gd::GDScript::-1::1705367469::0::1::::World_function<>Node2D<>::
+::res://scripts/function/AI/::1705368378
+AI_base.gd::GDScript::-1::1705368446::0::1::::AI<>Node<>::
+::res://scripts/function/objs/::1705368386
+home.gd::GDScript::-1::1705301820::0::1::::Home_function<>Obj_function<>::
+monster.gd::GDScript::-1::1705368348::0::1::::Monster_function<>Obj_function<>::
+obj.gd::GDScript::-1::1705368194::0::1::::Obj_function<>Node<>::
+rider.gd::GDScript::-1::1705302404::0::1::::Rider_function<>Obj_function<>::
+::res://scripts/lowlevel/::1705367499
 bump_manager.gd::GDScript::-1::1703367983::0::1::::Bump_manager<>Node<>::
 card.gd::GDScript::-1::1702473796::0::1::::Card_lowlevel<>Node<>::
-obj.gd::GDScript::-1::1705300723::0::1::::Obj<>Node<>::
+obj.gd::GDScript::-1::1705367498::0::1::::Obj<>Node<>::
 world.gd::GDScript::-1::1703369293::0::1::::World<>Node<>::
 ::res://scripts/UI/::1703369341
 card.gd::GDScript::-1::1703254430::0::1::::Card_UI<>Node2D<>::
 obj.gd::GDScript::-1::1703365111::0::1::::Obj_UI<>Node2D<>::
 world.gd::GDScript::-1::1703369341::0::1::::World_UI<>Node2D<>::
-::res://shaders/::1705301415
-Background.gdshader::Shader::-1::1705301415::0::1::::<><>::
+::res://shaders/::1705368348
+Background.gdshader::Shader::-1::1705368446::0::1::::<><>::
 ::res://tests/::1703273039
-::res://tests/camera test/::1705301388
-camera Test.tscn::PackedScene::5867267857549194906::1705301388::0::1::::<><>::
-::res://tests/world test/::1705301388
+::res://tests/camera test/::1705367677
+camera Test.tscn::PackedScene::5867267857549194906::1705367677::0::1::::<><>::
+::res://tests/world test/::1705367677
 world Test.gd::GDScript::-1::1703369389::0::1::::<>Control<>::
-world Test.tscn::PackedScene::8833290926626292817::1705301388::0::1::::<><>::res://tests/world test/world Test.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn
-::res://tscns/::1705301388
-card.tscn::PackedScene::8947449910193777074::1705301388::0::1::::<><>::uid://dev5x0yhmcyis::::res://images/common/block.png<>res://scripts/UI/card.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
-world.tscn::PackedScene::1022906017684621473::1705301388::0::1::::<><>::res://scripts/UI/world.gd<>res://shaders/Background.gdshader<>uid://crr3mryrk0vw3::::res://images/common/background.png
-::res://tscns/objs/::1705301389
-default.tscn::PackedScene::7199262704933846265::1705301389::0::1::::<><>::res://scripts/UI/obj.gd<>uid://bjgm5m1mmmuw1::::res://images/common/void.png
-home.tscn::PackedScene::8749276169298724426::1705301388::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
-::res://tscns/objs/monster/::1705301388
-1.tscn::PackedScene::8177646056614023032::1705301388::0::1::::<><>::res://scripts/UI/obj.gd<>uid://h21lu8qvvw08::::res://images/monster/1.png
-::res://tscns/objs/rider/::1705301388
-glassy.tscn::PackedScene::8503985059588137466::1705301388::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png
-pain.tscn::PackedScene::6628319667400941657::1705301388::0::1::::<><>::res://scripts/UI/obj.gd<>uid://5w0n1oc3171r::::res://images/bike/2.png
+world Test.tscn::PackedScene::8833290926626292817::1705367677::0::1::::<><>::res://tests/world test/world Test.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn
+::res://tscns/::1705367677
+card.tscn::PackedScene::8947449910193777074::1705367677::0::1::::<><>::uid://dev5x0yhmcyis::::res://images/common/block.png<>res://scripts/UI/card.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+world.tscn::PackedScene::1022906017684621473::1705367677::0::1::::<><>::res://scripts/UI/world.gd<>res://shaders/Background.gdshader<>uid://crr3mryrk0vw3::::res://images/common/background.png
+::res://tscns/objs/::1705368348
+default.tscn::PackedScene::7199262704933846265::1705368446::0::1::::<><>::res://scripts/UI/obj.gd<>uid://bjgm5m1mmmuw1::::res://images/common/void.png
+home.tscn::PackedScene::8749276169298724426::1705367677::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+::res://tscns/objs/monster/::1705367677
+1.tscn::PackedScene::8177646056614023032::1705367677::0::1::::<><>::res://scripts/UI/obj.gd<>uid://h21lu8qvvw08::::res://images/monster/1.png
+::res://tscns/objs/rider/::1705367677
+glassy.tscn::PackedScene::8503985059588137466::1705367677::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png
+pain.tscn::PackedScene::6628319667400941657::1705367677::0::1::::<><>::res://scripts/UI/obj.gd<>uid://5w0n1oc3171r::::res://images/bike/2.png

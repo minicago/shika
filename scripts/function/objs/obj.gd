@@ -12,6 +12,10 @@ var banlist : Dictionary
 var bump_handler_dic : Dictionary = {}
 var speed : Vector2 = Vector2.ZERO
 var AI_dic : Dictionary = {}
+var life_time : float = 0.0
+
+func get_father():
+	return lowlevel.get_father()
 
 func get_speed():
 	return speed
@@ -36,10 +40,14 @@ func get_polygon():
 	return lowlevel.get_polygon()
 
 func function_process(delta):
+	life_time += delta
 	for function in AI_dic:
 		AI_dic[function].call(self, delta)
 	set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass
+
+func cool_down_check(delta : float ,cool_time : float) -> int:
+	return floori ( life_time / cool_time ) - floori ( (life_time - delta) / cool_time )
 
 func bump_handler(info : Dictionary):
 	for handler in bump_handler_dic :
@@ -91,13 +99,20 @@ func AI_init():
 ########################################################################
 	
 static func bump_handler_once(collidee :Obj_function, info : Dictionary):
-	if info.get("once", true): 
+	if info.get("once", false): 
 		if not collidee.banlist.get(info.get("collider"), false):
 			collidee.banlist[info.get("collider")] = true
 		else : return
-
+		
+static func bump_handler_box(collidee :Obj_function, info : Dictionary):
+	if info.get("box", -1.0) > 0.0: 
+		var dist :Vector2 = collidee.get_obj_position() - info.get("collider").get_obj_position()
+		collidee.set_obj_position(collidee.get_obj_position() + dist.normalized() * info.get("box", -1.0))
+		info.get("collider").set_obj_position(info.get("collider").get_obj_position() - dist.normalized() * info.get("box", -1.0))
+		
 static func _static_init():
 	Register_table.handlers["once"] = Callable(Obj_function, "bump_handler_once")
+	Register_table.handlers["box"] = Callable(Obj_function, "bump_handler_box")
 	Register_table.obj_type["obj"] = Obj_function
 	print("obj function static init done")
 	

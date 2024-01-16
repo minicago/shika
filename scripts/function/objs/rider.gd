@@ -46,11 +46,13 @@ static func rider_AI(_self:Rider_function ,delta):
 
 func bump_handler_init():
 	bump_handler_append("once")
+	bump_handler_append("box")
 	bump_handler_append("home")
 	bump_handler_append("monster")
 
 
 func bump_info_init():
+	bump_info_append("box", 10.0)
 	bump_info_append("collider", lowlevel)
 	bump_info_append("type","rider")
 	

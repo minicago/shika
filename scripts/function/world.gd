@@ -18,16 +18,16 @@ func get_rider():
 
 func instance_rider():
 	rider = Obj.new()
-	rider.obj_init("rider",get_rider_UI(),lowlevel.UI)
+	rider.obj_init("rider",get_rider_UI(),lowlevel)
 
 func instance_home():
 	home = Obj.new()
-	home.obj_init("home",get_home_UI(),lowlevel.UI)
+	home.obj_init("home",get_home_UI(),lowlevel)
 	home.set_obj_position(Vector2(500,500))
 	
 func instance_monster():
 	var monster = Obj.new()
-	monster.obj_init("monster",null,lowlevel.UI)
+	monster.obj_init("monster",null,lowlevel)
 	monster.set_obj_position(Vector2(randi_range(-200,200),randi_range(-200,200)))
 	monsters.append(monster)
 

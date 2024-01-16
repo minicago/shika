@@ -4,6 +4,7 @@ class_name Home_function
 func bump_info_init():
 	bump_info_append("collider", lowlevel)
 	bump_info_append("type","home")
+	bump_info_append("once", true)
 
 static func _static_init():
 	Register_table.obj_type["home"] = Home_function

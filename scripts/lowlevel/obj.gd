@@ -1,8 +1,12 @@
 extends Node
 class_name Obj
 
+var father
 var function : Obj_function
 var UI : Obj_UI
+
+func get_father():
+	return father
 
 func get_speed():
 	return function.get_speed()
@@ -32,10 +36,11 @@ func function_process(delta):
 	return function.function_process(delta)
 
 func obj_init(func_type : String ,binder : Obj_UI = null , father = null):
+	self.father = father
 	function = Register_table.obj_type[func_type].new()
 	if binder == null :
 		UI = Register_table.obj_type[func_type].UI_instance()
-		if father != null : father.add_child(UI)
+		if father != null : father.UI.add_child(UI)
 	else : 
 		UI = binder
 	UI.lowlevel = self
