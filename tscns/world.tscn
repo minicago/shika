@@ -9,12 +9,13 @@ shader = ExtResource("2_2jh25")
 shader_parameter/pos = null
 shader_parameter/size = null
 
-[node name="World" type="Node2D"]
+[node name="World" type="SubViewport"]
 script = ExtResource("1_iwmv8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Background" type="TextureRect" parent="Camera2D"]
+z_index = -1
 material = SubResource("ShaderMaterial_abj17")
 offset_right = 40.0
 offset_bottom = 40.0

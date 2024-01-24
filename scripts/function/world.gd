@@ -15,6 +15,9 @@ func get_home_UI():
 
 func get_rider():
 	return rider
+	
+func get_home():
+	return home
 
 func instance_rider():
 	rider = Obj.new()

@@ -6,6 +6,9 @@ var function : World_function
 
 func get_rider():
 	return function.get_rider()
+	
+func get_home():
+	return function.get_home()
 
 func get_rider_UI():
 	return UI.get_rider_UI()

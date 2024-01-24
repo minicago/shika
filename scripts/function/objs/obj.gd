@@ -71,8 +71,8 @@ func get_polygon_in_world():
 
 # bump_handler:
 
-func bump_handler_append(name):
-	bump_handler_dic[name] = Register_table.handlers[name]
+func bump_handler_append(key):
+	bump_handler_dic[key] = Register_table.handlers[key]
 	
 func bump_init():
 	bump_handler_init()
