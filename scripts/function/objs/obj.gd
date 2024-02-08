@@ -4,9 +4,11 @@ class_name Obj_function
 var lowlevel : Obj
 
 var spinable = false
+var health = 0.0
+var maxhealth = 10.0
 var toward : Vector2 = Vector2(0,-1.0)
 var position : Vector2
-var bump_info : Dictionary
+var addon_info : Dictionary
 var global_polygon:PackedVector2Array = PackedVector2Array()
 var banlist : Dictionary
 var bump_handler_dic : Dictionary = {}
@@ -33,8 +35,8 @@ func set_obj_position(pos):
 	position = pos
 	refresh_polygon_in_world()
 
-func get_bump_info():
-	return bump_info
+func get_addon_info():
+	return addon_info
 
 func get_polygon():
 	return lowlevel.get_polygon()
@@ -78,8 +80,8 @@ func bump_init():
 	bump_handler_init()
 	bump_info_init()
 
-func bump_info_append(key , value):
-	bump_info[key] = value
+func addon_info_append(key , value):
+	addon_info[key] = value
 
 func allow_bump(collider : Obj):
 	return not banlist.get(collider, false)
@@ -120,7 +122,7 @@ func bump_handler_init():
 	bump_handler_append("once")
 	
 func bump_info_init():
-	bump_info_append("collider", lowlevel)
+	addon_info_append("collider", lowlevel)
 
 static func UI_instance() -> Obj_UI:
 	var tscn=load("res://tscns/objs/default.tscn")

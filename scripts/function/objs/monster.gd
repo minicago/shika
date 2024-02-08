@@ -19,9 +19,9 @@ func bump_handler_init():
 	bump_handler_append("box")
 
 func bump_info_init():
-	bump_info_append("collider", lowlevel)
-	bump_info_append("box", 10.0)
-	bump_info_append("type","monster")
+	addon_info_append("collider", lowlevel)
+	addon_info_append("box", 10.0)
+	addon_info_append("type","monster")
 	#bump_info_append("once",false)
 
 static func _static_init():

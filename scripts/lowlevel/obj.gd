@@ -20,8 +20,8 @@ func get_obj_position() -> Vector2:
 func set_obj_position(pos : Vector2):
 	function.set_obj_position(pos)
 
-func get_bump_info() -> Dictionary:
-	return function.get_bump_info()
+func get_addon_info() -> Dictionary:
+	return function.get_addon_info()
 
 func get_polygon() -> PackedVector2Array:
 	return UI.get_polygon()

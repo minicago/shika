@@ -1,48 +1,48 @@
 extends Obj_function
 class_name Rider_function
 
-var resist : float
-var lineResist : float
-var rtimes :float
-var brake : float
-var power : float
+func resist() : return addon_info.get("resist")
+func lineResist() : return addon_info.get("lineResist")
+func rtimes() :return addon_info.get("rtimes")
+func brake() : return addon_info.get("brake")
+func power() : return addon_info.get("power")
 
-var spinRate : float 
-var spinLoss : float
+func spinRate() : return addon_info.get("spinRate") 
+func spinLoss() : return addon_info.get("spinLoss")
 
-static func rider_AI(_self:Rider_function ,delta):
-	_self.speed *= exp(-_self.resist*delta)
+static func rider_AI(_self:Obj_function ,delta):
+	_self.speed *= exp(-_self.resist()*delta)
 	
 	if Input.is_action_pressed("up") : 
-		_self.speed.x += _self.power * delta
+		_self.speed.x += _self.power() * delta
 	 
 		
 	if Input.is_action_pressed("left") : 
-		var tmp = - _self.spinRate * delta
+		var tmp = - _self.spinRate() * delta
 		_self.toward = _self.toward.rotated(tmp)
-		_self.speed = _self.speed.rotated(tmp) * _self.spinLoss + _self.speed * (1 - _self.spinLoss)
+		_self.speed = _self.speed.rotated(tmp) * _self.spinLoss() + _self.speed * (1 - _self.spinLoss())
 		
 		
 	if Input.is_action_pressed("right") : 
-		var tmp = _self.spinRate * delta
+		var tmp = _self.spinRate() * delta
 		_self.toward = _self.toward.rotated(tmp)
-		_self.speed = _self.speed.rotated(tmp) * _self.spinLoss + _self.speed * (1 - _self.spinLoss)
+		_self.speed = _self.speed.rotated(tmp) * _self.spinLoss() + _self.speed * (1 - _self.spinLoss())
 	
 	
 	if Input.is_action_pressed("down") :
-		if (abs(_self.speed.x) < _self.brake * delta) : _self.speed.x = 0
-		else : if(_self.speed.x > 0) : _self.speed.x -= _self.brake  * delta
-		else : _self.speed.x += _self.brake * delta
+		if (abs(_self.speed.x) < _self.brake() * delta) : _self.speed.x = 0
+		else : if(_self.speed.x > 0) : _self.speed.x -= _self.brake()  * delta
+		else : _self.speed.x += _self.brake() * delta
 		
 	else:
 		
-		if (abs(_self.speed.x) < _self.lineResist * delta) : _self.speed.x = 0
-		else : if(_self.speed.x > 0) : _self.speed.x -= _self.lineResist  * delta
-		else : _self.speed.x += _self.lineResist * delta
+		if (abs(_self.speed.x) < _self.lineResist() * delta) : _self.speed.x = 0
+		else : if(_self.speed.x > 0) : _self.speed.x -= _self.lineResist()  * delta
+		else : _self.speed.x += _self.lineResist() * delta
 
-		if (abs(_self.speed.y) < _self.lineResist * _self.rtimes * delta) : _self.speed.y = 0
-		else : if(_self.speed.y > 0) : _self.speed.y -= _self.lineResist * _self.rtimes * delta
-		else : _self.speed.y += _self.lineResist * _self.rtimes * delta
+		if (abs(_self.speed.y) < _self.lineResist() * _self.rtimes() * delta) : _self.speed.y = 0
+		else : if(_self.speed.y > 0) : _self.speed.y -= _self.lineResist() * _self.rtimes() * delta
+		else : _self.speed.y += _self.lineResist() * _self.rtimes() * delta
 
 func bump_handler_init():
 	bump_handler_append("once")
@@ -52,30 +52,31 @@ func bump_handler_init():
 
 
 func bump_info_init():
-	bump_info_append("box", 10.0)
-	bump_info_append("collider", lowlevel)
-	bump_info_append("type","rider")
+	addon_info_append("box", 10.0)
+	addon_info_append("collider", lowlevel)
+	addon_info_append("type","rider")
 	
 func AI_data_init():
 	spinable = true
-	resist = 0.9
-	lineResist = 50.0
-	rtimes = 10.0
-	brake = 1000.0
-	power = 1000.0
-
-	spinRate = PI
-	spinLoss = 0.8
+	
+	addon_info_append("resist", 0.9)
+	addon_info_append("lineResist", 50.0)
+	addon_info_append("rtimes", 5.0)
+	addon_info_append("brake", 1000.0)
+	addon_info_append("power", 1000.0)
+	
+	addon_info_append("spinRate", PI)
+	addon_info_append("spinLoss", 0.8)
 	
 func AI_init():
 	AI_data_init()
 	AI_append("rider")
 
-static func bump_handler_home(collidee :Rider_function, info : Dictionary):
+static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "home":
 		print("back home")
 		
-static func bump_handler_monster(collidee :Rider_function, info : Dictionary):
+static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
 		print("hurt")
 
