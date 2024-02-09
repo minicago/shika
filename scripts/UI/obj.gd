@@ -6,6 +6,9 @@ var lowlevel : Obj
 
 func get_speed():
 	return lowlevel.get_speed()
+
+func get_real_speed():
+	return lowlevel.get_real_speed()
 	
 func get_toward():
 	return lowlevel.get_toward()
@@ -27,6 +30,14 @@ func _process(delta):
 		function_process(delta)
 		rotation = get_toward().angle() + PI / 2
 		position = get_obj_position()
+		if lowlevel.function.timer_get("hurt") > 0 :
+			modulate.s = 100.0
+		else : modulate.s = 0.0
+		if lowlevel.function.timer_get("invincible") > 0:
+			modulate.a = cos(lowlevel.function.timer_get("invincible") * PI * 4) * 0.4 + 0.6
+		else : modulate.a = 1.0
 	
 func free():
 	get_parent().remove_child(self)
+
+

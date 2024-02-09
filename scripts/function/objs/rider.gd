@@ -11,6 +11,7 @@ func spinRate() : return addon_info.get("spinRate")
 func spinLoss() : return addon_info.get("spinLoss")
 
 static func rider_AI(_self:Obj_function ,delta):
+	print(_self.get_real_speed()) 
 	_self.speed *= exp(-_self.resist()*delta)
 	
 	if Input.is_action_pressed("up") : 
@@ -53,6 +54,7 @@ func bump_handler_init():
 
 func bump_info_init():
 	addon_info_append("box", 10.0)
+	addon_info_append("mass", 10.0)
 	addon_info_append("collider", lowlevel)
 	addon_info_append("type","rider")
 	
@@ -61,7 +63,7 @@ func AI_data_init():
 	
 	addon_info_append("resist", 0.9)
 	addon_info_append("lineResist", 50.0)
-	addon_info_append("rtimes", 5.0)
+	addon_info_append("rtimes", 20.0)
 	addon_info_append("brake", 1000.0)
 	addon_info_append("power", 1000.0)
 	
@@ -75,10 +77,13 @@ func AI_init():
 static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "home":
 		print("back home")
-		
+
 static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
-		print("hurt")
+		if collidee.timer_get("invincible") == 0.0:
+			print("hurt")
+			collidee.timer_set("hurt", 0.20)
+			collidee.timer_set("invincible", 1.0)
 
 static func _static_init():
 	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")

@@ -11,6 +11,15 @@ func get_father():
 func get_speed():
 	return function.get_speed()
 	
+func get_real_speed():
+	return function.get_real_speed()
+	
+func set_speed(_speed):
+	function.set_speed(_speed)
+
+func set_real_speed(_speed):
+	function.set_real_speed(_speed)
+	
 func get_toward() -> Vector2:
 	return function.get_toward()
 	
