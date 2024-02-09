@@ -18,6 +18,17 @@ var AI_dic : Dictionary = {}
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 
+func take_damage(damage):
+	if timer_get("invincible") == 0.0:
+		health -= damage
+		if health < 0 : 
+			health = 0
+			kill()
+		if health > maxhealth :
+			health = maxhealth
+		timer_set("hurt", 0.20)
+		timer_set("invincible", 1.0)
+
 func kill():
 	lowlevel.kill()
 
@@ -112,8 +123,15 @@ func allow_bump(collider : Obj):
 func AI_append(name):
 	AI_dic[name] = Register_table.AI[name]
 
-func AI_init():
+func AI_data_init():
 	pass
+
+func AIs_append():
+	pass
+
+func AI_init():
+	AI_data_init()
+	AIs_append()
 	
 func timer_set(key, value):
 	timers[key] = value
@@ -132,6 +150,7 @@ static func bump_handler_once(collidee :Obj_function, info : Dictionary):
 		else : return
 		
 static func bump_handler_box(collidee :Obj_function, info : Dictionary):
+	if (collidee.lowlevel.timestamp) < info.get("collider").timestamp : return
 	var m1 = collidee.get_addon_info()["mass"]
 	var m2 = info.get("mass", -1.0)
 	if m2 > 0.0: 

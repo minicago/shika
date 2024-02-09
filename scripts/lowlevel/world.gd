@@ -3,6 +3,7 @@ class_name World
 
 var UI : World_UI
 var function : World_function
+var timestamp = 0
 
 func get_rider():
 	return function.get_rider()

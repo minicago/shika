@@ -5,6 +5,10 @@ var father
 var function : Obj_function
 var UI : Obj_UI
 var alive = true
+var timestamp
+
+func take_damage(damage):
+	function.take_damage(damage)
 
 func kill():
 	alive = false
@@ -59,6 +63,8 @@ func obj_init(func_type : String ,binder : Obj_UI = null , father = null):
 		if father != null : father.UI.add_child(UI)
 	else : 
 		UI = binder
+	timestamp = father.timestamp
+	father.timestamp += 1
 	UI.lowlevel = self
 	function.lowlevel = self
 	function.all_init()

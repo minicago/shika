@@ -51,6 +51,7 @@ func camera_aim_position(pos : Vector2 ):
 func get_objs() -> Array[Obj]:
 	var ret : Array[Obj] = []
 	
+	if not get_rider().alive: return []
 	#for child in get_children() : 
 	#	print(child)
 	

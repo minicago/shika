@@ -11,7 +11,7 @@ func spinRate() : return addon_info.get("spinRate")
 func spinLoss() : return addon_info.get("spinLoss")
 
 static func rider_AI(_self:Obj_function ,delta):
-	print(_self.get_real_speed()) 
+	#print(_self.get_real_speed()) 
 	_self.speed *= exp(-_self.resist()*delta)
 	
 	if Input.is_action_pressed("up") : 
@@ -60,6 +60,9 @@ func bump_info_init():
 	
 func AI_data_init():
 	spinable = true
+	maxhealth = 100.0
+	health = 100.0
+	addon_info_append("attack",50.0)
 	
 	addon_info_append("resist", 0.9)
 	addon_info_append("lineResist", 50.0)
@@ -70,8 +73,7 @@ func AI_data_init():
 	addon_info_append("spinRate", PI)
 	addon_info_append("spinLoss", 0.8)
 	
-func AI_init():
-	AI_data_init()
+func AIs_append():
 	AI_append("rider")
 	AI_append("modulate_invincible")
 	AI_append("modulate_hurt")
@@ -82,11 +84,12 @@ static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 
 static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
+		info.get("collider").take_damage(collidee.addon_info["attack"])
 		#info.get("collider",null).kill()
-		if collidee.timer_get("invincible") == 0.0:
-			print("hurt")
-			collidee.timer_set("hurt", 0.20)
-			collidee.timer_set("invincible", 1.0)
+		#if collidee.timer_get("invincible") == 0.0:
+			#print("hurt")
+			#collidee.timer_set("hurt", 0.20)
+			#collidee.timer_set("invincible", 1.0)
 
 static func _static_init():
 	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")
