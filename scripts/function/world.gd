@@ -29,7 +29,7 @@ func instance_home():
 	home.set_obj_position(Vector2(500,500))
 	
 func instance_monster():
-	print("instance")
+	# print("instance")
 	var monster = Obj.new()
 	monster.obj_init("monster",null,lowlevel)
 	monster.set_obj_position(randf_range(1500.0,2000.0)*Vector2(1.0,0).rotated(randf_range(0,2*PI))+get_rider().get_obj_position())

@@ -3,7 +3,7 @@ class_name Rider_function
 
 func resist() : return addon_info.get("resist")
 func lineResist() : return addon_info.get("lineResist")
-func rtimes() :return addon_info.get("rtimes")
+func rtimes() : return addon_info.get("rtimes")
 func brake() : return addon_info.get("brake")
 func power() : return addon_info.get("power")
 

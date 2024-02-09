@@ -36,6 +36,7 @@ func AIs_append():
 	AI_append("follow")
 	AI_append("spider")
 	AI_append("abandon")
+	AI_append("modulate_hurt")
 	
 func bump_handler_init():
 	bump_handler_append("box")
