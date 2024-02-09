@@ -57,7 +57,13 @@ func get_objs() -> Array[Obj]:
 	for child:Obj_UI in find_children("*","Obj_UI",false,false) : 
 
 		if child.lowlevel!=null : 
-			ret.append(child.lowlevel)
+			if child.lowlevel.alive : ret.append(child.lowlevel)
+			else :
+				remove_child(child)
+				child.lowlevel.queue_free()
+				child.queue_free()
+				
+				
 	return ret
 
 func _process(delta):

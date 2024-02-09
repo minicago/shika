@@ -4,6 +4,10 @@ class_name Obj
 var father
 var function : Obj_function
 var UI : Obj_UI
+var alive = true
+
+func kill():
+	alive = false
 
 func get_father():
 	return father
@@ -19,7 +23,10 @@ func set_speed(_speed):
 
 func set_real_speed(_speed):
 	function.set_real_speed(_speed)
-	
+
+func get_func_modulate():
+	return function.get_func_modulate()
+
 func get_toward() -> Vector2:
 	return function.get_toward()
 	
@@ -61,7 +68,6 @@ func bump_info_append(key , value):
 	
 func allow_bump(collider : Obj):
 	return function.allow_bump(collider)
-
 
 func free():
 	UI.free()

@@ -54,7 +54,7 @@ func bump_handler_init():
 
 func bump_info_init():
 	addon_info_append("box", 10.0)
-	addon_info_append("mass", 10.0)
+	addon_info_append("mass", 100.0)
 	addon_info_append("collider", lowlevel)
 	addon_info_append("type","rider")
 	
@@ -73,6 +73,8 @@ func AI_data_init():
 func AI_init():
 	AI_data_init()
 	AI_append("rider")
+	AI_append("modulate_invincible")
+	AI_append("modulate_hurt")
 
 static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "home":
@@ -80,6 +82,7 @@ static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 
 static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
+		#info.get("collider",null).kill()
 		if collidee.timer_get("invincible") == 0.0:
 			print("hurt")
 			collidee.timer_set("hurt", 0.20)

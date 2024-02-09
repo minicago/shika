@@ -18,6 +18,9 @@ func get_obj_position():
 	
 func get_polygon() -> PackedVector2Array :
 	return Transform2D(0.0,scale * polygon.scale,0.0,Vector2.ZERO) * polygon.polygon
+	
+func get_func_modulate():
+	return lowlevel.get_func_modulate()
 
 func set_obj_position(pos : Vector2):
 	lowlevel.set_obj_position(pos)
@@ -29,13 +32,8 @@ func _process(delta):
 	if lowlevel != null : 
 		function_process(delta)
 		rotation = get_toward().angle() + PI / 2
-		position = get_obj_position()
-		if lowlevel.function.timer_get("hurt") > 0 :
-			modulate.s = 100.0
-		else : modulate.s = 0.0
-		if lowlevel.function.timer_get("invincible") > 0:
-			modulate.a = cos(lowlevel.function.timer_get("invincible") * PI * 4) * 0.4 + 0.6
-		else : modulate.a = 1.0
+		set_position(get_obj_position())
+		set_modulate(get_func_modulate())
 	
 func free():
 	get_parent().remove_child(self)
