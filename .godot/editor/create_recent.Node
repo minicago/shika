@@ -1,4 +1,6 @@
+Label
 SubViewport
+TextureProgressBar
 SubViewportContainer
 TextureRect
 Node2D
@@ -11,4 +13,3 @@ ColorRect
 RemoteTransform2D
 Sprite2D
 TileMap
-Label

@@ -75,6 +75,7 @@ func bump_info_append(key , value):
 func allow_bump(collider : Obj):
 	return function.allow_bump(collider)
 
-func free():
-	UI.free()
-	function.free()
+func all_free():
+	queue_free()
+	UI.queue_free()
+	function.queue_free()

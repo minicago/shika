@@ -80,16 +80,12 @@ func AIs_append():
 
 static func bump_handler_home(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "home":
+		collidee.addon_info_append("win", true)
 		print("back home")
 
 static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
 		info.get("collider").take_damage(collidee.addon_info["attack"])
-		#info.get("collider",null).kill()
-		#if collidee.timer_get("invincible") == 0.0:
-			#print("hurt")
-			#collidee.timer_set("hurt", 0.20)
-			#collidee.timer_set("invincible", 1.0)
 
 static func _static_init():
 	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")

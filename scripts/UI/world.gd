@@ -61,10 +61,7 @@ func get_objs() -> Array[Obj]:
 			if child.lowlevel.alive : ret.append(child.lowlevel)
 			else :
 				remove_child(child)
-				child.lowlevel.queue_free()
-				child.queue_free()
-				
-				
+				child.lowlevel.all_free()
 	return ret
 
 func _process(delta):

@@ -70,16 +70,12 @@ func get_polygon():
 	return lowlevel.get_polygon()
 
 func function_process(delta):
-	#life_time += delta
 	for timer in timers:
 		timers[timer] = max(0, timers[timer] - delta)
 	for function in AI_dic:
 		AI_dic[function].call(self, delta)
 	set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass
-
-#func cool_down_check(delta : float ,cool_time : float) -> int:
-	#return floori ( life_time / cool_time ) - floori ( (life_time - delta) / cool_time )
 
 func bump_handler(info : Dictionary):
 	for handler in bump_handler_dic :
@@ -156,8 +152,6 @@ static func bump_handler_box(collidee :Obj_function, info : Dictionary):
 	if m2 > 0.0: 
 		var dist :Vector2 = collidee.get_obj_position() - info.get("collider").get_obj_position()
 		var dspeed :Vector2 = collidee.get_real_speed() - info.get("collider").get_real_speed()
-#		if dist.x * dspeed.x + dist.y * dspeed.y > 0.0 :
-#		print("ok!")
 		collidee.set_real_speed(collidee.get_real_speed() - (2 * m2) / (m1 + m2) * dspeed)
 		info.get("collider").set_real_speed(info.get("collider").get_real_speed() + (2 * m1) / (m1 + m2) * dspeed)
 		collidee.set_obj_position(collidee.get_obj_position() + dist.normalized() * info.get("box", 0.0))

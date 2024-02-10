@@ -26,6 +26,12 @@ func instance_rider():
 func instance_home():
 	return function.instance_home()
 
+func lose():
+	return function.lose()
+
+func win():
+	return function.win()
+
 func world_init(path : String ,binder : World_UI = null, father = null):
 	if binder == null :
 		UI = load(path).instance()
@@ -40,3 +46,8 @@ func world_init(path : String ,binder : World_UI = null, father = null):
 
 func function_process(delta):
 	return function.function_process(delta)
+
+func all_free():
+	queue_free()
+	UI.queue_free()
+	function.all_free()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw1oyaalnb623"]
+[gd_scene load_steps=5 format=3 uid="uid://cw1oyaalnb623"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/game.gd" id="1_af18y"]
 [ext_resource type="PackedScene" uid="uid://otrd3idnjn42" path="res://tscns/world.tscn" id="1_wa883"]
-[ext_resource type="PackedScene" uid="uid://bp3qmw0e3fno0" path="res://tscns/homepointer.tscn" id="3_1awke"]
+[ext_resource type="PackedScene" uid="uid://bp3qmw0e3fno0" path="res://tscns/UIcontrol/homepointer.tscn" id="3_1awke"]
+[ext_resource type="PackedScene" uid="uid://blg0dgii3unks" path="res://tscns/UIcontrol/healthBar.tscn" id="3_c1vsl"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -26,6 +27,9 @@ offset_right = -53.0
 offset_bottom = -52.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="HealthBar" parent="." instance=ExtResource("3_c1vsl")]
+layout_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 z_index = -1
