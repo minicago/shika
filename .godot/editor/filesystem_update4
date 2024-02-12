@@ -1,12 +1,7 @@
-res://tscns/game.tscn
-res://shaders/Background.gdshader
 res://tscns/main.tscn
+res://shaders/Background.gdshader
+res://shaders/glassy.gdshader
+res://scripts/lowlevel/main.gd
+res://tscns/game.tscn
 res://tscns/UIcontrol/homepointer.tscn
 res://tscns/objs/rider/glassy.tscn
-res://shaders/glassy.gdshader
-res://scripts/function/objs/obj.gd
-res://scripts/function/objs/rider.gd
-res://scripts/function/objs/monster.gd
-res://scripts/UI/gameBegin.gd
-res://scripts/lowlevel/game.gd
-res://scripts/lowlevel/main.gd

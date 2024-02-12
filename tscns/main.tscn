@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0l8qi3y8vpqx"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/main.gd" id="1_cjdlo"]
-[ext_resource type="Texture2D" uid="uid://cqt8dgwqxfof8" path="res://images/NPC/2.png" id="1_j0yxc"]
 [ext_resource type="Texture2D" uid="uid://ckjh73eo6gi2h" path="res://images/NPC/taxi_pressed.png" id="2_dvauj"]
+[ext_resource type="Texture2D" uid="uid://bipr55vtckhu5" path="res://images/NPC/taxi_normal.png" id="2_imniw"]
 [ext_resource type="Texture2D" uid="uid://dmaehi07yxjog" path="res://images/normal/shika.png" id="3_0s3ke"]
 [ext_resource type="AudioStream" uid="uid://dioul6pbko3yi" path="res://voices/try.mp3" id="5_w54yq"]
 
@@ -23,7 +23,7 @@ anchor_bottom = 1.0
 offset_top = -235.0
 offset_right = 218.0
 grow_vertical = 0
-texture_normal = ExtResource("1_j0yxc")
+texture_normal = ExtResource("2_imniw")
 texture_hover = ExtResource("2_dvauj")
 
 [node name="Shika" type="TextureRect" parent="."]

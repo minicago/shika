@@ -20,6 +20,7 @@ func _process(delta):
 		visible = false
 	else :
 		visible = true
-	if game == null :
-		get_tree().root.remove_child(game)
+	if game == null:
+		if get_tree().root.find_child("Game"):
+			get_tree().root.remove_child(game)
 	pass

@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707748168
-export_presets.cfg::TextFile::-1::1707665064::0::1::::<><>::
+::res://::1707748910
+export_presets.cfg::TextFile::-1::1707748737::0::1::::<><>::
 icon.svg::CompressedTexture2D::4221202064463072780::1702471328::1702471334::1::::<><>::
 README.md::TextFile::-1::1707657403::0::1::::<><>::
 ::res://images/::1707746209
@@ -19,7 +19,7 @@ health1.png::CompressedTexture2D::7419342528482125765::1707571499::1707571508::1
 health2.png::CompressedTexture2D::6623455962165194314::1703364238::1707571508::1::::<><>::
 home.png::CompressedTexture2D::8238319479410417977::1703121701::1703312901::1::::<><>::
 shika.png::CompressedTexture2D::8001784003557923966::1707747018::1707747022::1::::<><>::
-::res://images/NPC/::1707746717
+::res://images/NPC/::1707748706
 1.png::CompressedTexture2D::391111979940758643::1707746325::1707746328::1::::<><>::
 taxi_normal.png::CompressedTexture2D::2979984470810178162::1707746523::1707746717::1::::<><>::
 taxi_pressed.png::CompressedTexture2D::5493792845418175901::1707746716::1707746717::1::::<><>::
@@ -37,40 +37,39 @@ rider.gd::GDScript::-1::1707745498::0::1::::Rider_function<>Obj_function<>::
 bump_manager.gd::GDScript::-1::1707490576::0::1::::Bump_manager<>Node<>::
 card.gd::GDScript::-1::1702473796::0::1::::Card_lowlevel<>Node<>::
 game.gd::GDScript::-1::1707747223::0::1::::Game<>Control<>::
-obj.gd::GDScript::-1::1707574763::0::1::::Obj<>Node<>::
 main.gd::GDScript::-1::1707748028::0::1::::Main<>Control<>::
+obj.gd::GDScript::-1::1707574763::0::1::::Obj<>Node<>::
 world.gd::GDScript::-1::1707574921::0::1::::World<>Node<>::
-::res://scripts/UI/::1707747849
+::res://scripts/UI/::1707748901
 card.gd::GDScript::-1::1703254430::0::1::::Card_UI<>Node2D<>::
 healthBar.gd::GDScript::-1::1707572320::0::1::::HealthBar<>Control<>::
 homepointer.gd::GDScript::-1::1706078630::0::1::::Homepointer<>Control<>::
 obj.gd::GDScript::-1::1707489012::0::1::::Obj_UI<>Node2D<>::
-gameBegin.gd::GDScript::-1::1707747849::0::1::::<>TextureButton<>::
 world.gd::GDScript::-1::1707574887::0::1::::World_UI<>SubViewport<>::
-::res://shaders/::1707748034
-Background.gdshader::Shader::-1::1707748034::0::1::::<><>::
-glassy.gdshader::Shader::-1::1707748034::0::1::::<><>::
+::res://shaders/::1707748905
+Background.gdshader::Shader::-1::1707748905::0::1::::<><>::
+glassy.gdshader::Shader::-1::1707748905::0::1::::<><>::
 ::res://tests/::1703273039
 ::res://tests/camera test/::1707631409
 camera Test.tscn::PackedScene::5867267857549194906::1707631409::0::1::::<><>::
 ::res://tests/world test/::1707631409
 world Test.gd::GDScript::-1::1706077610::0::1::::<>Control<>::
 world Test.tscn::PackedScene::8833290926626292817::1707631409::0::1::::<><>::res://tests/world test/world Test.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn
-::res://tscns/::1707748034
+::res://tscns/::1707748864
 card.tscn::PackedScene::9173942749879269208::1707631409::0::1::::<><>::uid://dev5x0yhmcyis::::res://images/common/block.png<>res://scripts/UI/card.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
-game.tscn::PackedScene::6371562646498154854::1707747997::0::1::::<><>::res://scripts/lowlevel/game.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn<>uid://bp3qmw0e3fno0::::res://tscns/UIcontrol/homepointer.tscn<>uid://blg0dgii3unks::::res://tscns/UIcontrol/healthBar.tscn
-main.tscn::PackedScene::4165882627979057195::1707748034::0::1::::<><>::res://scripts/lowlevel/main.gd<>uid://cqt8dgwqxfof8::::res://images/NPC/2.png<>uid://ckjh73eo6gi2h::::res://images/NPC/taxi_pressed.png<>uid://dmaehi07yxjog::::res://images/normal/shika.png
+game.tscn::PackedScene::6371562646498154854::1707748497::0::1::::<><>::res://scripts/lowlevel/game.gd<>uid://otrd3idnjn42::::res://tscns/world.tscn<>uid://bp3qmw0e3fno0::::res://tscns/UIcontrol/homepointer.tscn<>uid://blg0dgii3unks::::res://tscns/UIcontrol/healthBar.tscn
+main.tscn::PackedScene::4165882627979057195::1707748864::0::1::::<><>::res://scripts/lowlevel/main.gd<>uid://ckjh73eo6gi2h::::res://images/NPC/taxi_pressed.png<>uid://bipr55vtckhu5::::res://images/NPC/taxi_normal.png<>uid://dmaehi07yxjog::::res://images/normal/shika.png<>uid://dioul6pbko3yi::::res://voices/try.mp3
 world.tscn::PackedScene::1022906017684621473::1707631409::0::1::::<><>::res://scripts/UI/world.gd<>res://shaders/Background.gdshader<>uid://crr3mryrk0vw3::::res://images/common/background.png
 ::res://tscns/objs/::1707631409
 default.tscn::PackedScene::7199262704933846265::1707631409::0::1::::<><>::res://scripts/UI/obj.gd<>uid://bjgm5m1mmmuw1::::res://images/common/void.png
 home.tscn::PackedScene::8749276169298724426::1707631409::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
 ::res://tscns/objs/monster/::1707631410
 1.tscn::PackedScene::8177646056614023032::1707631410::0::1::::<><>::res://scripts/UI/obj.gd<>uid://h21lu8qvvw08::::res://images/monster/1.png
-::res://tscns/objs/rider/::1707747997
-glassy.tscn::PackedScene::8503985059588137466::1707747997::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png
+::res://tscns/objs/rider/::1707748497
+glassy.tscn::PackedScene::8503985059588137466::1707748497::0::1::::<><>::res://scripts/UI/obj.gd<>uid://dddk81hjor4qt::::res://images/bike/1.png
 pain.tscn::PackedScene::6628319667400941657::1707631409::0::1::::<><>::res://scripts/UI/obj.gd<>uid://5w0n1oc3171r::::res://images/bike/2.png
-::res://tscns/UIcontrol/::1707747997
+::res://tscns/UIcontrol/::1707748497
 healthBar.tscn::PackedScene::3172407840336930682::1707631410::0::1::::<><>::res://scripts/UI/healthBar.gd<>uid://ddx8qtrkqnd7r::::res://images/normal/health1.png<>uid://c1mpl756m3i6m::::res://images/normal/health2.png
-homepointer.tscn::PackedScene::3498050011141567441::1707747997::0::1::::<><>::uid://ck0ixb25qp0s6::::res://images/common/round.png<>res://scripts/UI/homepointer.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
-::res://voices/::1707748173
+homepointer.tscn::PackedScene::3498050011141567441::1707748497::0::1::::<><>::uid://ck0ixb25qp0s6::::res://images/common/round.png<>res://scripts/UI/homepointer.gd<>uid://dpmx6hovq0jfd::::res://images/normal/home.png
+::res://voices/::1707748174
 try.mp3::AudioStreamMP3::7750909723783985176::1707676891::1707748174::1::::<><>::
