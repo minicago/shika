@@ -1,5 +1,5 @@
 extends Control
-class_name game
+class_name Game
 
 var world : World = World.new()
 @onready var world_UI : World_UI = $SubViewportContainer/World
@@ -16,10 +16,14 @@ func _process(delta):
 	if world == null : return
 	$SubViewportContainer/World.size = get_viewport().size
 	if world.win() :
-		world.all_free()
+		all_free()
 		pass
 	elif world.lose():
-		world.all_free()
+		all_free()
 		pass
 	# $SubViewportContainer.rect = ( get_viewport_rect() )
 	pass
+
+func all_free():
+	queue_free()
+	world.all_free()

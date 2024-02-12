@@ -1,7 +1,7 @@
 extends Obj_function
 class_name Monster_function
 
-static func follow_AI(_self:Obj_function ,delta):
+static var follow_AI = func(_self:Obj_function ,delta):
 	if _self.timer_get("follow_AI",0) == 0:
 		var world:World = _self.get_father()
 		var rider_pos = world.get_rider().get_obj_position()
@@ -11,13 +11,13 @@ static func follow_AI(_self:Obj_function ,delta):
 		_self.timer_set("follow_AI", _self.addon_info["follow_AI_cool_time"])
 	pass
 	
-static func spider_AI(_self:Obj_function ,delta):
+static var spider_AI = func(_self:Obj_function ,delta):
 	if _self.timer_get("spider_AI",0) == 0:
 		if _self.speed.length() == 0 : _self.speed = Vector2(500.0, 0)
 		else : _self.speed = Vector2(0.0, 0.0)
 		_self.timer_set("spider_AI", _self.addon_info["spider_AI_cool_time"])
 		
-static func abandon_AI(_self:Obj_function ,delta):
+static var abandon_AI = func(_self:Obj_function ,delta):
 	var world:World = _self.get_father()
 	var rider_pos = world.get_rider().get_obj_position()
 	if (_self.position-rider_pos).length() > _self.addon_info["abandon_dist"] :
@@ -51,7 +51,7 @@ func bump_info_init():
 	addon_info_append("attack",10.0)
 	#bump_info_append("once",false)
 	
-static func bump_handler_rider(collidee : Obj_function, info : Dictionary):
+static var bump_handler_rider = func(collidee : Obj_function, info : Dictionary):
 	#print("kill")
 	if info.get("type", "") == "rider":
 		info.get("collider").take_damage(collidee.addon_info["attack"])
@@ -59,10 +59,10 @@ static func bump_handler_rider(collidee : Obj_function, info : Dictionary):
 
 static func _static_init():
 	Register_table.obj_type["monster"] = Monster_function
-	Register_table.handlers["rider"] = Callable(Monster_function,"bump_handler_rider")
-	Register_table.AI["follow"] = Callable(Monster_function, "follow_AI")
-	Register_table.AI["spider"] = Callable(Monster_function, "spider_AI")
-	Register_table.AI["abandon"] = Callable(Monster_function, "abandon_AI")
+	Register_table.handlers["rider"] = bump_handler_rider
+	Register_table.AI["follow"] = follow_AI
+	Register_table.AI["spider"] = spider_AI
+	Register_table.AI["abandon"] = abandon_AI
 	print("monster function static init done")
 
 static func UI_instance() -> Obj_UI:

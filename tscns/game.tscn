@@ -30,6 +30,11 @@ grow_vertical = 0
 
 [node name="HealthBar" parent="." instance=ExtResource("3_c1vsl")]
 layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 z_index = -1

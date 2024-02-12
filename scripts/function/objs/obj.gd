@@ -18,6 +18,9 @@ var AI_dic : Dictionary = {}
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 
+var take_damage_dic : Dictionary = {}
+	
+
 func take_damage(damage):
 	if timer_get("invincible") == 0.0:
 		health -= damage
@@ -139,13 +142,13 @@ func timer_get(key, value = 0.0):
 # customized
 ########################################################################
 	
-static func bump_handler_once(collidee :Obj_function, info : Dictionary):
+static var bump_handler_once = func(collidee :Obj_function, info : Dictionary):
 	if info.get("once", false): 
 		if not collidee.banlist.get(info.get("collider"), false):
 			collidee.banlist[info.get("collider")] = true
 		else : return
 		
-static func bump_handler_box(collidee :Obj_function, info : Dictionary):
+static var bump_handler_box = func(collidee :Obj_function, info : Dictionary):
 	if (collidee.lowlevel.timestamp) < info.get("collider").timestamp : return
 	var m1 = collidee.get_addon_info()["mass"]
 	var m2 = info.get("mass", -1.0)
@@ -157,21 +160,21 @@ static func bump_handler_box(collidee :Obj_function, info : Dictionary):
 		collidee.set_obj_position(collidee.get_obj_position() + dist.normalized() * info.get("box", 0.0))
 		info.get("collider").set_obj_position(info.get("collider").get_obj_position() - dist.normalized() * info.get("box", 0.0))
 		
-static func modulate_hurt_AI(_self : Obj_function, delta):
+static var modulate_hurt_AI = func(_self : Obj_function, delta):
 	if _self.timer_get("hurt") > 0 :
 			_self.modulate.s = 100.0
 	else : _self.modulate.s = 0.0
 
-static func modulate_invincible_AI(_self : Obj_function, delta):
+static var modulate_invincible_AI = func(_self : Obj_function, delta):
 	if _self.timer_get("invincible") > 0:
 		_self.modulate.a = cos(_self.timer_get("invincible") * PI * 4) * 0.4 + 0.6
 	else : _self.modulate.a = 1.0
 	
 static func _static_init():
-	Register_table.handlers["once"] = Callable(Obj_function, "bump_handler_once")
-	Register_table.handlers["box"] = Callable(Obj_function, "bump_handler_box")
-	Register_table.AI["modulate_invincible"] = Callable(Obj_function, "modulate_invincible_AI")
-	Register_table.AI["modulate_hurt"] = Callable(Obj_function, "modulate_hurt_AI")
+	Register_table.handlers["once"] = bump_handler_once
+	Register_table.handlers["box"] = bump_handler_box
+	Register_table.AI["modulate_invincible"] = modulate_invincible_AI
+	Register_table.AI["modulate_hurt"] = modulate_hurt_AI
 	Register_table.obj_type["obj"] = Obj_function
 	print("obj function static init done")
 	

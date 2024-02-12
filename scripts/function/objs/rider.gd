@@ -10,7 +10,7 @@ func power() : return addon_info.get("power")
 func spinRate() : return addon_info.get("spinRate") 
 func spinLoss() : return addon_info.get("spinLoss")
 
-static func rider_AI(_self:Obj_function ,delta):
+static var rider_AI = func(_self:Obj_function ,delta):
 	#print(_self.get_real_speed()) 
 	_self.speed *= exp(-_self.resist()*delta)
 	
@@ -78,20 +78,20 @@ func AIs_append():
 	AI_append("modulate_invincible")
 	AI_append("modulate_hurt")
 
-static func bump_handler_home(collidee :Obj_function, info : Dictionary):
+static var bump_handler_home = func(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "home":
 		collidee.addon_info_append("win", true)
 		print("back home")
 
-static func bump_handler_monster(collidee :Obj_function, info : Dictionary):
+static var bump_handler_monster = func(collidee :Obj_function, info : Dictionary):
 	if info.get("type", "") == "monster":
 		info.get("collider").take_damage(collidee.addon_info["attack"])
 
 static func _static_init():
-	Register_table.handlers["home"] = Callable(Rider_function,"bump_handler_home")
-	Register_table.handlers["monster"] = Callable(Rider_function,"bump_handler_monster")
+	Register_table.handlers["home"] = bump_handler_home
+	Register_table.handlers["monster"] = bump_handler_monster
 	
-	Register_table.AI["rider"] = Callable(Rider_function,"rider_AI")
+	Register_table.AI["rider"] = rider_AI
 	
 	Register_table.obj_type["rider"] = Rider_function
 	

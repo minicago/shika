@@ -1,22 +1,12 @@
-res://tscns/homepointer.tscn
-res://shaders/Background.gdshader
-res://scripts/function/objs/rider.gd
-res://scripts/function/objs/obj.gd
 res://tscns/game.tscn
-res://tscns/UIcontrol/healthBar.tscn
-res://scripts/UI/healthBar.gd
-res://scripts/lowlevel/game.gd
-res://tscns/card.tscn
-res://tests/camera test/camera Test.tscn
-res://tscns/objs/rider/glassy.tscn
-res://tscns/objs/home.tscn
-res://tscns/objs/rider/pain.tscn
-res://tscns/world.tscn
-res://tests/world test/world Test.tscn
-res://tscns/objs/default.tscn
+res://shaders/Background.gdshader
+res://tscns/main.tscn
 res://tscns/UIcontrol/homepointer.tscn
-res://tscns/objs/monster/1.tscn
-res://scripts/function/world.gd
-res://scripts/lowlevel/world.gd
-res://scripts/lowlevel/obj.gd
-res://scripts/UI/world.gd
+res://tscns/objs/rider/glassy.tscn
+res://shaders/glassy.gdshader
+res://scripts/function/objs/obj.gd
+res://scripts/function/objs/rider.gd
+res://scripts/function/objs/monster.gd
+res://scripts/UI/gameBegin.gd
+res://scripts/lowlevel/game.gd
+res://scripts/lowlevel/main.gd

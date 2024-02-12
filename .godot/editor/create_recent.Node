@@ -1,8 +1,11 @@
+AudioStreamPlayer2D
+TextureRect
 Label
+TextureButton
+GPUParticles2D
+SubViewportContainer
 SubViewport
 TextureProgressBar
-SubViewportContainer
-TextureRect
 Node2D
 Obj_UI
 Polygon2D
@@ -10,6 +13,3 @@ CollisionPolygon2D
 Camera2D
 Control
 ColorRect
-RemoteTransform2D
-Sprite2D
-TileMap
