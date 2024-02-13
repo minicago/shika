@@ -33,45 +33,48 @@ func get_func_modulate():
 
 func get_toward() -> Vector2:
 	return function.get_toward()
-	
+
 func get_obj_position() -> Vector2:
 	return function.get_obj_position()
 
 func set_obj_position(pos : Vector2):
 	function.set_obj_position(pos)
 
-func get_addon_info() -> Dictionary:
-	return function.get_addon_info()
+func get_addon_info(key, default = null):
+	return function.get_addon_info(key, default)
+
+func get_addon_info_dic():
+	return function.get_addon_info_dic()
 
 func get_polygon() -> PackedVector2Array:
 	return UI.get_polygon()
 
 func get_polygon_in_world() -> PackedVector2Array:
 	return function.get_polygon_in_world()
-	
-func bump_handler(info : Dictionary):
-	return function.bump_handler(info) 
-	
+
+func bump_handler(collider : Obj):
+	return function.bump_handler(collider) 
+
+func addon_info_append(key, value):
+	function.addon_info_append(key, value)
+
 func function_process(delta):
 	return function.function_process(delta)
 
 func obj_init(func_type : String ,binder : Obj_UI = null , father = null):
 	self.father = father
-	function = Register_table.obj_type[func_type].new()
+	function = Obj_function.new()
+	function.lowlevel = self
+	function.load_obj_data(func_type)
 	if binder == null :
-		UI = Register_table.obj_type[func_type].UI_instance()
+		UI = function.UI_instance()
 		if father != null : father.UI.add_child(UI)
 	else : 
 		UI = binder
 	timestamp = father.timestamp
 	father.timestamp += 1
 	UI.lowlevel = self
-	function.lowlevel = self
-	function.all_init()
-	
-func bump_info_append(key , value):
-	function.bump_info_append(key, value)
-	
+
 func allow_bump(collider : Obj):
 	return function.allow_bump(collider)
 

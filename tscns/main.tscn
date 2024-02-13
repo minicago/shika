@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0l8qi3y8vpqx"]
+[gd_scene load_steps=8 format=3 uid="uid://b0l8qi3y8vpqx"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/main.gd" id="1_cjdlo"]
 [ext_resource type="Texture2D" uid="uid://ckjh73eo6gi2h" path="res://images/NPC/taxi_pressed.png" id="2_dvauj"]
 [ext_resource type="Texture2D" uid="uid://bipr55vtckhu5" path="res://images/NPC/taxi_normal.png" id="2_imniw"]
 [ext_resource type="Texture2D" uid="uid://dmaehi07yxjog" path="res://images/normal/shika.png" id="3_0s3ke"]
 [ext_resource type="AudioStream" uid="uid://dioul6pbko3yi" path="res://voices/try.mp3" id="5_w54yq"]
+[ext_resource type="Texture2D" uid="uid://cfaq75clwg3ri" path="res://images/NPC/workshop_normal.png" id="6_6m4u7"]
+[ext_resource type="Texture2D" uid="uid://dcsfw5v6cwdui" path="res://images/NPC/workshop_pressed.png" id="7_wnsa3"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -44,3 +46,14 @@ texture = ExtResource("3_0s3ke")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w54yq")
 autoplay = true
+
+[node name="workshop" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_bottom = 235.0
+grow_horizontal = 0
+texture_normal = ExtResource("6_6m4u7")
+texture_hover = ExtResource("7_wnsa3")

@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+static_boot="res://scripts/function/staticBoot.gd"
 rider_function="res://scripts/function/objs/home.gd"
 home_function="res://scripts/function/objs/rider.gd"
-obj_function="res://scripts/function/objs/obj.gd"
+obj_function="res://scripts/function/obj.gd"
 monster_function="res://scripts/function/objs/monster.gd"
 
 [importer_defaults]

@@ -7,12 +7,6 @@ var lowlevel : World
 
 var monsters:Array
 
-func get_rider_UI():
-	return lowlevel.get_rider_UI()
-	
-func get_home_UI():
-	return lowlevel.get_home_UI()
-
 func get_rider():
 	return rider
 	
@@ -23,15 +17,15 @@ func lose():
 	return not get_rider().alive
 	
 func win():
-	return get_rider().get_addon_info().get("win",false)
+	return get_rider().get_addon_info("win",false)
 
 func instance_rider():
 	rider = Obj.new()
-	rider.obj_init("rider",get_rider_UI(),lowlevel)
+	rider.obj_init("rider",null,lowlevel)
 
 func instance_home():
 	home = Obj.new()
-	home.obj_init("home",get_home_UI(),lowlevel)
+	home.obj_init("home",null,lowlevel)
 	home.set_obj_position(randf_range(10000.0,12000.0)*Vector2(1.0,0).rotated(randf_range(0,2*PI)))
 	
 func instance_monster():
@@ -60,7 +54,6 @@ func all_free():
 		monster.all_free()
 	rider.all_free()
 	home.all_free()
-		
 
 
 

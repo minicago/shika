@@ -13,7 +13,7 @@ static func manager_process(handle_list :Array[Obj], delta):
 			if collider != collidee :
 				if not Geometry2D.intersect_polygons( collider.get_polygon_in_world(), collidee.get_polygon_in_world()).is_empty() :
 					if collidee.allow_bump(collider):
-						collidee.bump_handler(collider.get_addon_info())
+						collidee.bump_handler(collider)
 					if collider.allow_bump(collidee):
-						collider.bump_handler(collidee.get_addon_info())
+						collider.bump_handler(collidee)
 	pass

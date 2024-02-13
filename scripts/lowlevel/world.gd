@@ -11,12 +11,6 @@ func get_rider():
 func get_home():
 	return function.get_home()
 
-func get_rider_UI():
-	return UI.get_rider_UI()
-	
-func get_home_UI():
-	return UI.get_home_UI()
-
 func get_objs() -> Array[Obj]:
 	return UI.get_objs()
 	

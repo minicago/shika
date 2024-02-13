@@ -1,13 +1,13 @@
 res://tests/camera test/camera Test.tscn::4b8fcb77f9303d90791a1452fe725235::1707631409::res://.godot/exported/133200997/export-7d5159ff91cd8c9c323edbd0046d685f-camera Test.scn
 res://tests/world test/world Test.tscn::de2149fd3b395e00589e638b7fcb5ef2::1707631409::res://.godot/exported/133200997/export-80d99d5827d93de3951a2b66737fe7bc-world Test.scn
 res://tscns/objs/monster/1.tscn::62bac47b42571ea599ad357340f965a7::1707631410::res://.godot/exported/133200997/export-d955dd5ad04ee06c3a54e6be9da40b81-1.scn
-res://tscns/objs/rider/glassy.tscn::b88743da5ef0ded54ea762e59761d86c::1707749057::res://.godot/exported/133200997/export-568ddf13853cb4a286fe237b0b9ced6d-glassy.scn
+res://tscns/objs/rider/glassy.tscn::b88743da5ef0ded54ea762e59761d86c::1707812383::res://.godot/exported/133200997/export-568ddf13853cb4a286fe237b0b9ced6d-glassy.scn
 res://tscns/objs/rider/pain.tscn::622f06ec3e37874f0c7c2415d607a5b3::1707631409::res://.godot/exported/133200997/export-c28ff2148591915f2a47edbf3d6a81f2-pain.scn
 res://tscns/objs/default.tscn::d8c518c3a63abd0c584081bbf370b37c::1707631409::res://.godot/exported/133200997/export-d5b02601cdfbdd995a7b4733d931eb8e-default.scn
-res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1707631409::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
+res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1707812435::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
 res://tscns/card.tscn::107011595bd6d8474649ab194c2b6a59::1707631409::res://.godot/exported/133200997/export-66b3142625b69cb3f86ed5988e3c2d78-card.scn
-res://tscns/game.tscn::6cf64d8de66a6b2ec2b4f46a01fa2bef::1707749057::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
+res://tscns/game.tscn::6cf64d8de66a6b2ec2b4f46a01fa2bef::1707812382::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
 res://tscns/world.tscn::dd5b9aece1970cf78d869225c156af6a::1707631409::res://.godot/exported/133200997/export-b14f3ccc57f2e21d568701abd42f6d84-world.scn
 res://tscns/UIcontrol/healthBar.tscn::6967ae552c79221aaa0f1ae02ecc3923::1707631410::res://.godot/exported/133200997/export-1471093f3e213d4f72d2e4fab4e90b53-healthBar.scn
-res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1707749057::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
-res://tscns/main.tscn::b5ff93fe9344be97704e1c32ec7cbc7f::1707749057::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn
+res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1707812383::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
+res://tscns/main.tscn::fb8694a2133a174c2f9f28240456e2b9::1707812383::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn

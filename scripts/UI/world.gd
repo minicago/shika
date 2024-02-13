@@ -6,17 +6,9 @@ var lowlevel : World
 @onready var camera : Camera2D = $Camera2D
 @onready var background : TextureRect = $Camera2D/Background
 @onready var shader : ShaderMaterial = background.material
-@onready var rider_UI : Obj_UI = $Rider
-@onready var home_UI : Obj_UI = $Home 
 
 func get_size_float():
 	return Vector2(size.x,size.y)
-
-func get_rider_UI():
-	return rider_UI
-
-func get_home_UI():
-	return home_UI
 
 func get_rider():
 	return lowlevel.get_rider()
