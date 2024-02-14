@@ -17,43 +17,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cjdlo")
 
-[node name="gameBegin" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -235.0
-offset_right = 218.0
-grow_vertical = 0
-texture_normal = ExtResource("2_imniw")
-texture_hover = ExtResource("2_dvauj")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_w54yq")
+autoplay = true
 
-[node name="Shika" type="TextureRect" parent="."]
+[node name="index" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shika" type="TextureRect" parent="index"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -128.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = 440.0
+offset_top = 192.0
+offset_right = 696.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0s3ke")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_w54yq")
-autoplay = true
-
-[node name="workshop" type="TextureButton" parent="."]
+[node name="workshop" type="TextureButton" parent="index"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -218.0
-offset_bottom = 235.0
+offset_left = 840.0
+offset_right = 1211.0
+offset_bottom = 330.0
 grow_horizontal = 0
 texture_normal = ExtResource("6_6m4u7")
 texture_hover = ExtResource("7_wnsa3")
+
+[node name="gameBegin" type="TextureButton" parent="index"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 416.0
+offset_right = 218.0
+offset_bottom = 651.0
+grow_vertical = 0
+texture_normal = ExtResource("2_imniw")
+texture_hover = ExtResource("2_dvauj")

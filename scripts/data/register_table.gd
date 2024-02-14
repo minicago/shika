@@ -9,6 +9,8 @@ static var AI:Dictionary={}
 
 static var obj_data : Dictionary = {}
 
+static var world_info_dic : Dictionary = {}
+
 static func register_obj_data(
 	name,
 	normal_dic,

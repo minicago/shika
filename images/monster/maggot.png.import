@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h21lu8qvvw08"
-path="res://.godot/imported/1.png-82cf98922697286e8bbdf92c31166dcf.ctex"
+uid="uid://dsqg6t0cdtxu4"
+path="res://.godot/imported/maggot.png-79ad0bb14dc4320d2813416bd1b6d860.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/monster/1.png"
-dest_files=["res://.godot/imported/1.png-82cf98922697286e8bbdf92c31166dcf.ctex"]
+source_file="res://images/monster/maggot.png"
+dest_files=["res://.godot/imported/maggot.png-79ad0bb14dc4320d2813416bd1b6d860.ctex"]
 
 [params]
 

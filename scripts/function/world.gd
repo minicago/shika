@@ -5,6 +5,7 @@ var rider : Obj
 var home : Obj
 var lowlevel : World
 
+var init_flag:bool = true
 var monsters:Array
 var world_info:Dictionary = {}
 var rider_data:Dictionary = Register_table.obj_data["rider"]
@@ -16,20 +17,26 @@ func get_home():
 	return home
 
 func lose():
+	if get_rider() == null : return false
 	return not get_rider().alive
 	
 func win():
+	if get_rider() == null : return false
 	return get_rider().get_addon_info("win",false)
 	
 func set_world_info(value :Dictionary):
 	world_info = value
+	instance_home()
+		
 	
 func set_rider_data(value : Dictionary):
 	rider_data = value
+	instance_rider()
 
 func instance_rider():
 	rider = Obj.new()
-	Register_table.obj_data["customized"] = rider_data
+	Register_table.obj_data["customized"] = rider_data.duplicate(true)
+	#print(Register_table.obj_data["customized"])
 	rider.obj_init("customized",null,lowlevel)
 
 func instance_home():
@@ -38,11 +45,12 @@ func instance_home():
 	home.set_obj_position(world_info.get("home_dist", 10000)*Vector2(1.0,0).rotated(randf_range(0,2*PI)))
 	
 func instance_monster(name = "monster"):
-	# print("instance")
 	var monster = Obj.new()
 	monster.obj_init(name,null,lowlevel)
-	monster.set_obj_position(randf_range(1000.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
+	monster.set_obj_position(randf_range(1200.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
 	monsters.append(monster)
+	monster.call_handler("monster_init" , monsters)
+	return monster
 
 func get_objs() -> Array[Obj]:
 	return lowlevel.get_objs()
@@ -56,16 +64,22 @@ func monster_manager():
 		var maxprob = 0
 		for monster_type in monster_dic:
 			maxprob += monster_dic[monster_type]
-		var prob = randi_range(0,maxprob - 1)
+		var prob = randi_range(0 , maxprob - 1)
 		for monster_type in monster_dic:
-			if maxprob < monster_dic[monster_type]:
+			if prob < monster_dic[monster_type]:
 				instance_monster(monster_type)
 				break
 			else :
-				maxprob -= monster_dic[monster_type]
-		instance_monster()
+				prob -= monster_dic[monster_type]
+
+func init_manager():
+	if  init_flag :
+		for monster in world_info.get("init_monster",[]):
+			instance_monster(monster)
+		init_flag = false
 
 func function_process(delta):
+	init_manager()
 	Bump_manager.manager_process(get_objs(), delta) 
 	monster_manager()
 

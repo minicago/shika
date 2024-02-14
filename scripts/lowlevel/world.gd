@@ -25,6 +25,10 @@ func instance_rider():
 	
 func instance_home():
 	return function.instance_home()
+	
+func instance_monster(name):
+	return function.instance_monster(name)
+	pass
 
 func lose():
 	return function.lose()
@@ -33,16 +37,15 @@ func win():
 	return function.win()
 
 func world_init(path : String ,binder : World_UI = null, father = null):
+	print(path)
 	if binder == null :
-		UI = load(path).instance()
+		UI = load(path).instantiate()
 		if father != null : father.add_child(UI)
 	else : 
 		UI = binder
 	function = World_function.new()
 	UI.lowlevel = self
 	function.lowlevel = self
-	instance_rider()
-	instance_home()
 
 func function_process(delta):
 	return function.function_process(delta)

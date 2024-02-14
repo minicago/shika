@@ -5,3 +5,4 @@ static func _static_init():
 	AIStaticBoot
 	BumpHandlerBoot
 	OtherHandlerBoot
+	World_info

@@ -1,3 +1,4 @@
+Control
 AudioStreamPlayer2D
 TextureRect
 Label
@@ -11,5 +12,3 @@ Obj_UI
 Polygon2D
 CollisionPolygon2D
 Camera2D
-Control
-ColorRect

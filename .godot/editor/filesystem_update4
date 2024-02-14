@@ -1,11 +1,4 @@
-res://tscns/objs/home.tscn
+res://tscns/main.tscn
 res://shaders/Background.gdshader
 res://shaders/glassy.gdshader
-res://scripts/function/world.gd
-res://tscns/game.tscn
-res://tscns/UIcontrol/homepointer.tscn
-res://tscns/objs/rider/glassy.tscn
-res://tscns/main.tscn
-res://scripts/lowlevel/obj.gd
-res://scripts/function/obj.gd
-res://scripts/lowlevel/world.gd
+res://scripts/lowlevel/main.gd

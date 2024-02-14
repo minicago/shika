@@ -5,22 +5,32 @@ var world : World = World.new()
 @onready var world_UI : World_UI = $SubViewportContainer/World
 @onready var homepointer : Homepointer = $Homepointer
 @onready var healthBar : HealthBar = $HealthBar
+var rider_data
+var world_info
 
+func game_init(_rider_data, _world_info):
+	rider_data = _rider_data
+	world_info = _world_info
+
+	
 func _ready():
 	world.world_init("res://tscns/world.tscn",world_UI)
+	world.set_rider_data(rider_data)
+	world.set_world_info(world_info)
 	homepointer.bind(world)
 	healthBar.bind(world)
 	print("OK")
+	
+func game_result():
+	if world.win():
+		return {"result" : "win"}
+	if world.lose():
+		return {"result" : "lose"}
+	return {"result" : "running"}
 
 func _process(delta):
 	if world == null : return
 	$SubViewportContainer/World.size = get_viewport().size
-	if world.win() :
-		all_free()
-		pass
-	elif world.lose():
-		all_free()
-		pass
 	# $SubViewportContainer.rect = ( get_viewport_rect() )
 	pass
 
