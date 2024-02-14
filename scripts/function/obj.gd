@@ -99,7 +99,6 @@ func load_obj_data(name):
 	load_addon(Register_table.obj_data[name]["addon_dic"])
 	load_AI(Register_table.obj_data[name]["AI_dic"])
 	load_bump_handler(Register_table.obj_data[name]["bump_handler_dic"])
-	
 
 ########################################################################
 # bump

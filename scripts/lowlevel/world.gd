@@ -5,6 +5,12 @@ var UI : World_UI
 var function : World_function
 var timestamp = 0
 
+func set_world_info(value :Dictionary):
+	function.set_world_info(value)
+	
+func set_rider_data(value : Dictionary):
+	function.set_rider_data(value)
+
 func get_rider():
 	return function.get_rider()
 	
