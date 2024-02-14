@@ -26,6 +26,9 @@ static func _static_init():
 			"follow_AI_cool_time" : 1.0,
 			"follow_AI_miss_rate" : 0.5,
 			"abandon_dist" : 2000.0,
+			
+			"take_damage" : Register_table.handlers["take_damage"],
+			"die" : Register_table.handlers["die"],
 		},
 		
 		[

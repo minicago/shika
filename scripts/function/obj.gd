@@ -19,16 +19,9 @@ var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 var UI_instance_path
 
-func take_damage(damage):
-	if timer_get("invincible") == 0.0:
-		health -= damage
-		if health < 0 : 
-			health = 0
-			kill()
-		if health > maxhealth :
-			health = maxhealth
-		timer_set("hurt", addon_info.get("hurt_time", 0.0))
-		timer_set("invincible", addon_info.get("invincible_time",0.0))
+func call_handler(name, value):
+	if get_addon_info(name, null) != null:
+		get_addon_info(name).call(self,value)
 
 func kill():
 	lowlevel.kill()
@@ -123,7 +116,7 @@ func get_polygon_in_world():
 # bump_handler:
 
 func allow_bump(collider : Obj):
-	return not banlist.get(collider, false)
+	return not banlist.get(collider, false) and get_addon_info("ban_group", []).find(collider.get_addon_info("type")) == -1 
 	
 ########################################################################
 # timer

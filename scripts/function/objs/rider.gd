@@ -29,7 +29,10 @@ static func _static_init():
 			"spinLoss" : 0.8,
 
 			"hurt_time" : 0.2,
-			"invincible_time" : 1.0,
+			"invincible_time" : 0.2,
+			
+			"take_damage" : Register_table.handlers["take_damage"],
+			"die" : Register_table.handlers["die"],
 		},
 		
 		[

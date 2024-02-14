@@ -43,8 +43,6 @@ static var rider_AI = func(_self:Obj_function ,delta):
 		if (abs(_self.speed.y) < lineResist * rtimes * delta) : _self.speed.y = 0
 		else : if(_self.speed.y > 0) : _self.speed.y -= lineResist * rtimes * delta
 		else : _self.speed.y += lineResist * rtimes * delta
-		
-
 
 static func _static_init():
 	Register_table.AI["rider"] = rider_AI

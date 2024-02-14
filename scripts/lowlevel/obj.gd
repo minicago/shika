@@ -7,8 +7,8 @@ var UI : Obj_UI
 var alive = true
 var timestamp
 
-func take_damage(damage):
-	function.take_damage(damage)
+func call_handler(name, value):
+	function.call_handler(name, value)
 
 func kill():
 	alive = false

@@ -8,7 +8,7 @@ static var bump_handler_home = func(collidee :Obj_function, collider : Obj):
 
 static var bump_handler_monster = func(collidee :Obj_function, collider : Obj):
 	if collider.get_addon_info("type") == "monster":
-		collider.take_damage(collidee.addon_info["attack"])
+		collider.call_handler("take_damage", {"damage" : collidee.get_addon_info("attack")})
 		
 static var bump_handler_once = func(collidee :Obj_function, collider : Obj):
 	if collider.get_addon_info("once", false): 
@@ -31,7 +31,7 @@ static var bump_handler_box = func(collidee :Obj_function, collider : Obj):
 static var bump_handler_rider = func(collidee : Obj_function, collider : Obj):
 	#print("kill")
 	if collider.get_addon_info("type", "") == "rider":
-		collider.take_damage(collidee.get_addon_info("attack"))
+		collider.call_handler("take_damage", {"damage" : collidee.get_addon_info("attack")})
 
 static func _static_init():
 	Register_table.handlers["home"] = bump_handler_home
