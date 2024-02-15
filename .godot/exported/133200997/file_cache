@@ -1,15 +1,17 @@
 res://tests/camera test/camera Test.tscn::4b8fcb77f9303d90791a1452fe725235::1707631409::res://.godot/exported/133200997/export-7d5159ff91cd8c9c323edbd0046d685f-camera Test.scn
-res://tests/world test/world Test.tscn::de2149fd3b395e00589e638b7fcb5ef2::1707631409::res://.godot/exported/133200997/export-80d99d5827d93de3951a2b66737fe7bc-world Test.scn
-res://tscns/objs/rider/glassy.tscn::b88743da5ef0ded54ea762e59761d86c::1707924262::res://.godot/exported/133200997/export-568ddf13853cb4a286fe237b0b9ced6d-glassy.scn
-res://tscns/objs/rider/pain.tscn::622f06ec3e37874f0c7c2415d607a5b3::1707924262::res://.godot/exported/133200997/export-c28ff2148591915f2a47edbf3d6a81f2-pain.scn
+res://tests/world test/world Test.tscn::de2149fd3b395e00589e638b7fcb5ef2::1708015935::res://.godot/exported/133200997/export-80d99d5827d93de3951a2b66737fe7bc-world Test.scn
+res://tscns/objs/rider/glassy.tscn::b88743da5ef0ded54ea762e59761d86c::1708015934::res://.godot/exported/133200997/export-568ddf13853cb4a286fe237b0b9ced6d-glassy.scn
+res://tscns/objs/rider/pain.tscn::622f06ec3e37874f0c7c2415d607a5b3::1708015934::res://.godot/exported/133200997/export-c28ff2148591915f2a47edbf3d6a81f2-pain.scn
 res://tscns/objs/default.tscn::d8c518c3a63abd0c584081bbf370b37c::1707631409::res://.godot/exported/133200997/export-d5b02601cdfbdd995a7b4733d931eb8e-default.scn
-res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1707924262::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
-res://tscns/card.tscn::107011595bd6d8474649ab194c2b6a59::1707631409::res://.godot/exported/133200997/export-66b3142625b69cb3f86ed5988e3c2d78-card.scn
-res://tscns/game.tscn::ede5e53ee6700e778964bfbfa1988191::1707924262::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
-res://tscns/world.tscn::dd5b9aece1970cf78d869225c156af6a::1707924262::res://.godot/exported/133200997/export-b14f3ccc57f2e21d568701abd42f6d84-world.scn
-res://tscns/UIcontrol/healthBar.tscn::6967ae552c79221aaa0f1ae02ecc3923::1707631410::res://.godot/exported/133200997/export-1471093f3e213d4f72d2e4fab4e90b53-healthBar.scn
-res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1707924262::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
-res://tscns/main.tscn::a40a82f7adf3d817fbc1c9e8b6c11c8a::1707927016::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn
-res://tscns/objs/monster/butterfly.tscn::f58090e1a5faa660c2e72aeb853c82ef::1707924274::res://.godot/exported/133200997/export-3d3a9918b456baa1e285a8d5587ffbcf-butterfly.scn
-res://tscns/objs/monster/maggot.tscn::10862238a1651d30834d4e247344f08a::1707924262::res://.godot/exported/133200997/export-6acdcb445802610ecd32697ec76dcd3f-maggot.scn
-res://tscns/objs/monster/spider.tscn::d5b879b1c83f9626572c6c366d4d93ef::1707924262::res://.godot/exported/133200997/export-1d8dda6db072adefdaa68bb07da07180-spider.scn
+res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1708015934::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
+res://tscns/card.tscn::107011595bd6d8474649ab194c2b6a59::1708015935::res://.godot/exported/133200997/export-66b3142625b69cb3f86ed5988e3c2d78-card.scn
+res://tscns/game.tscn::88cd1aa444b317bd4f90047535670695::1708015934::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
+res://tscns/world.tscn::dd5b9aece1970cf78d869225c156af6a::1708015934::res://.godot/exported/133200997/export-b14f3ccc57f2e21d568701abd42f6d84-world.scn
+res://tscns/UIcontrol/healthBar.tscn::6967ae552c79221aaa0f1ae02ecc3923::1708015934::res://.godot/exported/133200997/export-1471093f3e213d4f72d2e4fab4e90b53-healthBar.scn
+res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1708015934::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
+res://tscns/main.tscn::a40a82f7adf3d817fbc1c9e8b6c11c8a::1708016006::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn
+res://tscns/objs/monster/butterfly.tscn::01c4cf3038a987a709defc6a5ef2c528::1708015934::res://.godot/exported/133200997/export-3d3a9918b456baa1e285a8d5587ffbcf-butterfly.scn
+res://tscns/objs/monster/maggot.tscn::774e54c20d5a2f0316c33069b0889442::1708015934::res://.godot/exported/133200997/export-6acdcb445802610ecd32697ec76dcd3f-maggot.scn
+res://tscns/objs/monster/spider.tscn::2f033c1022463cc260e99a118c8030a2::1708015934::res://.godot/exported/133200997/export-1d8dda6db072adefdaa68bb07da07180-spider.scn
+res://tscns/objs/monster/loong.tscn::fb3356311854149b5a4ca746b6159bb9::1708008312::res://.godot/exported/133200997/export-99bddd569849e0213130482dd87cc7c0-loong.scn
+res://tscns/UIcontrol/itemGame.tscn::b8edc1bd79d0de9fd18b995cf3343f87::1708015935::res://.godot/exported/133200997/export-fc6f8e8de2b06df9f00e3796067d1744-itemGame.scn

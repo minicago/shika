@@ -54,12 +54,29 @@ func instance_monster(name = "monster"):
 
 func get_objs() -> Array[Obj]:
 	return lowlevel.get_objs()
+	
+var time_total = 0
 
-func monster_manager():
+func monster_manager(delta):
+	var penalty = 1.0
 	for monster in monsters:
 		if monster == null :
 			monsters.erase(monster)
-	if(monsters.size()<world_info.get("max_monsters",10)): 
+			
+	if(monsters.size() >= world_info.get("max_monsters",10)):
+		penalty *= 3.0
+		
+	if(monsters.size() > world_info.get("max_monsters",10)):
+		for monster in monsters:
+			if not monster.get_addon_info("boss", false) :
+				monsters.erase(monster)
+				monster.kill()
+				break
+			
+	
+	time_total += delta
+	if(time_total > penalty * world_info.get("monster_frequence")):
+		time_total -=  penalty * world_info.get("monster_frequence")
 		var monster_dic = world_info.get("monster_probility",{"monster":100})
 		var maxprob = 0
 		for monster_type in monster_dic:
@@ -81,12 +98,12 @@ func init_manager():
 func function_process(delta):
 	init_manager()
 	Bump_manager.manager_process(get_objs(), delta) 
-	monster_manager()
+	monster_manager(delta)
 
 func all_free():
 	queue_free()
 	for monster in monsters :
-		monster.all_free()
+		if monster != null : monster.all_free()
 	rider.all_free()
 	home.all_free()
 

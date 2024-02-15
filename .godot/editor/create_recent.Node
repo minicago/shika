@@ -1,7 +1,9 @@
+ItemGame
+ProgressBar
+Label
+TextureRect
 Control
 AudioStreamPlayer2D
-TextureRect
-Label
 TextureButton
 GPUParticles2D
 SubViewportContainer
@@ -11,4 +13,3 @@ Node2D
 Obj_UI
 Polygon2D
 CollisionPolygon2D
-Camera2D

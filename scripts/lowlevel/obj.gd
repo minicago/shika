@@ -7,6 +7,9 @@ var UI : Obj_UI
 var alive = true
 var timestamp
 
+func timer_get(key , value):
+	return function.timer_get(key, value)
+
 func call_handler(name, value):
 	function.call_handler(name, value)
 

@@ -3,8 +3,6 @@ class_name Game
 
 var world : World = World.new()
 @onready var world_UI : World_UI = $SubViewportContainer/World
-@onready var homepointer : Homepointer = $Homepointer
-@onready var healthBar : HealthBar = $HealthBar
 var rider_data
 var world_info
 
@@ -17,8 +15,7 @@ func _ready():
 	world.world_init("res://tscns/world.tscn",world_UI)
 	world.set_rider_data(rider_data)
 	world.set_world_info(world_info)
-	homepointer.bind(world)
-	healthBar.bind(world)
+
 	print("OK")
 	
 func game_result():

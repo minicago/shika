@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://csjjxllrc6jr8"]
+
+[ext_resource type="Script" path="res://scripts/UI/itemGame.gd" id="1_4ydgp"]
+[ext_resource type="Texture2D" uid="uid://ftps7c56jq64" path="res://images/NPC/1.png" id="2_1416s"]
+[ext_resource type="Shader" path="res://shaders/cooltime.gdshader" id="2_5268d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xicno"]
+resource_local_to_scene = true
+shader = ExtResource("2_5268d")
+shader_parameter/coolt = 0.99
+
+[sub_resource type="LabelSettings" id="LabelSettings_n0q0m"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="ItemGame" type="Control"]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4ydgp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xicno")
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("2_1416s")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 64.0
+offset_bottom = 127.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Labeltime" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 69.0
+text = "1"
+label_settings = SubResource("LabelSettings_n0q0m")
+horizontal_alignment = 1
+vertical_alignment = 1

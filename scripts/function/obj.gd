@@ -18,10 +18,12 @@ var AI_dic : Dictionary = {}
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 var UI_instance_path
+var AI_name
 
 func call_handler(name, value):
 	if get_addon_info(name, null) != null:
-		get_addon_info(name).call(self,value)
+		for handler in get_addon_info(name, null):
+			handler.call(self,value)
 
 func kill():
 	lowlevel.kill()
@@ -60,6 +62,9 @@ func set_obj_position(pos):
 func get_addon_info(key, default = null):
 	return addon_info.get(key, default)
 	
+func get_item_info(key, default = null):
+	return addon_info.get(AI_name + key, default)
+	
 func get_addon_info_dic():
 	return addon_info
 
@@ -70,8 +75,10 @@ func function_process(delta):
 	for timer in timers:
 		timers[timer] = max(0, timers[timer] - delta)
 	for function in AI_dic:
+		AI_name = function[0]
 		AI_dic[function].call(self, delta)
-	set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
+	if toward.length() > 0.5 :
+		set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass
 
 func bump_handler(collider : Obj):
@@ -133,3 +140,8 @@ func addon_info_append(key, value):
 func UI_instance() -> Obj_UI:
 	var tscn=load(UI_instance_path)
 	return tscn.instantiate()
+	
+func spin(angle : float):
+	toward = toward.rotated(angle)
+	speed = speed.rotated(angle) * get_addon_info("spinLoss", 0.0) + speed * (1 - get_addon_info("spinLoss", 0.0))
+

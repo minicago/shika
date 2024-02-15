@@ -7,7 +7,13 @@ var level = 1
 @onready var gameBegin:TextureButton = $index/gameBegin
 @onready var audioStreamPlayer2D:AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var index = $index
+
+var mycar = Register_table.obj_data["rider"]
+
+
 func _ready():
+	Register_table.equip_item(1, mycar ,Register_table.item_data["blink"])
+	Register_table.equip_item(2, mycar ,Register_table.item_data["rush"])
 	gameBegin.pressed.connect(game_Begin_pressed)
 	pass # Replace with function body.
 

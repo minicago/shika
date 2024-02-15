@@ -2,16 +2,14 @@ extends Control
 class_name HealthBar
 
 @onready var textureProgressBar:TextureProgressBar = $TextureProgressBar
-var father : World
+@export var fatherUI : World_UI
 
 # Called when the node enters the scene tree for the first time.
-func bind(world:World):
-	father = world
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var father = fatherUI.lowlevel
 	if father == null : return
 	var max_value = father.get_rider().function.maxhealth
 	var value = father.get_rider().function.health

@@ -23,4 +23,4 @@ texture = ExtResource("2_vubja")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(6.66667, 8)
-polygon = PackedVector2Array(33.3333, -48, 33.3333, -48, 33.3333, -8, 33.3333, -8, 25.3333, 32, -38.6667, 32, -54.6667, -40, -54.6667, -40, -6.66667, -40, 33.3333, -48)
+polygon = PackedVector2Array(33.3333, -48, 33.3333, -8, 25.3333, 32, -38.6667, 32, -54.6667, -40, -6.66667, -40)

@@ -1,4 +1,4 @@
 res://tscns/main.tscn
 res://shaders/Background.gdshader
-res://shaders/glassy.gdshader
+res://shaders/cooltime.gdshader
 res://scripts/lowlevel/main.gd
