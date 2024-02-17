@@ -14,6 +14,8 @@ void fragment() {
 	if (a / 2.0 / PI < coolt )
 		COLOR.r = 1.0;
 	
+	if (coolt > 0.0) COLOR.a -= 0.3;
+	else COLOR.a -= 0.5;
 	// COLOR = mix(vec4(1.0,0.0,0.0,1.0),COLOR,);
 	// Called for every pixel the material is visible on.
 }

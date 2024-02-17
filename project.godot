@@ -11,12 +11,23 @@ config_version=5
 [application]
 
 config/name="Shika"
+config/name_localized={
+"zh": "如此前行"
+}
 run/main_scene="res://tscns/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
 static_boot="res://scripts/function/staticBoot.gd"
+
+[display]
+
+window/size/mode=2
+
+[editor]
+
+movie_writer/movie_file="C:/Users/byy/Desktop/小游戏/movie.avi"
 
 [importer_defaults]
 
@@ -81,6 +92,21 @@ item2={
 item3={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"echo":false,"script":null)
+]
+}
+item4={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"key_label":0,"unicode":52,"echo":false,"script":null)
+]
+}
+item5={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":53,"key_label":0,"unicode":53,"echo":false,"script":null)
+]
+}
+item6={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":54,"key_label":0,"unicode":54,"echo":false,"script":null)
 ]
 }
 

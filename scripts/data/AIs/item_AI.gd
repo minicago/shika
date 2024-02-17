@@ -11,12 +11,16 @@ static var suicide_AI = func(_self:Obj_function ,delta):
 	_self.call_handler("take_damage", {"damage" : _self.get_addon_info("suicide_damage") * delta, "ignore_invincible" : true})
 	
 static var blink_AI = func(_self:Obj_function, delta):
+	_self.item_info_append("display1", _self.timer_get(_self.AI_name + "cool", 0.0 ))
+	_self.item_info_append("display2", _self.get_item_info("cool_time",10.0))
 	if Input.is_action_just_pressed("item"+_self.AI_name):
 		if _self.timer_get(_self.AI_name + "cool", 0.0 ) == 0.0:
 			_self.set_obj_position( _self.get_obj_position() + _self.get_toward() * _self.get_item_info("blink_dist",50.0) )
 			_self.timer_set(_self.AI_name + "cool", _self.get_item_info("cool_time",10.0) )
 
 static var rush_AI = func(_self:Obj_function, delta):
+	_self.item_info_append("display1", _self.timer_get(_self.AI_name + "cool", 0.0 ))
+	_self.item_info_append("display2", _self.get_item_info("cool_time",10.0))
 	if Input.is_action_just_pressed("item"+_self.AI_name):
 		if _self.timer_get(_self.AI_name + "cool", 0.0 ) == 0.0:
 			_self.speed.x +=  _self.get_item_info("rush_power",800.0)

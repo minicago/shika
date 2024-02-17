@@ -3,7 +3,7 @@ class_name World_info
 
 static func _static_init():
 	Register_table.world_info_dic["level1"]={
-		"max_monsters" : 10,
+		"max_monsters" : 100,
 		"monster_frequence" : 0.3,
 		"home_dist" : 10000,
 		"init_monster" : [
@@ -16,7 +16,7 @@ static func _static_init():
 	}
 
 	Register_table.world_info_dic["level2"]={
-		"max_monsters" : 15,
+		"max_monsters" : 150,
 		"monster_frequence" : 0.3,
 		"home_dist" : 20000,
 		"init_monster" : [
@@ -29,7 +29,7 @@ static func _static_init():
 	}
 
 	Register_table.world_info_dic["level3"]={
-		"max_monsters" : 20,
+		"max_monsters" : 200,
 		"monster_frequence" : 0.3,
 		"home_dist" : 30000,
 		"init_monster" : [
@@ -43,7 +43,7 @@ static func _static_init():
 	}
 
 	Register_table.world_info_dic["level4"]={
-		"max_monsters" : 15,
+		"max_monsters" : 150,
 		"monster_frequence" : 0.3,
 		"home_dist" : 30000,
 		"init_monster" : [
@@ -61,6 +61,15 @@ static func _static_init():
 		"monster_frequence" : 100.0,
 		"home_dist" : 30000,
 		"init_monster" : [
+			"loong",
+			"loong",
+			"loong",
+			"loong",
+			"loong",
+			"loong",
+			"loong",
+			"loong",
+			"loong",
 			"loong",
 			"loong",
 			"loong",

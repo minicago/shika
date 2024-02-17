@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp8lgj8grefmv"]
+
+[ext_resource type="Script" path="res://scripts/UI/displayBlock.gd" id="1_5u804"]
+
+[node name="DisplayBlock" type="Panel"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("1_5u804")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+stretch_mode = 0

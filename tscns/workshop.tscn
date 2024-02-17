@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3nik4k43riu"]
+
+[ext_resource type="PackedScene" uid="uid://c05mfi4ya6dfg" path="res://tscns/UIcontrol/displayBoard.tscn" id="1_ao5uy"]
+[ext_resource type="Script" path="res://scripts/UI/workshop.gd" id="1_eb5qb"]
+[ext_resource type="PackedScene" uid="uid://dn67xi8gwllx" path="res://tscns/UIcontrol/displayRing.tscn" id="1_jp3y0"]
+[ext_resource type="Texture2D" uid="uid://htpev6xopopq" path="res://images/normal/round.png" id="4_joy2u"]
+
+[node name="Workshop" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eb5qb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -209.0
+offset_right = 520.0
+offset_bottom = 263.0
+grow_vertical = 2
+texture = ExtResource("4_joy2u")
+
+[node name="DisplayBoard" parent="." instance=ExtResource("1_ao5uy")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -624.0
+offset_right = 0.0
+offset_bottom = 504.0
+grow_horizontal = 0
+
+[node name="DisplayRing" parent="." instance=ExtResource("1_jp3y0")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 264.0
+offset_right = 264.0
+grow_vertical = 2
+r_dist = 100.0
+
+[node name="DisplayOne" parent="." instance=ExtResource("1_jp3y0")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 234.0
+offset_top = -30.0
+offset_right = 234.0
+offset_bottom = -30.0
+grow_vertical = 2
+scale = Vector2(2, 2)
+item_num = 1
+r_dist = 0.0

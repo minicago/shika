@@ -8,10 +8,15 @@ static func _static_init():
 		"spider",
 		
 		{
+			"texture" : "res://images/monster/spider.png",
+		},
+		
+		{
 			"spinable" : false,
 			"maxhealth" : 100.0,
 			"health" : 100.0,
-			"UI_instance_path" : "res://tscns/objs/monster/spider.tscn"
+			"UI_instance_path" : "res://tscns/objs/monster/spider.tscn",
+			#"texture" : "res://images/monster/spider.png",
 		},
 		
 		{
@@ -52,6 +57,10 @@ static func _static_init():
 
 	Register_table.register_obj_data(
 		"maggot",
+		
+		{
+			"texture" : "res://images/monster/maggot.png",
+		},
 		
 		{
 			"spinable" : true,
@@ -102,6 +111,10 @@ static func _static_init():
 		"butterfly",
 		
 		{
+			"texture" : "res://images/monster/butterfly.png",
+		},
+		
+		{
 			"spinable" : true,
 			"maxhealth" : 100.0,
 			"health" : 100.0,
@@ -144,6 +157,10 @@ static func _static_init():
 
 	Register_table.register_obj_data(
 		"loong",
+		
+		{
+			"texture" : "res://images/monster/loong.png",
+		},
 		
 		{
 			"spinable" : true,

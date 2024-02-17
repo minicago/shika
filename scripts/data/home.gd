@@ -6,11 +6,14 @@ static func _static_init():
 		"home",
 		
 		{
+			"texture" : "res://images/normal/home.png",
+		},
+		
+		{
 			"UI_instance_path" : "res://tscns/objs/home.tscn"
 		},
 		
 		{
-
 			"type" : "home",
 			"once" : true,
 		},

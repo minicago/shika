@@ -18,15 +18,11 @@ static var rider_AI = func(_self:Obj_function ,delta):
 	 
 		
 	if Input.is_action_pressed("left") : 
-		var tmp = _self.spin( - spinRate * delta)
-		#_self.toward = _self.toward.rotated(tmp)
-		#_self.speed = _self.speed.rotated(tmp) * spinLoss + _self.speed * (1 - spinLoss)
+		_self.spin( - spinRate * delta)
 		
 		
 	if Input.is_action_pressed("right") : 
-		var tmp = _self.spin( spinRate * delta)
-		#_self.toward = _self.toward.rotated(tmp)
-		#_self.speed = _self.speed.rotated(tmp) * spinLoss + _self.speed * (1 - spinLoss)
+		_self.spin( spinRate * delta)
 	
 	_self.speed *= exp(- resist * delta)
 	if Input.is_action_pressed("down") :

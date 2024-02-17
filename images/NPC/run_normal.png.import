@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dddk81hjor4qt"
-path="res://.godot/imported/1.png-026bbc68bf35f3c337b8e91d6efd0eee.ctex"
+uid="uid://dsa5qh6awthgs"
+path="res://.godot/imported/run_normal.png-ccfd640251a959883fd79f5bde33ba7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/bike/1.png"
-dest_files=["res://.godot/imported/1.png-026bbc68bf35f3c337b8e91d6efd0eee.ctex"]
+source_file="res://images/NPC/run_normal.png"
+dest_files=["res://.godot/imported/run_normal.png-ccfd640251a959883fd79f5bde33ba7a.ctex"]
 
 [params]
 

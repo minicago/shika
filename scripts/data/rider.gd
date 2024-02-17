@@ -4,8 +4,13 @@ class_name Rider_info
 static func _static_init():
 	Register_table.register_obj_data(
 		"rider",
-		
+
 		{
+			"texture" : "res://images/bike/glassy.png",
+		},
+
+		{
+			#"texture" : "res://images/bike/glassy.png",
 			"spinable" : true,
 			"maxhealth" : 100.0,
 			"health" : 100.0,

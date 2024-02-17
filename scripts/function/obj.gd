@@ -136,6 +136,9 @@ func timer_get(key, value = 0.0):
 	
 func addon_info_append(key, value):
 	addon_info[key] = value
+	
+func item_info_append(key, value):
+	addon_info[AI_name + key] = value
 
 func UI_instance() -> Obj_UI:
 	var tscn=load(UI_instance_path)

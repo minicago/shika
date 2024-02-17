@@ -43,7 +43,7 @@ static var butterfly_AI = func(_self:Obj_function ,delta):
 	if _self.timer_get("butterfly_round",0) > 0.0:
 		_self.speed = Vector2(_self.get_addon_info("butterfly_round_speed") , 0.0)
 		_self.toward = _self.toward.rotated(_self.get_addon_info("rotation_speed") * delta)
-	
+
 	else :
 		_self.speed = Vector2(_self.get_addon_info("butterfly_dash_speed") , 0.0)
 		var world:World = _self.get_father()
@@ -52,20 +52,23 @@ static var butterfly_AI = func(_self:Obj_function ,delta):
 		if (rider_pos - _self.position).length() < _self.get_addon_info("butterfly_round_dist") :
 			_self.timer_set("butterfly_round", _self.get_addon_info("butterfly_round_time"))
 			_self.toward = _self.toward.rotated(- PI / 2)
-			
 
 static var loong_AI = func(_self:Obj_function ,delta):
 
 	if  _self.get_addon_info("follow_monster", null) == null:
 		var world:World = _self.get_father()
 		var follow_pos = world.get_rider().get_obj_position()
-		if (follow_pos - _self.get_obj_position()).length() < _self.get_addon_info("rush_dist", 300.0):
+		if (follow_pos - _self.get_obj_position()).length() < _self.get_addon_info("rush_dist", 800.0):
+			_self.speed.x += _self.get_addon_info("power", 800) * delta
+		var rotate_angle = _self.toward.angle_to( (follow_pos - _self.position ).normalized() )
+		if (abs(rotate_angle) < 0.1 * PI ):
 			_self.speed.x += _self.get_addon_info("power", 800) * delta
 		#_self.addon_info_append("power", 1400)
-		_self.addon_info_append("max_rotate_rate",(randf() * 0.4 + 0.8) * _self.get_addon_info("loong_max_rotate_rate", 0.5 * PI))
+		_self.addon_info_append("max_rotate_rate",_self.get_addon_info("loong_max_rotate_rate", 0.5 * PI))
 	else:
-		_self.speed = _self.get_addon_info("follow_monster", null).speed
-		_self.addon_info_append("max_rotate_rate",10.0 * _self.get_addon_info("__max_rotate_rate", 0.5 * PI))
+		_self.speed = _self.get_addon_info("follow_monster", null).speed + Vector2(1,0)
+		_self.addon_info_append("max_rotate_rate",10.0 * _self.get_addon_info("__max_rotate_rate", 0.5 * PI)
+		)
 
 
 
@@ -76,5 +79,3 @@ static func _static_init():
 	Register_table.AI["abandon"] = abandon_AI
 	Register_table.AI["butterfly"] = butterfly_AI
 	Register_table.AI["loong"] = loong_AI
-	
-	

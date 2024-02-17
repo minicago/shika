@@ -42,13 +42,10 @@ func camera_aim_position(pos : Vector2 ):
 	
 func get_objs() -> Array[Obj]:
 	var ret : Array[Obj] = []
-	
-	if not get_rider().alive: return []
-	#for child in get_children() : 
-	#	print(child)
-	
-	for child:Obj_UI in find_children("*","Obj_UI",false,false) : 
 
+	if not get_rider().alive: return []
+
+	for child:Obj_UI in find_children("*","Obj_UI",false,false) : 
 		if child.lowlevel!=null : 
 			if child.lowlevel.alive : ret.append(child.lowlevel)
 			else :
@@ -59,8 +56,5 @@ func get_objs() -> Array[Obj]:
 func _process(delta):
 	if lowlevel != null : 
 		function_process(delta)
-		if Input.is_action_pressed("click"):
-			camera_aim_position(Vector2(0,0))
-		else:
-			if get_rider() != null :
-				camera_aim_rider()
+		if get_rider() != null :
+			camera_aim_rider()

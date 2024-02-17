@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://c05mfi4ya6dfg"]
+
+[ext_resource type="Script" path="res://scripts/UI/displayBoard.gd" id="1_cswte"]
+[ext_resource type="Texture2D" uid="uid://bwi68ol0vf458" path="res://images/normal/arrow.png" id="2_4wsln"]
+[ext_resource type="Texture2D" uid="uid://dddk81hjor4qt" path="res://images/bike/glassy.png" id="3_8s7b0"]
+[ext_resource type="Texture2D" uid="uid://cme3yxknf4hhu" path="res://images/item/blink.png" id="4_0edbb"]
+
+[node name="DisplayBoard" type="Panel"]
+offset_right = 576.0
+offset_bottom = 512.0
+script = ExtResource("1_cswte")
+
+[node name="down" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 248.0
+offset_right = 4.0
+offset_bottom = 348.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_4wsln")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="rider" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_top = 408.0
+offset_right = -476.0
+offset_bottom = 508.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_8s7b0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="item" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_top = 408.0
+offset_right = -380.0
+offset_bottom = 508.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_0edbb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="up" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 104.0
+offset_right = 98.0
+offset_bottom = 204.0
+grow_horizontal = 0
+rotation = 3.14159
+texture_normal = ExtResource("2_4wsln")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="anch" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_top = 3.0
+offset_right = -576.0
+offset_bottom = 3.0
+grow_horizontal = 0

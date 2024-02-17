@@ -3,8 +3,6 @@ class_name Register_table
 
 static var handlers:Dictionary={}
 
-static var obj_type:Dictionary={}
-
 static var AI:Dictionary={}
 
 static var obj_data : Dictionary = {}
@@ -15,12 +13,14 @@ static var item_data : Dictionary = {}
 
 static func register_obj_data(
 	name,
+	export_dic,
 	normal_dic,
 	addon_dic,
 	AI_list,
 	bump_handler_list
 ):
 	obj_data[name] = {
+		"export_dic":export_dic,
 		"normal_dic":normal_dic,
 		"addon_dic":addon_dic,
 		"AI_dic":{},
@@ -35,11 +35,13 @@ static func register_obj_data(
 
 static func register_item_data(
 	name,
+	export_dic,
 	self_dic,
 	addon_dic,
 	AI_list,
 ):
 	item_data[name] = {
+		"export_dic":export_dic,
 		"self_dic":self_dic,
 		"addon_dic":addon_dic,
 		"AI_dic":{},

@@ -18,17 +18,15 @@ script = ExtResource("1_af18y")
 
 [node name="Homepointer" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("3_1awke")]
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -52.0
-offset_right = -53.0
-offset_bottom = -52.0
+offset_left = -50.0
+offset_top = 51.0
+offset_right = -50.0
+offset_bottom = 51.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 1
 fatherUI = NodePath("../SubViewportContainer/World")
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("3_c1vsl")]
@@ -54,33 +52,74 @@ autoplay = true
 
 [node name="ItemGame" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -304.0
-offset_right = -304.0
-grow_horizontal = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -232.0
+offset_bottom = -232.0
+grow_vertical = 0
 item_num = 1
 fatherUI = NodePath("../SubViewportContainer/World")
 
 [node name="ItemGame2" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -192.0
-offset_right = -192.0
-grow_horizontal = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -232.0
+offset_right = 100.0
+offset_bottom = -232.0
+grow_vertical = 0
 item_num = 2
+fatherUI = NodePath("../SubViewportContainer/World")
+
+[node name="ItemGame5" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -108.0
+offset_right = 100.0
+offset_bottom = -108.0
+grow_vertical = 0
+item_num = 5
 fatherUI = NodePath("../SubViewportContainer/World")
 
 [node name="ItemGame3" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -88.0
-offset_right = -88.0
-grow_horizontal = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -232.0
+offset_right = 200.0
+offset_bottom = -232.0
+grow_vertical = 0
 item_num = 3
+fatherUI = NodePath("../SubViewportContainer/World")
+
+[node name="ItemGame6" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -108.0
+offset_right = 200.0
+offset_bottom = -108.0
+grow_vertical = 0
+item_num = 6
+fatherUI = NodePath("../SubViewportContainer/World")
+
+[node name="ItemGame4" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_bottom = -108.0
+grow_vertical = 0
+item_num = 4
 fatherUI = NodePath("../SubViewportContainer/World")

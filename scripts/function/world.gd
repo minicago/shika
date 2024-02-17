@@ -52,6 +52,9 @@ func instance_monster(name = "monster"):
 	monster.call_handler("monster_init" , monsters)
 	return monster
 
+func instance_bullet():
+	pass
+
 func get_objs() -> Array[Obj]:
 	return lowlevel.get_objs()
 	
@@ -63,10 +66,10 @@ func monster_manager(delta):
 		if monster == null :
 			monsters.erase(monster)
 			
-	if(monsters.size() >= world_info.get("max_monsters",10)):
-		penalty *= 3.0
+	if monsters.size() >= world_info.get("max_monsters",10):
+		penalty *= 5.0 + (monsters.size() - world_info.get("max_monsters",10))
 		
-	if(monsters.size() > world_info.get("max_monsters",10)):
+	if monsters.size() > world_info.get("max_monsters",10) + 3 :
 		for monster in monsters:
 			if not monster.get_addon_info("boss", false) :
 				monsters.erase(monster)
@@ -75,7 +78,7 @@ func monster_manager(delta):
 			
 	
 	time_total += delta
-	if(time_total > penalty * world_info.get("monster_frequence")):
+	if time_total > penalty * world_info.get("monster_frequence"):
 		time_total -=  penalty * world_info.get("monster_frequence")
 		var monster_dic = world_info.get("monster_probility",{"monster":100})
 		var maxprob = 0

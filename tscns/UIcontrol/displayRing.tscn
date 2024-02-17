@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn67xi8gwllx"]
+
+[ext_resource type="Script" path="res://scripts/UI/displayRing.gd" id="1_3b7v7"]
+
+[node name="DisplayRing" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3b7v7")
+
+[node name="anch" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

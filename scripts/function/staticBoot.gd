@@ -19,12 +19,13 @@ static func infoboot():
 	Item_info
 	Monster_info
 	Rider_info
+	
+	Userdata.all_load()
 	print("Info boot finished")
 
 static func _static_init():
-	print(Register_table.AI)
 	AIboot()
 	handlerboot()
-	
 	infoboot()
+	
 	

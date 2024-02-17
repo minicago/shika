@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0l8qi3y8vpqx"]
+[gd_scene load_steps=11 format=3 uid="uid://b0l8qi3y8vpqx"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/main.gd" id="1_cjdlo"]
 [ext_resource type="Texture2D" uid="uid://ckjh73eo6gi2h" path="res://images/NPC/taxi_pressed.png" id="2_dvauj"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://dioul6pbko3yi" path="res://voices/try.mp3" id="5_w54yq"]
 [ext_resource type="Texture2D" uid="uid://cfaq75clwg3ri" path="res://images/NPC/workshop_normal.png" id="6_6m4u7"]
 [ext_resource type="Texture2D" uid="uid://dcsfw5v6cwdui" path="res://images/NPC/workshop_pressed.png" id="7_wnsa3"]
+[ext_resource type="PackedScene" uid="uid://dk3nik4k43riu" path="res://tscns/workshop.tscn" id="8_i0rtn"]
+[ext_resource type="Texture2D" uid="uid://dsa5qh6awthgs" path="res://images/NPC/run_normal.png" id="9_0leu2"]
+[ext_resource type="Texture2D" uid="uid://cp80pgonjw557" path="res://images/NPC/run_pressed.png" id="10_hwcw1"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -26,8 +29,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -38,22 +39,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 440.0
-offset_top = 192.0
-offset_right = 696.0
-offset_bottom = 448.0
+offset_left = -136.0
+offset_top = -148.0
+offset_right = 120.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0s3ke")
 
-[node name="workshop" type="TextureButton" parent="index"]
+[node name="workshopbutton" type="TextureButton" parent="index"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 840.0
-offset_right = 1211.0
-offset_bottom = 330.0
+offset_left = -280.0
+offset_top = -3.0
+offset_right = 91.0
+offset_bottom = 327.0
 grow_horizontal = 0
 texture_normal = ExtResource("6_6m4u7")
 texture_hover = ExtResource("7_wnsa3")
@@ -63,9 +65,28 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 416.0
+offset_top = -239.0
 offset_right = 218.0
-offset_bottom = 651.0
+offset_bottom = -4.0
 grow_vertical = 0
 texture_normal = ExtResource("2_imniw")
 texture_hover = ExtResource("2_dvauj")
+
+[node name="Workshop" parent="index" instance=ExtResource("8_i0rtn")]
+visible = false
+layout_mode = 1
+
+[node name="runaway" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -235.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9_0leu2")
+texture_hover = ExtResource("10_hwcw1")
