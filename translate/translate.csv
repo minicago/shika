@@ -1,0 +1,7 @@
+keys,zh,en
+default,......,......
+help,方向键控制移动，数字键使用物品,Use arrow key to control your car. Use number key to use items
+ka_hello,你好,Hello
+burning_descript,灼烧你的敌人,burning
+blink_descript,闪现{blink_dist}距离\n冷却{cool_time}秒,
+blink,闪现,

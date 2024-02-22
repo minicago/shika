@@ -110,6 +110,10 @@ item6={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translate/translate.en.translation", "res://translate/translate.zh.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,21 +1,23 @@
 res://tests/camera test/camera Test.tscn::4b8fcb77f9303d90791a1452fe725235::1707631409::res://.godot/exported/133200997/export-7d5159ff91cd8c9c323edbd0046d685f-camera Test.scn
 res://tests/world test/world Test.tscn::de2149fd3b395e00589e638b7fcb5ef2::1708176677::res://.godot/exported/133200997/export-80d99d5827d93de3951a2b66737fe7bc-world Test.scn
 res://tscns/objs/rider/glassy.tscn::08d2b4044fb4d452810b30948d531b41::1708175256::res://.godot/exported/133200997/export-568ddf13853cb4a286fe237b0b9ced6d-glassy.scn
-res://tscns/objs/rider/pain.tscn::622f06ec3e37874f0c7c2415d607a5b3::1708196774::res://.godot/exported/133200997/export-c28ff2148591915f2a47edbf3d6a81f2-pain.scn
+res://tscns/objs/rider/pain.tscn::622f06ec3e37874f0c7c2415d607a5b3::1708413442::res://.godot/exported/133200997/export-c28ff2148591915f2a47edbf3d6a81f2-pain.scn
 res://tscns/objs/default.tscn::d8c518c3a63abd0c584081bbf370b37c::1708176678::res://.godot/exported/133200997/export-d5b02601cdfbdd995a7b4733d931eb8e-default.scn
-res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1708196775::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
-res://tscns/card.tscn::107011595bd6d8474649ab194c2b6a59::1708196775::res://.godot/exported/133200997/export-66b3142625b69cb3f86ed5988e3c2d78-card.scn
-res://tscns/game.tscn::f2b96153f8cdbb4b9b8fc54675db5747::1708196774::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
-res://tscns/world.tscn::dd5b9aece1970cf78d869225c156af6a::1708196774::res://.godot/exported/133200997/export-b14f3ccc57f2e21d568701abd42f6d84-world.scn
-res://tscns/UIcontrol/healthBar.tscn::6967ae552c79221aaa0f1ae02ecc3923::1708196774::res://.godot/exported/133200997/export-1471093f3e213d4f72d2e4fab4e90b53-healthBar.scn
-res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1708196774::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
-res://tscns/main.tscn::d7b037ef6e9b34515dc07cdf8fba3ff7::1708196774::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn
+res://tscns/objs/home.tscn::222f19fa42f98682c29843cccc6988ac::1708413442::res://.godot/exported/133200997/export-272e575f56c2bd4b9b37fa5cb78ffb10-home.scn
+res://tscns/card.tscn::107011595bd6d8474649ab194c2b6a59::1708413442::res://.godot/exported/133200997/export-66b3142625b69cb3f86ed5988e3c2d78-card.scn
+res://tscns/game.tscn::f2b96153f8cdbb4b9b8fc54675db5747::1708413441::res://.godot/exported/133200997/export-7c6ea05a82eb70b199c073d0db611a64-game.scn
+res://tscns/world.tscn::dd5b9aece1970cf78d869225c156af6a::1708413441::res://.godot/exported/133200997/export-b14f3ccc57f2e21d568701abd42f6d84-world.scn
+res://tscns/UIcontrol/healthBar.tscn::6967ae552c79221aaa0f1ae02ecc3923::1708413441::res://.godot/exported/133200997/export-1471093f3e213d4f72d2e4fab4e90b53-healthBar.scn
+res://tscns/UIcontrol/homepointer.tscn::ff600b504d37790b3a205805781b39fa::1708413441::res://.godot/exported/133200997/export-309631800d8987d44c13560dcb94f88b-homepointer.scn
+res://tscns/main.tscn::d7b037ef6e9b34515dc07cdf8fba3ff7::1708413441::res://.godot/exported/133200997/export-d8e158bd8a4e7aef0232d0fabb0aae69-main.scn
 res://tscns/objs/monster/butterfly.tscn::01c4cf3038a987a709defc6a5ef2c528::1708147597::res://.godot/exported/133200997/export-3d3a9918b456baa1e285a8d5587ffbcf-butterfly.scn
 res://tscns/objs/monster/maggot.tscn::774e54c20d5a2f0316c33069b0889442::1708147597::res://.godot/exported/133200997/export-6acdcb445802610ecd32697ec76dcd3f-maggot.scn
 res://tscns/objs/monster/spider.tscn::2f033c1022463cc260e99a118c8030a2::1708147597::res://.godot/exported/133200997/export-1d8dda6db072adefdaa68bb07da07180-spider.scn
 res://tscns/objs/monster/loong.tscn::fb3356311854149b5a4ca746b6159bb9::1708008312::res://.godot/exported/133200997/export-99bddd569849e0213130482dd87cc7c0-loong.scn
-res://tscns/UIcontrol/itemGame.tscn::b3ce920acacd2b001e92cca23bff5086::1708196774::res://.godot/exported/133200997/export-fc6f8e8de2b06df9f00e3796067d1744-itemGame.scn
-res://tscns/UIcontrol/displayBlock.tscn::5a3e31b7058c7ab63f83248fdbaef859::1708196775::res://.godot/exported/133200997/export-42e31609cda2c320ac4aeb251dcb10bd-displayBlock.scn
-res://tscns/UIcontrol/displayBoard.tscn::3f5fd857ef8853107a0e94be7dfc7e4e::1708196775::res://.godot/exported/133200997/export-37d8fb399b5718f30fcf00a6675b3442-displayBoard.scn
-res://tscns/UIcontrol/displayRing.tscn::137d099d76a3e88aca99d20b4f735c9b::1708196774::res://.godot/exported/133200997/export-61f6e83784b40b9e0f949e5e9ee4fd5d-displayRing.scn
-res://tscns/workshop.tscn::82ea5d80117062655db9bcc6943682d0::1708196785::res://.godot/exported/133200997/export-ab26760969961c2365bb12a294bf6e96-workshop.scn
+res://tscns/UIcontrol/itemGame.tscn::b3ce920acacd2b001e92cca23bff5086::1708413441::res://.godot/exported/133200997/export-fc6f8e8de2b06df9f00e3796067d1744-itemGame.scn
+res://tscns/UIcontrol/displayBlock.tscn::5a3e31b7058c7ab63f83248fdbaef859::1708413442::res://.godot/exported/133200997/export-42e31609cda2c320ac4aeb251dcb10bd-displayBlock.scn
+res://tscns/UIcontrol/displayBoard.tscn::3f5fd857ef8853107a0e94be7dfc7e4e::1708413442::res://.godot/exported/133200997/export-37d8fb399b5718f30fcf00a6675b3442-displayBoard.scn
+res://tscns/UIcontrol/displayRing.tscn::137d099d76a3e88aca99d20b4f735c9b::1708413441::res://.godot/exported/133200997/export-61f6e83784b40b9e0f949e5e9ee4fd5d-displayRing.scn
+res://tscns/workshop.tscn::82ea5d80117062655db9bcc6943682d0::1708413442::res://.godot/exported/133200997/export-ab26760969961c2365bb12a294bf6e96-workshop.scn
+res://tscns/NPC.tscn::60f348fdf375f88ec8759016d90ded24::1708413442::res://.godot/exported/133200997/export-7eac8990799e2cb05eaa0490bdbf6f99-NPC.scn
+res://tscns/picked.tscn::21edfd5c16fa27cd472bcc0e994d4195::1708413442::res://.godot/exported/133200997/export-6b68150692ca47834e6ac3c582a93063-picked.scn

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftps7c56jq64"
-path="res://.godot/imported/1.png-5d1d91a022637383c28b798a0b6d1c86.ctex"
+uid="uid://bxyydy1hn3csp"
+path="res://.godot/imported/radiance.png-f58fb80cd8df2b5816fb7d087c6beb50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/NPC/1.png"
-dest_files=["res://.godot/imported/1.png-5d1d91a022637383c28b798a0b6d1c86.ctex"]
+source_file="res://images/item/radiance.png"
+dest_files=["res://.godot/imported/radiance.png-f58fb80cd8df2b5816fb7d087c6beb50.ctex"]
 
 [params]
 

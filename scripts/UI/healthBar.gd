@@ -15,7 +15,7 @@ func _process(delta):
 	var value = father.get_rider().function.health
 	textureProgressBar.max_value=max_value
 	textureProgressBar.value=value
-	if value < 0.15*max_value :
+	if value < 0.15 * max_value :
 		modulate.s = 100.0
 		modulate.a = sin(Time.get_ticks_msec() / 500.0) * 0.4 + 0.6
 	else:

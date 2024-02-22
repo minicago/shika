@@ -86,8 +86,8 @@ static func _static_init():
 			"abandon_dist" : 2000.0,
 			#"suicide_damage" : 20.0,
 			
-			"take_damage" : [Register_table.handlers["take_damage"]],
-			"die" : [Register_table.handlers["die"]],
+			"take_damage" : ["take_damage"],
+			"die" : ["die"],
 		},
 		
 		[
@@ -136,8 +136,8 @@ static func _static_init():
 			"butterfly_round_speed" : 2000.0,
 			"die_call" : ["maggot"],
 			
-			"take_damage" : [Register_table.handlers["take_damage"]],
-			"die" : [Register_table.handlers["die_call"]],
+			"take_damage" : ["take_damage"],
+			"die" : ["die_call"],
 			 
 		},
 		
@@ -188,9 +188,9 @@ static func _static_init():
 			#"abandon_dist" : 2000.0,
 			#"suicide_damage" : 20.0,
 			
-			"take_damage" : [Register_table.handlers["take_damage"]],
-			"die" : [Register_table.handlers["die"]],
-			"monster_init" : [Register_table.handlers["loong_init"]],
+			"take_damage" : ["take_damage"],
+			"die" : ["die"],
+			"monster_init" : ["loong_init"],
 		},
 		
 		[

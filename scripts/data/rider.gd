@@ -36,8 +36,8 @@ static func _static_init():
 			"hurt_time" : 0.2,
 			"invincible_time" : 0.2,
 			
-			"take_damage" : [Register_table.handlers["take_damage"]],
-			"die" : [Register_table.handlers["die"]],
+			"take_damage" : ["take_damage"],
+			"die" : ["die"],
 		},
 		
 		[

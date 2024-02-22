@@ -22,7 +22,6 @@ script = ExtResource("1_cjdlo")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w54yq")
-autoplay = true
 
 [node name="index" type="Control" parent="."]
 layout_mode = 1
@@ -77,7 +76,6 @@ visible = false
 layout_mode = 1
 
 [node name="runaway" type="TextureButton" parent="."]
-z_index = 2
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

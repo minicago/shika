@@ -7,12 +7,13 @@ static func _static_init():
 
 		{
 			"texture" : "res://images/item/blink.png",
+			"descript" : "blink_descript",
 		},
 
 		{
 			"texture" : "res://images/item/blink.png",
 			"cool_time" : 10.0,
-			"blink_dist" : 200.0,
+			"blink_dist" : 500.0,
 		},
 
 		{
@@ -30,6 +31,7 @@ static func _static_init():
 
 		{
 			"texture" : "res://images/item/rush.png",
+			"descript" : "rush_descript",
 		},
 
 		{
@@ -44,6 +46,29 @@ static func _static_init():
 		
 		[
 			"rush",
+		],
+	)
+	
+	Register_table.register_item_data(
+		"radiance",
+
+		{
+			"texture" : "res://images/item/radiance.png",
+			"descript" : "radiance_descript",
+		},
+
+		{
+			"texture" : "res://images/item/radiance.png",
+			"attack" : 15.0,
+			"show_cool": false,
+		},
+		
+		{
+
+		},
+		
+		[
+			"burning",
 		],
 	)
 	print("Item function static init done")

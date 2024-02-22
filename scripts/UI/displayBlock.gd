@@ -23,13 +23,8 @@ func _process(delta):
 	var texture_dic = father.texture_dic
 	if list == null or texture_dic == null : return
 	
-	# 
-	textureButton.texture_normal =  load("res://images/item/default.png")
+	textureButton.texture_normal = load("res://images/item/default.png")
 	if block_offset + father.block_offset  < list.size(): 
-		#if list.size() == 1 : 
-		#print(list.size())
-			#print(texture_dic)
-		#print(list[block_offset + father.block_offset]["name"])
 		if list[block_offset + father.block_offset] != null :
 			if texture_dic.get( list[block_offset + father.block_offset]["name"] ) != null :
 				textureButton.texture_normal = load(texture_dic[ list[block_offset + father.block_offset]["name"] ] ["export_dic"] ["texture"])

@@ -4,6 +4,7 @@ class_name Userdata
 static var common_data:Dictionary = {}
 static var package_item:Dictionary = {}
 static var riders:Dictionary = {}
+static var NPC:Dictionary = {}
 
 static func load_dic(dic, num):
 	var list:Array = dic.keys()
@@ -34,9 +35,11 @@ static func all_save():
 	save_file("user://package_item.txt", package_item)
 	save_file("user://common_data.txt", common_data)
 	save_file("user://riders.txt", riders)
+	save_file("user://NPC.txt", NPC)
 
 static func all_load():
 	print("load")
 	load_file("user://package_item.txt", package_item, {"package":[{"name" : "rush"}, {"name" : "blink"},]})
 	load_file("user://common_data.txt", common_data)
-	load_file("user://riders.txt", riders, {"riders":[{"name" : "rider"},]})
+	load_file("user://riders.txt", riders, {"riders":[{"name" : "rider"}, ], "picked":0})
+	load_file("user://NPC.txt", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})

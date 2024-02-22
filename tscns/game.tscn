@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw1oyaalnb623"]
+[gd_scene load_steps=9 format=3 uid="uid://cw1oyaalnb623"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/game.gd" id="1_af18y"]
 [ext_resource type="PackedScene" uid="uid://otrd3idnjn42" path="res://tscns/world.tscn" id="1_wa883"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://blg0dgii3unks" path="res://tscns/UIcontrol/healthBar.tscn" id="3_c1vsl"]
 [ext_resource type="AudioStream" uid="uid://di16i5fl75r21" path="res://voices/main.mp3" id="5_jqtff"]
 [ext_resource type="PackedScene" uid="uid://csjjxllrc6jr8" path="res://tscns/UIcontrol/itemGame.tscn" id="6_1kw2o"]
+[ext_resource type="Texture2D" uid="uid://dsa5qh6awthgs" path="res://images/NPC/run_normal.png" id="7_vxnj6"]
+[ext_resource type="Texture2D" uid="uid://cp80pgonjw557" path="res://images/NPC/run_pressed.png" id="8_px3u2"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -123,3 +125,17 @@ offset_bottom = -108.0
 grow_vertical = 0
 item_num = 4
 fatherUI = NodePath("../SubViewportContainer/World")
+
+[node name="runaway" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -235.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("7_vxnj6")
+texture_hover = ExtResource("8_px3u2")

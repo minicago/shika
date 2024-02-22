@@ -9,21 +9,17 @@ var game : Game
 @onready var runaway:TextureButton = $runaway
 @onready var audioStreamPlayer2D:AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var index = $index
+var picker
 
 var mycar
 
 func runaway_pressed():
-	if game != null:
-		var result = game.game_result()
-		if result.get("result", "running") == "running" :
-			remove_child(game)
-			game.all_free()
-			index.visible = true
-			audioStreamPlayer2D.stream_paused = false
-			Userdata.all_save()
-			return
 	if workshop.visible:
 		workshop.visible = false
+		Userdata.all_save()
+		return
+	if picker != null:
+		picker.queue_free()
 		Userdata.all_save()
 		return
 	
@@ -41,33 +37,10 @@ func _ready():
 	pass # Replace with function body.
 
 func game_Begin_pressed():
-	if game != null : game.all_free()
-	game = preload("res://tscns/game.tscn").instantiate()
-	var car_info = Userdata.riders["riders"][Userdata.riders.get("picked",0)]
-	mycar = Register_table.obj_data[car_info["name"]].duplicate()
-	for i in range(0,car_info.get("items").size()):
-		if car_info["items"][i] != null:
-			Register_table.equip_item(i, mycar, Register_table.item_data [car_info["items"][i]["name"]] )
-	game.game_init(mycar, Register_table.world_info_dic["level"+str(Userdata.common_data.get("level", 1))])
-	index.add_sibling(game)
-	index.visible = false
-	audioStreamPlayer2D.stream_paused = true
-	
-func game_manager():
-	if game != null:
-		var result = game.game_result()
-		if result.get("result", "running") != "running" :
-			remove_child(game)
-			game.all_free()
-			index.visible = true
-			audioStreamPlayer2D.stream_paused = false
-			if result.get("result") == "win" :
-				Userdata.common_data["level"] = Userdata.common_data.get("level", 1) + 1
-				if Userdata.common_data.get("level", 1) > 5 : Userdata.common_data["level"] = 5
-			Userdata.all_save()
-			
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	picker = preload("res://tscns/picker.tscn").instantiate()
+	index.add_sibling(picker)
+
 func _process(delta):
 	#index.size = 
-	game_manager()
+	#game_manager()
 	pass

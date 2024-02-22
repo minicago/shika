@@ -81,16 +81,8 @@ func monster_manager(delta):
 	if time_total > penalty * world_info.get("monster_frequence"):
 		time_total -=  penalty * world_info.get("monster_frequence")
 		var monster_dic = world_info.get("monster_probility",{"monster":100})
-		var maxprob = 0
-		for monster_type in monster_dic:
-			maxprob += monster_dic[monster_type]
-		var prob = randi_range(0 , maxprob - 1)
-		for monster_type in monster_dic:
-			if prob < monster_dic[monster_type]:
-				instance_monster(monster_type)
-				break
-			else :
-				prob -= monster_dic[monster_type]
+		instance_monster(Register_table.rand_from_dic(monster_dic) )
+
 
 func init_manager():
 	if  init_flag :

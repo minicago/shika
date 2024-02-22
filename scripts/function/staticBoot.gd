@@ -19,6 +19,8 @@ static func infoboot():
 	Item_info
 	Monster_info
 	Rider_info
+	Dialogue_info
+	NPC_info
 	
 	Userdata.all_load()
 	print("Info boot finished")

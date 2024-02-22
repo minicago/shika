@@ -11,6 +11,10 @@ static var world_info_dic : Dictionary = {}
 
 static var item_data : Dictionary = {}
 
+static var dialogue_data : Dictionary = {}
+
+static var NPC_data : Dictionary = {}
+
 static func register_obj_data(
 	name,
 	export_dic,
@@ -56,6 +60,17 @@ static func equip_item(Num : int , dic : Dictionary , item_dic : Dictionary):
 	for key in item_dic["self_dic"]:
 		dic["addon_dic"][str(Num) + key] = item_dic["self_dic"][key]
 	for key in item_dic["addon_dic"]:
-		dic["addon_info"][key] = dic["addon_dic"].get(key, 0.0) +  item_dic["addon_dic"][key]
+		dic["addon_dic"][key] = dic["addon_dic"].get(key, 0.0) +  item_dic["addon_dic"][key]
 	pass
 
+static func rand_from_dic(dic:Dictionary):
+	var maxprob = 0
+	for type in dic:
+		maxprob += dic[type]
+	var prob = randi_range(0 , maxprob - 1)
+	for type in dic:
+		if prob < dic[type]:
+			return type
+			break
+		else :
+			prob -= dic[type]

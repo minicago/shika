@@ -23,7 +23,7 @@ var AI_name
 func call_handler(name, value):
 	if get_addon_info(name, null) != null:
 		for handler in get_addon_info(name, null):
-			handler.call(self,value)
+			Register_table.handlers[handler].call(self,value)
 
 func kill():
 	lowlevel.kill()

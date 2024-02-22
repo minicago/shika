@@ -2,10 +2,11 @@ extends Node
 class_name Item_AI
 	
 static var burning_AI = func(_self:Obj_function ,delta):
+	_self.item_info_append("display1", _self.get_item_info("attack", 0.0))
 	var world:World = _self.lowlevel.father
 	for obj in world.get_objs():
 		if obj.get_addon_info("type") == "monster" and (obj.get_obj_position() - _self.get_obj_position()).length() < 500.0:
-			obj.take_damage(_self.get_addon_info("attack") * delta * 0.01)
+			obj. call_handler("take_damage", {"damage" : _self.get_item_info("attack", 0.0) * delta, "ignore_invincible" : true , "ignore_ammor" : INF})
 			
 static var suicide_AI = func(_self:Obj_function ,delta):
 	_self.call_handler("take_damage", {"damage" : _self.get_addon_info("suicide_damage") * delta, "ignore_invincible" : true})

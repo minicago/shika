@@ -13,6 +13,9 @@ shader_parameter/size = null
 script = ExtResource("1_iwmv8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Background" type="TextureRect" parent="Camera2D"]
 z_index = -1
