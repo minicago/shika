@@ -9,13 +9,13 @@ func get_speed():
 
 func get_real_speed():
 	return lowlevel.get_real_speed()
-	
+
 func get_toward():
 	return lowlevel.get_toward()
-	
+
 func get_obj_position():
 	return lowlevel.get_obj_position()
-	
+
 func get_polygon() -> PackedVector2Array :
 	return Transform2D(0.0,scale * polygon.scale,0.0,Vector2.ZERO) * polygon.polygon
 	
@@ -24,6 +24,9 @@ func get_func_modulate():
 
 func set_obj_position(pos : Vector2):
 	lowlevel.set_obj_position(pos)
+	
+func get_addon_info(key, value):
+	return lowlevel.get_addon_info(key, value)
 	
 func function_process(delta):
 	return lowlevel.function_process(delta)

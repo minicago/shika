@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkr408gibvxul"]
 
-[ext_resource type="Script" path="res://scripts/UI/picked.gd" id="1_2ieoh"]
+[ext_resource type="Script" path="res://scripts/UI/picker.gd" id="1_kam6j"]
 
 [node name="Picker" type="Panel"]
 anchors_preset = 15
@@ -8,7 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2ieoh")
+script = ExtResource("1_kam6j")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

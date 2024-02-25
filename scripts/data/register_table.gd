@@ -18,14 +18,14 @@ static var NPC_data : Dictionary = {}
 static func register_obj_data(
 	name,
 	export_dic,
-	normal_dic,
+	#normal_dic,
 	addon_dic,
 	AI_list,
 	bump_handler_list
 ):
 	obj_data[name] = {
 		"export_dic":export_dic,
-		"normal_dic":normal_dic,
+		#"normal_dic":normal_dic,
 		"addon_dic":addon_dic,
 		"AI_dic":{},
 		"bump_handler_dic":{},
@@ -74,3 +74,13 @@ static func rand_from_dic(dic:Dictionary):
 			break
 		else :
 			prob -= dic[type]
+
+static func dic_format(str:String , dic:Dictionary , prefix = ""):
+	#print (str , dic ,prefix)
+	for key in dic :
+		if typeof(key) != TYPE_STRING: continue
+		if typeof(dic[key]) == TYPE_DICTIONARY:
+			str = dic_format(str, dic[key] , prefix + key + "__")
+		else :
+			str = str.format({prefix + key : dic[key]})
+	return str

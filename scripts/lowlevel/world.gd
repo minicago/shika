@@ -29,6 +29,10 @@ func instance_home():
 func instance_monster(name):
 	return function.instance_monster(name)
 	pass
+	
+func instance_bullet(name, dic = {}):
+	return function.instance_bullet(name, dic)
+	pass
 
 func lose():
 	return function.lose()

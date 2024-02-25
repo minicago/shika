@@ -2,7 +2,7 @@ extends Node
 class_name World_info
 
 static func _static_init():
-	Register_table.world_info_dic["level1"]={
+	Register_table.world_info_dic["minicago0"]={
 		"max_monsters" : 100,
 		"monster_frequence" : 0.3,
 		"home_dist" : 10000,
@@ -10,12 +10,12 @@ static func _static_init():
  
 		],
 		"monster_probility" :{
-			"maggot" : 1,
+			"rushing_car" : 1,
 		},
 		
 	}
 
-	Register_table.world_info_dic["level2"]={
+	Register_table.world_info_dic["minicago1"]={
 		"max_monsters" : 150,
 		"monster_frequence" : 0.3,
 		"home_dist" : 20000,
@@ -23,12 +23,13 @@ static func _static_init():
 
 		],
 		"monster_probility" :{
-			"spider" : 1,
+			"rushing_car" : 1,
+			"spinning_car" : 1,
 		},
 		
 	}
 
-	Register_table.world_info_dic["level3"]={
+	Register_table.world_info_dic["minicago2"]={
 		"max_monsters" : 200,
 		"monster_frequence" : 0.3,
 		"home_dist" : 30000,
@@ -36,13 +37,13 @@ static func _static_init():
 
 		],
 		"monster_probility" :{
-			"spider" : 1,
-			"maggot" : 1,
+			"tank" : 1,
+			"rushing_car" : 3,
 		},
 		
 	}
 
-	Register_table.world_info_dic["level4"]={
+	Register_table.world_info_dic["minicago3"]={
 		"max_monsters" : 150,
 		"monster_frequence" : 0.3,
 		"home_dist" : 30000,
@@ -50,15 +51,15 @@ static func _static_init():
 
 		],
 		"monster_probility" :{
-			"maggot" : 3,
-			"butterfly" : 1,
+			"oil_car" : 1,
+			"rushing_car" : 1,
 		},
 		
 	}
 	
-	Register_table.world_info_dic["level5"]={
+	Register_table.world_info_dic["minicago4"]={
 		"max_monsters" : 1,
-		"monster_frequence" : 100.0,
+		"monster_frequence" : INF,
 		"home_dist" : 30000,
 		"init_monster" : [
 			"loong",

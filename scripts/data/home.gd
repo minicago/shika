@@ -10,10 +10,7 @@ static func _static_init():
 		},
 		
 		{
-			"UI_instance_path" : "res://tscns/objs/home.tscn"
-		},
-		
-		{
+			"UI_instance_path" : "res://tscns/objs/home.tscn",
 			"type" : "home",
 			"once" : true,
 		},

@@ -68,6 +68,7 @@ func obj_init(func_type : String ,binder : Obj_UI = null , father = null):
 	function.load_obj_data(func_type)
 	if binder == null :
 		UI = function.UI_instance()
+		UI.set_position(Vector2(-INF, -INF))
 		if father != null : father.UI.add_child(UI)
 	else : 
 		UI = binder

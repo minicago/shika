@@ -39,7 +39,7 @@ static func all_save():
 
 static func all_load():
 	print("load")
-	load_file("user://package_item.txt", package_item, {"package":[{"name" : "rush"}, {"name" : "blink"},]})
-	load_file("user://common_data.txt", common_data)
-	load_file("user://riders.txt", riders, {"riders":[{"name" : "rider"}, ], "picked":0})
+	load_file("user://package_item.txt", package_item, {"package":[],"ammo":{}})
+	load_file("user://common_data.txt", common_data, {"fate" : 0,})
+	load_file("user://riders.txt", riders, {"riders":[{"name" : "glassy"}, ], "picked":0})
 	load_file("user://NPC.txt", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})

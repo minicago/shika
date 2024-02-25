@@ -36,7 +36,9 @@ static var maggot_AI = func(_self:Obj_function ,delta):
 static var abandon_AI = func(_self:Obj_function ,delta):
 	var world:World = _self.get_father()
 	var rider_pos = world.get_rider().get_obj_position()
-	if (_self.position-rider_pos).length() > _self.get_addon_info("abandon_dist") :
+	if (_self.position-rider_pos).length() > _self.get_addon_info("abandon_dist", 2000.0) :
+		_self.kill()
+	if _self.timer_get("life_time", 1.0) <= 0.0 :
 		_self.kill()
 		
 static var butterfly_AI = func(_self:Obj_function ,delta):
@@ -70,6 +72,20 @@ static var loong_AI = func(_self:Obj_function ,delta):
 		_self.addon_info_append("max_rotate_rate",10.0 * _self.get_addon_info("__max_rotate_rate", 0.5 * PI)
 		)
 
+static var spin_AI = func(_self:Obj_function ,delta):
+	_self.spin( _self.get_addon_info("spin_rate", 0) * delta)
+
+static var self_bomb_AI = func(_self:Obj_function ,delta):
+	var world:World = _self.get_father()
+	var follow_pos = world.get_rider().get_obj_position()
+	if (follow_pos - _self.get_obj_position()).length() < _self.get_addon_info("bomb_dist", 400.0):
+		_self.call_handler("die",{})
+		
+static var aim_bullet_AI = func(_self:Obj_function ,delta):
+	var world:World = _self.get_father()
+	if _self.timer_get("aim_bullet_AI",0) == 0:
+		_self.timer_set("aim_bullet_AI", _self.get_addon_info("aim_bullet_AI_cool_time",3.0))
+		world.instance_bullet("bullet",{"damage" : _self.get_addon_info("bullet_damage", {}) , "father" : _self , "aim" : true})
 
 
 static func _static_init():
@@ -79,3 +95,6 @@ static func _static_init():
 	Register_table.AI["abandon"] = abandon_AI
 	Register_table.AI["butterfly"] = butterfly_AI
 	Register_table.AI["loong"] = loong_AI
+	Register_table.AI["spin"] = spin_AI
+	Register_table.AI["self_bomb"] = self_bomb_AI
+	Register_table.AI["aim_bullet"] = aim_bullet_AI

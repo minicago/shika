@@ -2,6 +2,7 @@ extends Node
 class_name Item_info
 
 static func _static_init():
+#blink
 	Register_table.register_item_data(
 		"blink",
 
@@ -26,6 +27,7 @@ static func _static_init():
 		],
 	)
 
+#rush
 	Register_table.register_item_data(
 		"rush",
 
@@ -48,7 +50,8 @@ static func _static_init():
 			"rush",
 		],
 	)
-	
+
+#radiance
 	Register_table.register_item_data(
 		"radiance",
 
@@ -59,7 +62,7 @@ static func _static_init():
 
 		{
 			"texture" : "res://images/item/radiance.png",
-			"attack" : 15.0,
+			"damage" : {"damage" : 5.0, "ignore_invincible" :true , "ignore_ammor" : INF},
 			"show_cool": false,
 		},
 		
@@ -69,6 +72,31 @@ static func _static_init():
 		
 		[
 			"burning",
+		],
+	)
+	
+#gun
+	Register_table.register_item_data(
+		"gun",
+
+		{
+			"texture" : "res://images/item/gun.png",
+			"descript" : "gun_descript",
+		},
+
+		{
+			"texture" : "res://images/item/gun.png",
+			"damage" : {"damage" : 10,  "ignore_invincible" : true, },
+			"show_cool": false,
+			"cool_time" : 0.1,
+		},
+		
+		{
+
+		},
+		
+		[
+			"gun",
 		],
 	)
 	print("Item function static init done")

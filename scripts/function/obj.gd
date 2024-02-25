@@ -4,8 +4,8 @@ class_name Obj_function
 var lowlevel : Obj
 
 var spinable = false
-var health = 0.0
-var maxhealth = 0.0
+#var health = 0.0
+#var maxhealth = 0.0
 var toward : Vector2 = Vector2(0,-1.0)
 var position : Vector2
 var addon_info : Dictionary
@@ -17,7 +17,6 @@ var AI_dic : Dictionary = {}
 #var life_time : float = 0.0 
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
-var UI_instance_path
 var AI_name
 
 func call_handler(name, value):
@@ -38,16 +37,16 @@ func get_speed():
 	return speed
 	
 func get_real_speed():
-	return speed.rotated(-toward.angle()) 
+	return speed.rotated(toward.angle()) 
 	
 func set_speed(_speed):
 	speed = _speed
 	
 func set_real_speed(_speed):
-	speed = _speed.rotated(toward.angle())
+	speed = _speed.rotated(- toward.angle())
 
 func get_toward():
-	if spinable : 
+	if get_addon_info("spinable", false) : 
 		return toward
 	else :
 		return Vector2(0,-1.0)
@@ -86,11 +85,11 @@ func bump_handler(collider : Obj):
 		#print(handler)
 		bump_handler_dic[handler].call(self, collider)
 
-func load_normal(_dic):
-	spinable = _dic.get("spinable", false)
-	maxhealth = _dic.get("maxhealth", 0.0)
-	health = _dic.get("health", 0.0)
-	UI_instance_path = _dic.get("UI_instance_path", "res://tscns/objs/default.tscn")
+#func load_normal(_dic):
+	##spinable = _dic.get("spinable", false)
+	##maxhealth = _dic.get("maxhealth", 0.0)
+	##health = _dic.get("health", 0.0)
+	#UI_instance_path = _dic.get("UI_instance_path", "res://tscns/objs/default.tscn")
 
 func load_addon(_dic):
 	addon_info = _dic.duplicate()
@@ -102,7 +101,7 @@ func load_bump_handler(_dic):
 	bump_handler_dic = _dic.duplicate()
 	
 func load_obj_data(name):
-	load_normal(Register_table.obj_data[name]["normal_dic"])
+	#load_normal(Register_table.obj_data[name]["normal_dic"])
 	load_addon(Register_table.obj_data[name]["addon_dic"])
 	load_AI(Register_table.obj_data[name]["AI_dic"])
 	load_bump_handler(Register_table.obj_data[name]["bump_handler_dic"])
@@ -141,7 +140,8 @@ func item_info_append(key, value):
 	addon_info[AI_name + key] = value
 
 func UI_instance() -> Obj_UI:
-	var tscn=load(UI_instance_path)
+	#print(addon_info)
+	var tscn=load(get_addon_info("UI_instance_path"))
 	return tscn.instantiate()
 	
 func spin(angle : float):

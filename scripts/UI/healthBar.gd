@@ -11,8 +11,8 @@ class_name HealthBar
 func _process(delta):
 	var father = fatherUI.lowlevel
 	if father == null : return
-	var max_value = father.get_rider().function.maxhealth
-	var value = father.get_rider().function.health
+	var max_value = father.get_rider().get_addon_info("maxhealth", 0.0)
+	var value = father.get_rider().get_addon_info("health", 0.0)
 	textureProgressBar.max_value=max_value
 	textureProgressBar.value=value
 	if value < 0.15 * max_value :

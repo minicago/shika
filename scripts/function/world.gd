@@ -8,7 +8,7 @@ var lowlevel : World
 var init_flag:bool = true
 var monsters:Array
 var world_info:Dictionary = {}
-var rider_data:Dictionary = Register_table.obj_data["rider"]
+var rider_data:Dictionary = {}
 
 func get_rider():
 	return rider
@@ -22,7 +22,7 @@ func lose():
 	
 func win():
 	if get_rider() == null : return false
-	return get_rider().get_addon_info("win",false)
+	return get_rider().get_addon_info("win", false)
 	
 func set_world_info(value :Dictionary):
 	world_info = value
@@ -44,17 +44,20 @@ func instance_home():
 	home.obj_init("home",null,lowlevel)
 	home.set_obj_position(world_info.get("home_dist", 10000)*Vector2(1.0,0).rotated(randf_range(0,2*PI)))
 	
-func instance_monster(name = "monster"):
+func instance_monster(name):
 	var monster = Obj.new()
 	monster.obj_init(name,null,lowlevel)
 	monster.set_obj_position(randf_range(1200.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
 	monsters.append(monster)
 	monster.call_handler("monster_init" , monsters)
 	return monster
-
-func instance_bullet():
-	pass
-
+	
+func instance_bullet(name, dic = {}):
+	var bullet = Obj.new()
+	bullet.obj_init(name,null,lowlevel)
+	bullet.call_handler("bullet_init" , dic)
+	return bullet
+	
 func get_objs() -> Array[Obj]:
 	return lowlevel.get_objs()
 	
@@ -65,18 +68,17 @@ func monster_manager(delta):
 	for monster in monsters:
 		if monster == null :
 			monsters.erase(monster)
-			
+
 	if monsters.size() >= world_info.get("max_monsters",10):
 		penalty *= 5.0 + (monsters.size() - world_info.get("max_monsters",10))
-		
+
 	if monsters.size() > world_info.get("max_monsters",10) + 3 :
 		for monster in monsters:
 			if not monster.get_addon_info("boss", false) :
 				monsters.erase(monster)
 				monster.kill()
 				break
-			
-	
+
 	time_total += delta
 	if time_total > penalty * world_info.get("monster_frequence"):
 		time_total -=  penalty * world_info.get("monster_frequence")

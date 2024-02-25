@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://64bxdnpop3te"]
+
+[ext_resource type="Script" path="res://scripts/UI/obj.gd" id="1_b7b0s"]
+[ext_resource type="Texture2D" uid="uid://cuxi3thnnm5ce" path="res://images/monster/spinning_car.png" id="2_p4wac"]
+
+[node name="Obj" type="Node2D"]
+script = ExtResource("1_b7b0s")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p4wac")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-6.96296, 32)
+scale = Vector2(0.555556, 2)
+polygon = PackedVector2Array(26.9333, -36, 41.3333, 8, -30.6666, 8, -16.2667, -36)

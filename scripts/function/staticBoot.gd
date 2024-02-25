@@ -6,6 +6,7 @@ static func AIboot():
 	Modulate_AI
 	Monster_AI
 	Rider_AI
+	Bullet_AI
 	print("AI boot finished")
 	
 static func handlerboot():
@@ -15,6 +16,7 @@ static func handlerboot():
 	
 static func infoboot():
 	World_info
+	Bullet_info
 	Home_info
 	Item_info
 	Monster_info

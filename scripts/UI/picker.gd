@@ -11,7 +11,7 @@ func dialogue_available(npc, dialogue):
 		
 	for tag in Register_table.dialogue_data[dialogue].get("tag",[]):
 		if not Userdata.common_data.get(tag, false) : return false
-		
+	
 	if Register_table.dialogue_data[dialogue].get("brave", -1) > Userdata.NPC[npc].get("brave", 0): return false
 	
 	return true

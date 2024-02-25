@@ -52,13 +52,15 @@ func _process(delta):
 	
 	if not displayBoard.rider_mode and displayBoard.picked >= 0:
 		label.text = tr(Userdata["package_item"]["package"][displayBoard.picked]["name"])
-		label2.text = tr(Register_table.item_data[ Userdata["package_item"]["package"][displayBoard.picked]["name"] ]["export_dic"].get("descript","") ).format(
-			Register_table.item_data[ Userdata["package_item"]["package"][displayBoard.picked]["name"] ]["self_dic"] ).format(
-			Register_table.item_data[ Userdata["package_item"]["package"][displayBoard.picked]["name"] ]["addon_dic"] )
+		label2.text = Register_table.dic_format(
+			tr(Register_table.item_data[ Userdata["package_item"]["package"][displayBoard.picked]["name"] ]["export_dic"].get("descript","") ),
+			Register_table.item_data[ Userdata["package_item"]["package"][displayBoard.picked]["name"] ] )
 		
 	
 	if displayBoard.rider_mode and displayBoard.picked >= 0:
 		label.text = tr(picked_rider["name"])
-		label2.text = tr(Register_table.obj_data[ picked_rider["name"] ]["export_dic"] .get("descript","") ).format(Register_table.obj_data[ picked_rider["name"] ]["addon_dic"])
+		label2.text = Register_table.dic_format(
+			tr(Register_table.obj_data[ picked_rider["name"] ]["export_dic"] .get("descript","") ),
+			Register_table.obj_data[ picked_rider["name"] ] )
 	
 	pass
