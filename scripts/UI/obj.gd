@@ -17,7 +17,7 @@ func get_obj_position():
 	return lowlevel.get_obj_position()
 
 func get_polygon() -> PackedVector2Array :
-	return Transform2D(0.0,scale * polygon.scale,0.0,Vector2.ZERO) * polygon.polygon
+	return Transform2D(0.0,scale * polygon.scale,0.0,polygon.position) * polygon.polygon
 	
 func get_func_modulate():
 	return lowlevel.get_func_modulate()
@@ -25,8 +25,8 @@ func get_func_modulate():
 func set_obj_position(pos : Vector2):
 	lowlevel.set_obj_position(pos)
 	
-func get_addon_info(key, value):
-	return lowlevel.get_addon_info(key, value)
+func get_item_info(key, value):
+	return lowlevel.get_item_info(key, value)
 	
 func function_process(delta):
 	return lowlevel.function_process(delta)

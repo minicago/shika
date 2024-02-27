@@ -10,7 +10,6 @@ func button_pressed():
 	if block_offset + father.block_offset < father.show_list.size(): 
 		if father.picked == block_offset + father.block_offset:
 			father.wanna_drop = true
-			print("ok")
 		else :
 			father.picked = block_offset + father.block_offset
 	

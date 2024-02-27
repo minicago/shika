@@ -12,3 +12,11 @@ static func _static_init():
 			"minicago4",
 		],
 	}
+
+	Register_table.NPC_data["shopkeeper"] = {
+		"texture" : "res://images/NPC/shopkeeper.png",
+		"dialogue" : [
+			"shopkeeper0",
+			"shopkeeper1",
+		],
+	}

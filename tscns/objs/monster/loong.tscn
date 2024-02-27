@@ -12,10 +12,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -56.0
+offset_top = -152.0
+offset_right = 44.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3ick2")
@@ -23,5 +23,4 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(6.66667, 8)
-polygon = PackedVector2Array(-54.6667, -40, -6.66667, -120, 41.3333, -40, 41.3333, 24, -6.66667, 136, -54.6667, 24)
+polygon = PackedVector2Array(-54.6667, -96, -6.66667, -120, 41.3333, -96, 41.3333, 104, -6.66667, 136, -54.6667, 96)

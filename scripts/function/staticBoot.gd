@@ -16,6 +16,7 @@ static func handlerboot():
 	
 static func infoboot():
 	World_info
+	Map_info
 	Bullet_info
 	Home_info
 	Item_info

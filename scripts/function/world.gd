@@ -10,6 +10,10 @@ var monsters:Array
 var world_info:Dictionary = {}
 var rider_data:Dictionary = {}
 
+var time_total = 0
+
+var monster_buf: Array = []
+
 func get_rider():
 	return rider
 	
@@ -26,23 +30,24 @@ func win():
 	
 func set_world_info(value :Dictionary):
 	world_info = value
-	instance_home()
-		
+	monster_buf = world_info.get("init_monster",[]).duplicate()
 	
 func set_rider_data(value : Dictionary):
 	rider_data = value
+	instance_home()
 	instance_rider()
 
 func instance_rider():
 	rider = Obj.new()
-	Register_table.obj_data["customized"] = rider_data.duplicate(true)
+	Register_table.obj_data["customized"] = rider_data.duplicate()
 	#print(Register_table.obj_data["customized"])
 	rider.obj_init("customized",null,lowlevel)
+	rider.function.toward = world_info.get("home_position", Vector2(10000.0, 0) ).normalized()
 
 func instance_home():
 	home = Obj.new()
 	home.obj_init("home",null,lowlevel)
-	home.set_obj_position(world_info.get("home_dist", 10000)*Vector2(1.0,0).rotated(randf_range(0,2*PI)))
+	home.set_obj_position(world_info.get("home_position", Vector2(10000.0, 0)) )
 	
 func instance_monster(name):
 	var monster = Obj.new()
@@ -61,7 +66,7 @@ func instance_bullet(name, dic = {}):
 func get_objs() -> Array[Obj]:
 	return lowlevel.get_objs()
 	
-var time_total = 0
+
 
 func monster_manager(delta):
 	var penalty = 1.0
@@ -81,15 +86,21 @@ func monster_manager(delta):
 
 	time_total += delta
 	if time_total > penalty * world_info.get("monster_frequence"):
-		time_total -=  penalty * world_info.get("monster_frequence")
-		var monster_dic = world_info.get("monster_probility",{"monster":100})
-		instance_monster(Register_table.rand_from_dic(monster_dic) )
+		if not monster_buf.is_empty():
+			instance_monster(monster_buf[0] )
+			monster_buf.remove_at(0)
+		else :
+			time_total -=  penalty * world_info.get("monster_frequence")
+			var monster_dic = world_info.get("monster_probility",{})
+			if not monster_dic.is_empty() : instance_monster(Register_table.rand_from_dic(monster_dic) )
 
 
 func init_manager():
 	if  init_flag :
-		for monster in world_info.get("init_monster",[]):
-			instance_monster(monster)
+		for i in range(1,7) :
+			rider.call_handler( "rider_init" , {} ) 
+		#for monster in world_info.get("init_monster",[]):
+			#instance_monster(monster)
 		init_flag = false
 
 func function_process(delta):

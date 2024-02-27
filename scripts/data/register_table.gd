@@ -15,6 +15,8 @@ static var dialogue_data : Dictionary = {}
 
 static var NPC_data : Dictionary = {}
 
+static var map : Dictionary = {}
+
 static func register_obj_data(
 	name,
 	export_dic,
@@ -55,12 +57,21 @@ static func register_item_data(
 
 
 static func equip_item(Num : int , dic : Dictionary , item_dic : Dictionary):
+	print(item_dic)
 	for key in item_dic["AI_dic"]:
 		dic["AI_dic"][str(Num) + key] = item_dic["AI_dic"][key]
 	for key in item_dic["self_dic"]:
 		dic["addon_dic"][str(Num) + key] = item_dic["self_dic"][key]
 	for key in item_dic["addon_dic"]:
-		dic["addon_dic"][key] = dic["addon_dic"].get(key, 0.0) +  item_dic["addon_dic"][key]
+		var type = typeof(item_dic["addon_dic"][key])
+		
+		if type == TYPE_DICTIONARY :
+			dic["addon_dic"][key] = dic["addon_dic"].get(key, {}) 
+			dic["addon_dic"][key].merge( item_dic["addon_dic"][key] )
+		elif type == TYPE_ARRAY:
+			dic["addon_dic"][key] = dic["addon_dic"].get(key, []) 
+			dic["addon_dic"][key].append_array( item_dic["addon_dic"][key] )
+		else : dic["addon_dic"][key] = dic["addon_dic"].get(key, 0.0) +  item_dic["addon_dic"][key]
 	pass
 
 static func rand_from_dic(dic:Dictionary):

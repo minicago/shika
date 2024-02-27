@@ -2,14 +2,14 @@ extends Node
 class_name Rider_AI
 
 static var rider_AI = func(_self:Obj_function ,delta):
-	var resist = _self.get_addon_info("resist", 0.9)
-	var lineResist = _self.get_addon_info("lineResist")
-	var rtimes = _self.get_addon_info("rtimes")
-	var brake = _self.get_addon_info("brake")
-	var power = _self.get_addon_info("power")
+	var resist = _self.get_item_info("resist", 0.9)
+	var lineResist = _self.get_item_info("lineResist")
+	var rtimes = _self.get_item_info("rtimes")
+	var brake = _self.get_item_info("brake")
+	var power = _self.get_item_info("power")
 
-	var spinRate = _self.get_addon_info("spinRate")
-	var spinLoss = _self.get_addon_info("spinLoss")
+	var spinRate = _self.get_item_info("spinRate")
+	var spinLoss = _self.get_item_info("spinLoss")
 	#print(_self.get_real_speed()) 
 	
 	

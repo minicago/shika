@@ -134,6 +134,7 @@ static func _static_init():
 				"reward_brave" : 10,
 				"reward_tag" : [
 					"minicago2",
+					"gun",
 				],
 				"reward_item" : [
 					"gun",
@@ -141,9 +142,12 @@ static func _static_init():
 				"reward_ammo" : {
 					"gun" : 200,
 				},
+				"reward_NPC" : [
+					"shopkeeper",
+				],
 				"fail" : "minicago_lose",
 				"next" : "minicago2_2",
-			}
+			},
 		],
 	}
 
@@ -235,7 +239,7 @@ static func _static_init():
 					"minicago4",
 				],
 				"reward_item" : [
-					"radiance",
+					"thanks",
 				],
 				"fail" : "minicago_lose",
 				"next" : "minicago4_2",
@@ -248,6 +252,56 @@ static func _static_init():
 		"button" : [
 			{
 				"text" : "thanks",
+			}
+		],
+	}
+
+#shopkeeper
+
+	Register_table.dialogue_data["shopkeeper_lose"] = {
+		"text" : "shopkeeper_lose",
+		"button" : [
+			{
+				"text" : "ok",
+			}
+		],
+	}
+
+	Register_table.dialogue_data["shopkeeper0"] = {
+		"text" : "shopkeeper0",
+		"no_tag" : [
+			"shopkeeper0",
+		],
+		"button" : [
+			{
+				"text" : "ok",
+				"reward_tag" : [
+					"shopkeeper0",
+				],
+			}
+		],
+	}
+
+	Register_table.dialogue_data["shopkeeper1"] = {
+		"text" : "shopkeeper1",
+		"tag" : [
+			"gun",
+			"shopkeeper0",
+		],
+		"button" : [
+			{
+				"text" : "buy_gun_ammo",
+				"type" : "buy",
+				"cost" : 5,
+				"reward_ammo" : {
+					"gun" : 100,
+				},
+				"reward_brave" : 1,
+				"fail" : "shopkeeper_lose",
+				"next" : "shopkeeper1",
+			},
+			{
+				"text" : "goodbye",
 			}
 		],
 	}

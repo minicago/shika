@@ -31,7 +31,7 @@ func give_reward(dic):
 		Userdata.common_data[tag] = true
 
 	for ammo in dic.get("reward_ammo", {}):
-		Userdata.package_item["ammo"][ammo] += dic[ammo]
+		Userdata.package_item["ammo"][ammo] = Userdata.package_item["ammo"].get(ammo, 0) + dic["reward_ammo"][ammo]
 
 	Userdata.NPC[NPC_name]["brave"] += dic.get("reward_brave",0)
 	Userdata.common_data["fate"] +=  dic.get("reward_fate",0)
@@ -57,7 +57,7 @@ func button_pressed(dic):
 				break
 
 	if type == "buy":
-		if Userdata.common_data.get("fate", -1) > dic.get("cost", 0):
+		if Userdata.common_data.get("fate", -1) >= dic.get("cost", 0):
 			Userdata.common_data["fate"] -= dic.get("cost", 0)
 		else : 
 			win_flag = false
@@ -85,7 +85,7 @@ func instance_button(dic):
 
 func load_from_dic(npc, dic):
 	NPC_name = npc
-	texture.texture = load(Register_table.NPC_data[dic.get("name","minicago")].get("texture","res://images/NPC/taxi_normal.png"))
+	texture.texture = load(Register_table.NPC_data[npc].get("texture","res://images/NPC/taxi_normal.png"))
 	label.text = tr(dic.get("text","default"))
 	for child in button_box.get_children(true):
 		child.queue_free()

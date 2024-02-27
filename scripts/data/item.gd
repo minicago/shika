@@ -99,4 +99,73 @@ static func _static_init():
 			"gun",
 		],
 	)
+
+#thanks
+	Register_table.register_item_data(
+		"thanks",
+
+		{
+			"texture" : "res://images/item/thanks.png",
+			"descript" : "thanks_descript",
+		},
+
+		{
+			"texture" : "res://images/item/thanks.png",
+		},
+		
+		{
+
+		},
+		
+		[
+			
+		],
+	)
+
+#gravity
+	Register_table.register_item_data(
+		"gravity",
+
+		{
+			"texture" : "res://images/item/gravity.png",
+			"descript" : "gravity_descript",
+		},
+
+		{
+			"texture" : "res://images/item/gravity.png",
+			"show_cool": false,
+			"gravity" : 200.0,
+		},
+		
+		{
+
+		},
+		
+		[
+			"gravity",
+		],
+	)
+	
+#regret
+	Register_table.register_item_data(
+		"regret",
+
+		{
+			"texture" : "res://images/item/regret.png",
+			"descript" : "regret_descript",
+		},
+
+		{
+			"texture" : "res://images/item/regret.png",
+			"show_cool": false,
+			
+		},
+		
+		{
+			"reborn_list" : [50,]
+		},
+		
+		[
+		],
+	)	
 	print("Item function static init done")

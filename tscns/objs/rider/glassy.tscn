@@ -22,4 +22,4 @@ texture = ExtResource("2_m5cxw")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(8, -40, 8, -40, 24, -24, 24, 24, -8, 40, -24, 24, -24, -24, 8, -40, 8, -40, 8, -40)
+polygon = PackedVector2Array(8, -32, 16, -24, 16, 24, -8, 32, -24, 24, -24, -16)

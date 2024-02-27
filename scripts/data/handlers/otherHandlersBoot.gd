@@ -2,20 +2,25 @@ extends Node
 class_name OtherHandlerBoot
 
 static var take_damage_handler = func(_self : Obj_function, value):
-	var ammor = _self.get_addon_info("ammor", 0.0)
+	var ammor = _self.get_item_info("ammor", 0.0)
 	var damage = value.get("damage", 0.0)
-	
-	damage = max (1.0, damage - max(0.0,ammor - value.get("ignore_ammor",0.0)))
-	damage *= 1.0 - _self.get_addon_info("damage_off", 0.0)
 	var ignore_invincible = value.get("ignore_invincible", false)
+	
+	if damage > 0 :
+		damage = max (1.0, damage - max(0.0,ammor - value.get("ignore_ammor",0.0)))
+		damage *= 1.0 - _self.get_item_info("damage_off", 0.0)
+	else:
+		ignore_invincible = true
 
 	if _self.timer_get("invincible") == 0.0 or ignore_invincible:
-		var maxhealth = _self.get_addon_info("maxhealth", 0.0)
-		var health = _self.get_addon_info("health", 0.0)
+		var maxhealth = _self.get_item_info("maxhealth", 0.0)
+		var health = _self.get_item_info("health", 0.0)
 		health -= damage
+		print(damage,"!",health)
 		if health < 0 : 
 			health = 0
-			_self.call_handler("die", {})
+			
+			
 		if health > maxhealth :
 			health = maxhealth
 		
@@ -23,14 +28,22 @@ static var take_damage_handler = func(_self : Obj_function, value):
 		_self.timer_set("hurt", _self.addon_info.get("hurt_time", 0.0))
 		if not ignore_invincible:_self.timer_set("invincible", _self.addon_info.get("invincible_time",0.0))
 		
-static var die_handler = func(_self : Obj_function, value):
-	_self.kill()
+		if health == 0 : _self.call_handler("die", {})
+		
+static var die_handler = func(_self : Obj_function, value): 
+	var list = _self.get_item_info("reborn_list" , [])
+	if list.is_empty() :
+		_self.kill()
+	else :
+		
+		_self.call_handler("take_damage", {"damage" : -list[0]})
+		list.remove_at(0)
 
 
 
 static var die_call_handler = func(_self : Obj_function, value):
 	var world:World = _self.get_father()
-	for son in _self.get_addon_info("die_call"):
+	for son in _self.get_item_info("die_call"):
 		var monster:Obj = world.instance_monster(son)
 		monster.set_obj_position(_self.get_obj_position())
 	
@@ -41,7 +54,9 @@ static var loong_init_handler = func(_self : Obj_function, value):
 		if monster.get_addon_info("loong", false):
 			if monster != _self.lowlevel:
 				_self.addon_info_append("follow_monster" , monster.get_addon_info("tail", null))
-				_self.set_obj_position( monster.get_addon_info("tail", null).get_obj_position() )
+				_self.set_obj_position( monster.get_addon_info("tail", null).get_obj_position() - _self.get_item_info("follow_monster", null).get_toward() * _self.get_item_info("follow_offset", 250.0))
+				_self.set_speed(monster.get_addon_info("tail", null).get_speed() )
+				_self.toward = monster.get_addon_info("tail", null).get_toward()
 				monster.addon_info_append("tail",_self)
 				break
 				
@@ -56,9 +71,9 @@ static var bullet_common_init_handler = func(_self : Obj_function, value):
 		_self.set_obj_position(_father.get_obj_position() + _father.get_toward() * value.get("offset", 20.0))
 		_self.toward = _father.get_toward()
 		#print("bullet_speed =", _father.get_toward() * value.get("bullet_speed", 1000.0) + _father.get_real_speed())
-		_self.set_real_speed(_father.get_toward() * value.get("bullet_speed", 1800.0) + _father.get_real_speed() )
+		_self.set_real_speed( value.get("bullet_speed", Vector2(1800.0, 0)).rotated(_father.get_toward().angle() ) + _father.get_real_speed() )
 		#print("bullet_toward == ", _self.speed)
-		var type = _father.get_addon_info("type", null)
+		var type = _father.get_item_info("type", null)
 		if value.get("all_hurt", false):
 			_self.addon_info_append("ban_group", [ "home", "bullet"] )
 		else :
@@ -67,9 +82,9 @@ static var bullet_common_init_handler = func(_self : Obj_function, value):
 			elif type == "monster": 
 				_self.addon_info_append("ban_group", ["monster", "home", "bullet"] )
 			elif type == "bullet" :
-				_self.addon_info_append("ban_group", _father.get_addon_info("ban_group", []))
+				_self.addon_info_append("ban_group", _father.get_item_info("ban_group", []))
 	
-	_self.timer_set("life_time", _self.get_addon_info("life_time", 5.0) )
+	_self.timer_set("life_time", _self.get_item_info("life_time", 5.0) )
 	
 	_self.addon_info_append("damage", value.get("damage", {}) )
 	
@@ -81,8 +96,17 @@ static var bullet_common_init_handler = func(_self : Obj_function, value):
 	
 static var die_bomb_handler = func(_self : Obj_function, value):
 	var world:World = _self.get_father()
-	world.instance_bullet("bomb", {"all_hurt" : true, "damage" : _self.get_addon_info("die_damage", {}) , "father" : _self})
-
+	world.instance_bullet("bomb", {"all_hurt" : true, "damage" : _self.get_item_info("die_damage", {}) , "father" : _self}) 
+	
+static var shoot_around_handler = func(_self : Obj_function, value):
+	var world:World = _self.get_father()
+	var bullet_num = _self.get_item_info("bullet_num", 8)
+	var bullet_speed = _self.get_item_info("bullet_speed", 1800.0)
+	for i in range(0, bullet_num):
+		world.function.instance_bullet(_self.get_item_info("bullet", "bullet") , 
+		{"damage" : _self.get_item_info("damage", {}), "father" : _self , "bullet_speed" : Vector2(bullet_speed, 0 ).rotated(2 * i * PI / bullet_num)} )
+	
+	
 static func _static_init():
 	Register_table.handlers["take_damage"] = take_damage_handler
 	Register_table.handlers["die"] = die_handler
@@ -90,4 +114,5 @@ static func _static_init():
 	Register_table.handlers["loong_init"] = loong_init_handler
 	Register_table.handlers["bullet_common_init"] = bullet_common_init_handler
 	Register_table.handlers["die_bomb"] = die_bomb_handler
+	Register_table.handlers["shoot_around"] = shoot_around_handler
 	

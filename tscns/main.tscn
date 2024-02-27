@@ -20,6 +20,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cjdlo")
 
+[node name="backGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_w54yq")
 
@@ -38,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = -148.0
-offset_right = 120.0
-offset_bottom = 108.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0s3ke")
@@ -51,25 +60,24 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -280.0
-offset_top = -3.0
-offset_right = 91.0
-offset_bottom = 327.0
+offset_left = -371.0
+offset_bottom = 330.0
 grow_horizontal = 0
 texture_normal = ExtResource("6_6m4u7")
 texture_hover = ExtResource("7_wnsa3")
+stretch_mode = 0
 
 [node name="gameBegin" type="TextureButton" parent="index"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -239.0
+offset_top = -235.0
 offset_right = 218.0
-offset_bottom = -4.0
 grow_vertical = 0
 texture_normal = ExtResource("2_imniw")
 texture_hover = ExtResource("2_dvauj")
+stretch_mode = 0
 
 [node name="Workshop" parent="index" instance=ExtResource("8_i0rtn")]
 visible = false
@@ -88,3 +96,4 @@ grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("9_0leu2")
 texture_hover = ExtResource("10_hwcw1")
+stretch_mode = 0

@@ -9,6 +9,7 @@ var game : Game
 @onready var runaway:TextureButton = $runaway
 @onready var audioStreamPlayer2D:AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var index = $index
+@onready var backGround = $backGround
 var picker
 
 var mycar
@@ -22,8 +23,8 @@ func runaway_pressed():
 		picker.queue_free()
 		Userdata.all_save()
 		return
-	
-	get_tree().quit()
+	get_tree().root.add_child( preload("res://tscns/worldMap.tscn").instantiate() )
+	#get_tree().quit()
 	pass
 	
 func workshop_pressed():
@@ -43,4 +44,9 @@ func game_Begin_pressed():
 func _process(delta):
 	#index.size = 
 	#game_manager()
+	backGround.texture = load(Register_table.map[Userdata.common_data.get("position") ]["texture"] )
 	pass
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		Userdata.all_save()

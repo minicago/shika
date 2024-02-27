@@ -19,7 +19,7 @@ static func _static_init():
 			"mass" : 100.0,
 
 			"type" : "rider",
-			"attack" : 50.0,
+			"bump_damage" : {"damage" : 30.0},
 
 			"resist" : 0.9,
 			"lineResist" : 50.0,

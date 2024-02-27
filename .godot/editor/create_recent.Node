@@ -1,3 +1,9 @@
+Sprite2D
+Control
+SubViewportContainer
+SubViewport
+Camera2D
+TextureRect
 GPUParticles2D
 Label
 Panel
@@ -6,10 +12,3 @@ Button
 PopupPanel
 MenuBar
 MenuButton
-PopupMenu
-TextureRect
-TextureButton
-HBoxContainer
-Control
-PanelContainer
-AspectRatioContainer

@@ -5,8 +5,6 @@ var blocks = 3
 # Called when the node enters the scene tree for the first time.
 func dialogue_available(npc, dialogue):
 	for no_tag in Register_table.dialogue_data[dialogue].get("no_tag",[]):
-		 
-		
 		if Userdata.common_data.get(no_tag, false) : return false
 		
 	for tag in Register_table.dialogue_data[dialogue].get("tag",[]):
@@ -27,24 +25,20 @@ func get_entry(npc):
 			dic[dialogue] = Register_table.dialogue_data.get("weight", 1)
 	if dic.is_empty() : return
 	var dialogue_ins = preload("res://tscns/dialogue.tscn").instantiate()
-	dialogue_ins.z_index = 1
 	get_tree().root.add_child(dialogue_ins)
 	dialogue_ins.load_from_dic(npc, Register_table.dialogue_data[ Register_table.rand_from_dic(dic) ])
 	queue_free()
 
 func _ready():
 	var dic = {}
-	for NPC in Userdata.NPC:
-		if Userdata.NPC[NPC].get("weight", 1) != 0 : dic[NPC] = Userdata.NPC[NPC].get("weight", 1)
-	for i in range(0, min(blocks, dic.size() ) ):
-		var npc = Register_table.rand_from_dic(dic)
-		dic.erase(npc)
-		var texture_button = TextureButton.new()
-		texture_button.stretch_mode = TextureButton.STRETCH_SCALE
-		texture_button.texture_normal = load(Register_table.NPC_data[npc].get("texture") )
-		texture_button.size = Vector2( container.size.x / blocks , container.size.y)
-		texture_button.pressed.connect(func() : get_entry(npc))
-		container.add_child(texture_button)
+	for npc in Register_table.map[ Userdata.common_data["position"] ].get("NPC_list", []):
+		if Userdata.NPC.get(npc,{}).get("weight", 0) != 0 :
+			var texture_button = TextureButton.new()
+			texture_button.stretch_mode = TextureButton.STRETCH_SCALE
+			texture_button.texture_normal = load(Register_table.NPC_data[npc].get("texture") )
+			texture_button.size = Vector2( container.size.x / blocks , container.size.y)
+			texture_button.pressed.connect(func() : get_entry(npc))
+			container.add_child(texture_button)
 	pass	
 	#reset()
 

@@ -5,6 +5,8 @@ static var common_data:Dictionary = {}
 static var package_item:Dictionary = {}
 static var riders:Dictionary = {}
 static var NPC:Dictionary = {}
+static var version:Dictionary = {}
+static var map:Dictionary = {}
 
 static func load_dic(dic, num):
 	var list:Array = dic.keys()
@@ -32,14 +34,27 @@ static func save_file(path, data):
 	
 static func all_save():
 	print("save")
+	save_file("user://version.txt", version)
 	save_file("user://package_item.txt", package_item)
 	save_file("user://common_data.txt", common_data)
 	save_file("user://riders.txt", riders)
 	save_file("user://NPC.txt", NPC)
+	save_file("user://map.txt", map)
 
 static func all_load():
 	print("load")
-	load_file("user://package_item.txt", package_item, {"package":[],"ammo":{}})
-	load_file("user://common_data.txt", common_data, {"fate" : 0,})
-	load_file("user://riders.txt", riders, {"riders":[{"name" : "glassy"}, ], "picked":0})
-	load_file("user://NPC.txt", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})
+	load_file("user://version.txt", version, {"version" : 0})
+	if version.get("version",0) < 1:
+		version["version"] = 1
+		load_file("user://null", package_item, {"package":[],"ammo":{}})
+		load_file("user://null", common_data, {"fate" : 0, "position" : "school_gate"})
+		load_file("user://null", riders, {"riders":[{"name" : "glassy"}, ], "picked":0})
+		load_file("user://null", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})
+		load_file("user://null", map, {"school_gate" : true})
+	else :
+		
+		load_file("user://package_item.txt", package_item)
+		load_file("user://common_data.txt", common_data)
+		load_file("user://riders.txt", riders)
+		load_file("user://NPC.txt", NPC)
+		load_file("user://map.txt", map)

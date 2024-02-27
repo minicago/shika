@@ -11,18 +11,26 @@ var position : Vector2
 var addon_info : Dictionary
 var global_polygon:PackedVector2Array = PackedVector2Array()
 var banlist : Dictionary
-var bump_handler_dic : Dictionary = {}
+#var bump_handler_dic : Dictionary = {}
 var speed : Vector2 = Vector2.ZERO
 var AI_dic : Dictionary = {}
 #var life_time : float = 0.0 
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
-var AI_name
+var item_name = ""
 
 func call_handler(name, value):
-	if get_addon_info(name, null) != null:
-		for handler in get_addon_info(name, null):
+	var tmp = item_name
+	item_name = ""
+	if get_item_info(name, null) != null:
+		for handler in get_item_info(name, null):
 			Register_table.handlers[handler].call(self,value)
+	for i in range(1,7) :
+		item_name = str(i)
+		if get_item_info(name, null) != null:
+			for handler in get_item_info(name, null):
+				Register_table.handlers[handler].call(self,value)
+	item_name = tmp
 
 func kill():
 	lowlevel.kill()
@@ -62,7 +70,7 @@ func get_addon_info(key, default = null):
 	return addon_info.get(key, default)
 	
 func get_item_info(key, default = null):
-	return addon_info.get(AI_name + key, default)
+	return addon_info.get(item_name + key, default)
 	
 func get_addon_info_dic():
 	return addon_info
@@ -74,16 +82,17 @@ func function_process(delta):
 	for timer in timers:
 		timers[timer] = max(0, timers[timer] - delta)
 	for function in AI_dic:
-		AI_name = function[0]
+		item_name = function[0]
+		if item_name < "1" or item_name > "6" : item_name = ""
 		AI_dic[function].call(self, delta)
 	if toward.length() > 0.5 :
 		set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass
 
-func bump_handler(collider : Obj):
-	for handler in bump_handler_dic :
-		#print(handler)
-		bump_handler_dic[handler].call(self, collider)
+#func bump_handler(collider : Obj):
+	#for handler in bump_handler_dic :
+		##print(handler)
+		#bump_handler_dic[handler].call(self, collider)
 
 #func load_normal(_dic):
 	##spinable = _dic.get("spinable", false)
@@ -98,7 +107,7 @@ func load_AI(_dic):
 	AI_dic = _dic.duplicate()
 	
 func load_bump_handler(_dic):
-	bump_handler_dic = _dic.duplicate()
+	addon_info["bump_handler"] = _dic.duplicate()
 	
 func load_obj_data(name):
 	#load_normal(Register_table.obj_data[name]["normal_dic"])
@@ -137,7 +146,7 @@ func addon_info_append(key, value):
 	addon_info[key] = value
 	
 func item_info_append(key, value):
-	addon_info[AI_name + key] = value
+	addon_info[item_name + key] = value
 
 func UI_instance() -> Obj_UI:
 	#print(addon_info)

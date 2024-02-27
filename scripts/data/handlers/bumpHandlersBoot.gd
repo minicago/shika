@@ -8,7 +8,7 @@ static var bump_handler_home = func(collidee :Obj_function, collider : Obj):
 
 static var bump_handler_monster = func(collidee :Obj_function, collider : Obj):
 	if collider.get_addon_info("type") == "monster":
-		collider.call_handler("take_damage", collidee.get_addon_info("bump_damage", {}))
+		collider.call_handler("take_damage", collidee.get_item_info("bump_damage", {}))
 		
 static var bump_handler_once = func(collidee :Obj_function, collider : Obj):
 	if collider.get_addon_info("once", false): 
@@ -18,12 +18,12 @@ static var bump_handler_once = func(collidee :Obj_function, collider : Obj):
 		
 static var bump_handler_box = func(collidee :Obj_function, collider : Obj):
 	if (collidee.lowlevel.timestamp) < collider.timestamp : return
-	var m1 = collidee.get_addon_info("mass", -1.0)
+	var m1 = collidee.get_item_info("mass", -1.0)
 	var m2 = collider.get_addon_info("mass", -1.0)
 	if m2 > 0.0: 
 		var dist :Vector2 = collidee.get_obj_position() - collider.get_obj_position()
 		var dspeed :Vector2 = collidee.get_real_speed() - collider.get_real_speed()
-		if not collidee.get_addon_info("hard_box", false):
+		if not collidee.get_item_info("hard_box", false):
 			collidee.set_real_speed(collidee.get_real_speed() - (2 * m2) / (m1 + m2) * dspeed)
 			collidee.set_obj_position(collidee.get_obj_position() + dist.normalized() * collider.get_addon_info("box", 0.0))
 		if not collider.get_addon_info("hard_box", false):
@@ -33,10 +33,10 @@ static var bump_handler_box = func(collidee :Obj_function, collider : Obj):
 static var bump_handler_rider = func(collidee : Obj_function, collider : Obj):
 	#print("kill")
 	if collider.get_addon_info("type", "") == "rider":
-		collider.call_handler("take_damage", collidee.get_addon_info("bump_damage", {}))
+		collider.call_handler("take_damage", collidee.get_item_info("bump_damage", {}))
 		
 static var bump_handler_bullet = func(collidee : Obj_function, collider : Obj):
-	collider.call_handler("take_damage", collidee.get_addon_info("damage", {}))
+	collider.call_handler("take_damage", collidee.get_item_info("damage", {}))
 		
 static var bump_handler_bullet_kill = func(collidee : Obj_function, collider : Obj):
 	collidee.call_handler("die", {})
