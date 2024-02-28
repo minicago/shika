@@ -10,6 +10,7 @@ static func _static_init():
 		},
 		
 		{
+			"type" : "bullet",
 			"UI_instance_path" : "res://tscns/objs/bullet/bullet.tscn",
 			"bullet_init" : ["bullet_common_init"],
 			"die" : ["die"],
@@ -35,6 +36,7 @@ static func _static_init():
 		},
 		
 		{
+			"type" : "bullet",
 			"UI_instance_path" : "res://tscns/objs/bullet/bullet.tscn",
 			"bullet_init" : ["bullet_common_init"],
 			"die" : ["die"],

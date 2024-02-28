@@ -73,12 +73,17 @@ func monster_manager(delta):
 	for monster in monsters:
 		if monster == null :
 			monsters.erase(monster)
+	
+	monsters.erase(null)
 
 	if monsters.size() >= world_info.get("max_monsters",10):
 		penalty *= 5.0 + (monsters.size() - world_info.get("max_monsters",10))
 
 	if monsters.size() > world_info.get("max_monsters",10) + 3 :
 		for monster in monsters:
+			if monster == null :
+				monsters.erase(monster)
+				break
 			if not monster.get_addon_info("boss", false) :
 				monsters.erase(monster)
 				monster.kill()

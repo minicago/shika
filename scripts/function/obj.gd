@@ -85,6 +85,7 @@ func function_process(delta):
 		item_name = function[0]
 		if item_name < "1" or item_name > "6" : item_name = ""
 		AI_dic[function].call(self, delta)
+	item_name = ""
 	if toward.length() > 0.5 :
 		set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
 	pass

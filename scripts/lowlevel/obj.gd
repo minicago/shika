@@ -43,6 +43,12 @@ func set_obj_position(pos : Vector2):
 func get_addon_info(key, default = null):
 	return function.get_addon_info(key, default)
 
+func timer_get(key, default = 0.0):
+	return function.timer_get(key, default)
+	
+func timer_set(key, default):
+	return function.timer_set(key, default)
+
 func get_addon_info_dic():
 	return function.get_addon_info_dic()
 

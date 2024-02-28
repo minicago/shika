@@ -158,11 +158,16 @@ static func _static_init():
 		{
 			"texture" : "res://images/item/regret.png",
 			"show_cool": false,
-			
+			"die" : ["shoot_around",],
+			"bullet_num" : 40,
+			"damage" : {
+				"ignore_invincible" : true,
+				"damage" : 1000,
+			},
 		},
 		
 		{
-			"reborn_list" : [50,]
+			"reborn_list" : [50,],
 		},
 		
 		[

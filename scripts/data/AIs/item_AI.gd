@@ -45,6 +45,7 @@ static var gravity_AI = func(_self:Obj_function, delta):
 	var dist = _self.get_father().get_home().get_obj_position() - _self.get_obj_position()
 	_self.set_real_speed( _self.get_real_speed() + dist.normalized() * _self.get_item_info("gravity", 200.0) * delta )
 
+
 static func _static_init():
 	Register_table.AI["burning"] = burning_AI
 	Register_table.AI["suicide"] = suicide_AI
