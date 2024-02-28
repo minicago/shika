@@ -146,28 +146,29 @@ static func _static_init():
 		],
 	)
 	
-#regret
+#onemorechance
 	Register_table.register_item_data(
-		"regret",
+		"onemorechance",
 
 		{
-			"texture" : "res://images/item/regret.png",
-			"descript" : "regret_descript",
+			"texture" : "res://images/item/onemorechance.png",
+			"descript" : "onemorechance_descript",
 		},
 
 		{
-			"texture" : "res://images/item/regret.png",
+			"texture" : "res://images/item/onemorechance.png",
 			"show_cool": false,
-			"die" : ["shoot_around",],
-			"bullet_num" : 40,
+			"bullet_num" : 8,
+			"bullet_speed" : 500,
 			"damage" : {
 				"ignore_invincible" : true,
 				"damage" : 1000,
 			},
+			"reborn_rate" : 0.5,
+			"go_die_handler" : ["onemorechance"],
 		},
 		
 		{
-			"reborn_list" : [50,],
 		},
 		
 		[

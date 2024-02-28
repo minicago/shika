@@ -19,6 +19,7 @@ func _ready():
 	world.set_world_info(world_info)
 	world.set_rider_data(rider_data)
 	runawy.pressed.connect(func(): quit = true)
+	Register_table.control.set_bgm("res://voices/main.mp3")
 	print("OK")
 	
 func game_result():
@@ -30,7 +31,9 @@ func game_result():
 
 func _process(delta):
 	if world == null : return
-	if world.win() or world.lose() or quit: game_end.emit()
+	if world.win() or world.lose() or quit: 
+		game_end.emit()
+		Register_table.control.set_bgm("res://voices/try.mp3")
 	# $SubViewportContainer.rect = ( get_viewport_rect() )
 	pass
 

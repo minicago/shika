@@ -32,6 +32,8 @@ func workshop_pressed():
 
 
 func _ready():
+	add_child(Register_table.control)
+	Register_table.control.set_bgm("res://voices/try.mp3")
 	gameBegin.pressed.connect(game_Begin_pressed)
 	workshopbutton.pressed.connect(workshop_pressed)
 	runaway.pressed.connect(runaway_pressed)

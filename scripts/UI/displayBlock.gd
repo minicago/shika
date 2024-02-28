@@ -6,7 +6,6 @@ var father
 @onready var textureButton:TextureButton = $TextureButton
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func button_pressed():
-	#print(block_offset, father.block_offset, father.show_list.size())
 	if block_offset + father.block_offset < father.show_list.size(): 
 		if father.picked == block_offset + father.block_offset:
 			father.wanna_drop = true

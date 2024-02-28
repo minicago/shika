@@ -14,7 +14,7 @@ func start_game(world_info):
 	var mycar = Register_table.obj_data[car_info["name"]].duplicate(true)
 	for i in range(0,car_info.get("items").size()):
 		if car_info["items"][i] != null:
-			Register_table.equip_item(i, mycar, Register_table.item_data [car_info["items"][i]["name"]] )
+			Register_table.equip_item(i + 1, mycar, Register_table.item_data [car_info["items"][i]["name"]] )
 	game.game_init(mycar, world_info)
 
 func give_reward(dic):

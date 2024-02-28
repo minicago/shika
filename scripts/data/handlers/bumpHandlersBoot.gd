@@ -36,11 +36,10 @@ static var bump_handler_rider = func(collidee : Obj_function, collider : Obj):
 		collider.call_handler("take_damage", collidee.get_item_info("bump_damage", {}))
 		
 static var bump_handler_bullet = func(collidee : Obj_function, collider : Obj):
-	print(collider.get_addon_info_dic())
 	collider.call_handler("take_damage", collidee.get_item_info("damage", {}))
 		
 static var bump_handler_bullet_kill = func(collidee : Obj_function, collider : Obj):
-	if not collidee.get_item_info("damage", {}).get("ignore_invincible",false) or collider.timer_get("invincible", 0.0) == 0.0 :
+	if collidee.get_item_info("damage", {}).get("ignore_invincible",false) or collider.timer_get("invincible", 0.0) == 0.0 :
 		collidee.call_handler("die", {})
 
 static func _static_init():

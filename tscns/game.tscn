@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw1oyaalnb623"]
+[gd_scene load_steps=8 format=3 uid="uid://cw1oyaalnb623"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/game.gd" id="1_af18y"]
 [ext_resource type="PackedScene" uid="uid://otrd3idnjn42" path="res://tscns/world.tscn" id="1_wa883"]
 [ext_resource type="PackedScene" uid="uid://bp3qmw0e3fno0" path="res://tscns/UIcontrol/homepointer.tscn" id="3_1awke"]
 [ext_resource type="PackedScene" uid="uid://blg0dgii3unks" path="res://tscns/UIcontrol/healthBar.tscn" id="3_c1vsl"]
-[ext_resource type="AudioStream" uid="uid://di16i5fl75r21" path="res://voices/main.mp3" id="5_jqtff"]
 [ext_resource type="PackedScene" uid="uid://csjjxllrc6jr8" path="res://tscns/UIcontrol/itemGame.tscn" id="6_1kw2o"]
 [ext_resource type="Texture2D" uid="uid://dsa5qh6awthgs" path="res://images/NPC/run_normal.png" id="7_vxnj6"]
 [ext_resource type="Texture2D" uid="uid://cp80pgonjw557" path="res://images/NPC/run_pressed.png" id="8_px3u2"]
@@ -54,10 +53,6 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_jqtff")
-autoplay = true
 
 [node name="ItemGame" parent="." node_paths=PackedStringArray("fatherUI") instance=ExtResource("6_1kw2o")]
 layout_mode = 1

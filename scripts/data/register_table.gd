@@ -1,6 +1,8 @@
 extends Object
 class_name Register_table
 
+static var control:GameControl = preload("res://tscns/control.tscn").instantiate()
+
 static var handlers:Dictionary={}
 
 static var AI:Dictionary={}

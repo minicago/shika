@@ -25,8 +25,6 @@ static func load_file(path, data , default = {}):
 		
 	for key in tmpdata:
 		data[key] = tmpdata[key]
-	#print(data)
-	#print(common_data.get("level"))
 	
 static func save_file(path, data):
 	var file = FileAccess.open(path , FileAccess.WRITE)

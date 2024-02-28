@@ -40,7 +40,6 @@ func set_rider_data(value : Dictionary):
 func instance_rider():
 	rider = Obj.new()
 	Register_table.obj_data["customized"] = rider_data.duplicate()
-	#print(Register_table.obj_data["customized"])
 	rider.obj_init("customized",null,lowlevel)
 	rider.function.toward = world_info.get("home_position", Vector2(10000.0, 0) ).normalized()
 

@@ -10,7 +10,6 @@ func go_to_map(map) :
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(Userdata.map )
 	for map in Userdata.map :
 		var texture_button = TextureButton.new()
 		texture_button.texture_normal = load( Register_table.map[map]["texture"] )

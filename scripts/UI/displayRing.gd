@@ -26,7 +26,7 @@ func _ready():
 		var tmp = preload("res://tscns/UIcontrol/displayBlock.tscn").instantiate()
 		tmp.block_offset = i
 		tmp.father = self
-		tmp.set_position(anch.position + Vector2(0.0, -r_dist).rotated(2 * PI / item_num * i))
+		tmp.set_position(anch.position + Vector2(0.0, -r_dist).rotated(2 * PI / item_num * (i + 1)))
 		add_child(tmp)
 
 

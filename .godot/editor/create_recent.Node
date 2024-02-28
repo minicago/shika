@@ -1,3 +1,5 @@
+TextEdit
+AudioStreamPlayer
 Sprite2D
 Control
 SubViewportContainer
@@ -11,4 +13,3 @@ VBoxContainer
 Button
 PopupPanel
 MenuBar
-MenuButton

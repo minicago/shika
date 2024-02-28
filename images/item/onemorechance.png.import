@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sm3qds6xo6j0"
-path="res://.godot/imported/regret.png-d494d64d82788f7f640e37d6f093270b.ctex"
+uid="uid://ciofaglh0wxqt"
+path="res://.godot/imported/onemorechance.png-4b9cc2c2dcde07886ec5c8f2a56bee20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/item/regret.png"
-dest_files=["res://.godot/imported/regret.png-d494d64d82788f7f640e37d6f093270b.ctex"]
+source_file="res://images/item/onemorechance.png"
+dest_files=["res://.godot/imported/onemorechance.png-4b9cc2c2dcde07886ec5c8f2a56bee20.ctex"]
 
 [params]
 

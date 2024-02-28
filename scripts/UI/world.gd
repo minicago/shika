@@ -46,7 +46,7 @@ func get_objs() -> Array[Obj]:
 	if not get_rider().alive: return []
 
 	for child:Obj_UI in find_children("*","Obj_UI",false,false) : 
-		if child.lowlevel!=null : 
+		if child.lowlevel != null : 
 			if child.lowlevel.alive : ret.append(child.lowlevel)
 			else :
 				remove_child(child)
