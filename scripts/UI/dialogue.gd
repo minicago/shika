@@ -29,6 +29,9 @@ func give_reward(dic):
 		
 	for tag in dic.get("reward_tag", []):
 		Userdata.common_data[tag] = true
+		
+	for map in dic.get("reward_place", []):
+		Userdata.map[map] = true
 
 	for ammo in dic.get("reward_ammo", {}):
 		Userdata.package_item["ammo"][ammo] = Userdata.package_item["ammo"].get(ammo, 0) + dic["reward_ammo"][ammo]

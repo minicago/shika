@@ -172,9 +172,12 @@ static func _static_init():
 			"power" : 1200.0,
 			"resist" : 0.9,
 			
+			"bullet_damage" : {"damage" : 10,},
+			
 			"take_damage" : ["take_damage"],
 			"die" : ["die"],
 			"monster_init" : ["loong_init"],
+			"shoot" : ["shoot_around"],
 		},
 		
 		[

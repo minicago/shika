@@ -54,10 +54,15 @@ static var butterfly_AI = func(_self:Obj_function ,delta):
 		if (rider_pos - _self.position).length() < _self.get_item_info("butterfly_round_dist") :
 			_self.timer_set("butterfly_round", _self.get_item_info("butterfly_round_time"))
 			_self.toward = _self.toward.rotated(- PI / 2)
+			
+static var shoot_AI = func(_self:Obj_function ,delta):
+	if _self.timer_get(_self.item_name + "shoot_cool", 0.0) <= 0.0:
+		_self.call_handler("shoot", {})
+		_self.timer_set(_self.item_name + "shoot_cool", _self.get_item_info("shoot_cool", 2.0))
 
 static var loong_AI = func(_self:Obj_function ,delta):
-
 	if  _self.get_item_info("follow_monster", null) == null:
+		Register_table.AI["shoot"].call(_self, delta)
 		var world:World = _self.get_father()
 		var follow_pos = world.get_rider().get_obj_position()
 		if (follow_pos - _self.get_obj_position()).length() < _self.get_item_info("rush_dist", 800.0):
@@ -65,7 +70,6 @@ static var loong_AI = func(_self:Obj_function ,delta):
 		var rotate_angle = _self.toward.angle_to( (follow_pos - _self.position ).normalized() )
 		if (abs(rotate_angle) < 0.1 * PI ):
 			_self.speed.x += _self.get_item_info("power", 800) * delta
-		#_self.addon_info_append("power", 1400)
 		_self.addon_info_append("max_rotate_rate",_self.get_item_info("loong_max_rotate_rate", 0.5 * PI))
 	else:
 		_self.speed = _self.get_item_info("follow_monster", null).speed + Vector2(1,0)
@@ -94,7 +98,9 @@ static func _static_init():
 	Register_table.AI["maggot"] = maggot_AI
 	Register_table.AI["abandon"] = abandon_AI
 	Register_table.AI["butterfly"] = butterfly_AI
+	Register_table.AI["shoot"] = shoot_AI
 	Register_table.AI["loong"] = loong_AI
 	Register_table.AI["spin"] = spin_AI
 	Register_table.AI["self_bomb"] = self_bomb_AI
 	Register_table.AI["aim_bullet"] = aim_bullet_AI
+	

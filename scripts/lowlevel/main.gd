@@ -10,6 +10,7 @@ var game : Game
 @onready var audioStreamPlayer2D:AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var index = $index
 @onready var backGround = $backGround
+@onready var placelabel = $index/Label
 var picker
 
 var mycar
@@ -33,7 +34,7 @@ func workshop_pressed():
 
 func _ready():
 	add_child(Register_table.control)
-	Register_table.control.set_bgm("res://voices/try.mp3")
+	Register_table.control.set_bgm(Register_table.map[Userdata.common_data.get("position") ].get( "bgm", "res://voices/try.mp3") )
 	gameBegin.pressed.connect(game_Begin_pressed)
 	workshopbutton.pressed.connect(workshop_pressed)
 	runaway.pressed.connect(runaway_pressed)
@@ -47,6 +48,7 @@ func _process(delta):
 	#index.size = 
 	#game_manager()
 	backGround.texture = load(Register_table.map[Userdata.common_data.get("position") ]["texture"] )
+	placelabel.text = tr(Userdata.common_data["position"])
 	pass
 
 func _notification(what):

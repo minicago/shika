@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0l8qi3y8vpqx"]
+[gd_scene load_steps=12 format=3 uid="uid://b0l8qi3y8vpqx"]
 
 [ext_resource type="Script" path="res://scripts/lowlevel/main.gd" id="1_cjdlo"]
 [ext_resource type="Texture2D" uid="uid://ckjh73eo6gi2h" path="res://images/NPC/taxi_pressed.png" id="2_dvauj"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dk3nik4k43riu" path="res://tscns/workshop.tscn" id="8_i0rtn"]
 [ext_resource type="Texture2D" uid="uid://dsa5qh6awthgs" path="res://images/NPC/run_normal.png" id="9_0leu2"]
 [ext_resource type="Texture2D" uid="uid://cp80pgonjw557" path="res://images/NPC/run_pressed.png" id="10_hwcw1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yjk7d"]
+font_size = 24
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -39,6 +42,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="index"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_yjk7d")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Shika" type="TextureRect" parent="index"]
 layout_mode = 1

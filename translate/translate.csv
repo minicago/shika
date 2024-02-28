@@ -28,7 +28,7 @@ minicago4_1,太谢谢了，路上小心。,
 minicago4_2,谢谢师傅，你的车技真不错。你通关了。,
 
 shopkeeper_lose,哪里贵了，一直都是这个价。,
-shopkeeper0,你需要子弹，道具，新车吗？来我这里。,
+shopkeeper0,你需要子弹吗？来我这里。,
 shopkeeper1,子弹大甩卖！,
 buy_gun_ammo,购买子弹5缘100个,
 
@@ -47,7 +47,7 @@ gun_descript,伤害{self_dic__damage__damage}，射速每{self_dic__cool_time}�
 glassy,玻璃车,
 glassy_descript,生命{addon_dic__maxhealth}\n碰撞伤害{addon_dic__bump_damage__damage}\n“从小到大，接我回家”,
 
-thanks,感谢有你,
+thanks,谢谢,
 thanks_descript,你通关了测试版，感谢参与测试。,
 
 gravity,地心引力,

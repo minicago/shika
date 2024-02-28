@@ -3,6 +3,7 @@ class_name HealthBar
 
 @onready var textureProgressBar:TextureProgressBar = $TextureProgressBar
 @export var fatherUI : World_UI
+@onready var label = $Label
 
 # Called when the node enters the scene tree for the first time.
 
@@ -15,6 +16,7 @@ func _process(delta):
 	var value = father.get_rider().get_addon_info("health", 0.0)
 	textureProgressBar.max_value=max_value
 	textureProgressBar.value=value
+	label.text = str(snappedf(value, 1))
 	if value < 0.15 * max_value :
 		modulate.s = 100.0
 		modulate.a = sin(Time.get_ticks_msec() / 500.0) * 0.4 + 0.6

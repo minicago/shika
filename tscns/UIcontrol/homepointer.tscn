@@ -41,3 +41,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_c1ann")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 63.0
+horizontal_alignment = 1
+vertical_alignment = 1

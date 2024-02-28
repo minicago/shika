@@ -22,7 +22,9 @@ static func load_file(path, data , default = {}):
 		var json = JSON.new()
 		json.parse(json_string)
 		tmpdata = json.get_data()
-		
+	
+	data.clear()
+
 	for key in tmpdata:
 		data[key] = tmpdata[key]
 	
@@ -39,16 +41,19 @@ static func all_save():
 	save_file("user://NPC.txt", NPC)
 	save_file("user://map.txt", map)
 
+static func reset_file():
+	version["version"] = 1
+	load_file("user://null", package_item, {"package":[], "ammo":{}})
+	load_file("user://null", common_data, {"fate" : 0, "position" : "school_gate"})
+	load_file("user://null", riders, {"riders":[{"name" : "glassy"}, ], "picked":0})
+	load_file("user://null", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})
+	load_file("user://null", map, {"school_gate" : true})
+
 static func all_load():
 	print("load")
 	load_file("user://version.txt", version, {"version" : 0})
 	if version.get("version",0) < 1:
-		version["version"] = 1
-		load_file("user://null", package_item, {"package":[],"ammo":{}})
-		load_file("user://null", common_data, {"fate" : 0, "position" : "school_gate"})
-		load_file("user://null", riders, {"riders":[{"name" : "glassy"}, ], "picked":0})
-		load_file("user://null", NPC, {"minicago" : {"brave" : 0, "weight" : 1},})
-		load_file("user://null", map, {"school_gate" : true})
+		reset_file()
 	else :
 		
 		load_file("user://package_item.txt", package_item)
