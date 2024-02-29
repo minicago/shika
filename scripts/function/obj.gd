@@ -50,8 +50,12 @@ func get_real_speed():
 func set_speed(_speed):
 	speed = _speed
 	
-func set_real_speed(_speed):
-	speed = _speed.rotated(- toward.angle())
+func set_real_speed(_speed, _spin = false):
+	if _spin :
+		toward = _speed.normalized()
+		speed = Vector2(_speed , 0)
+	else :
+		speed = _speed.rotated(- toward.angle())
 
 func get_toward():
 	if get_addon_info("spinable", false) : 
@@ -87,19 +91,8 @@ func function_process(delta):
 		AI_dic[function].call(self, delta)
 	item_name = ""
 	if toward.length() > 0.5 :
-		set_obj_position(position + toward * speed.x * delta + toward.rotated(- PI / 2) * speed.y * delta)
+		set_obj_position(position + speed.rotated(toward.angle()) * delta)
 	pass
-
-#func bump_handler(collider : Obj):
-	#for handler in bump_handler_dic :
-		##print(handler)
-		#bump_handler_dic[handler].call(self, collider)
-
-#func load_normal(_dic):
-	##spinable = _dic.get("spinable", false)
-	##maxhealth = _dic.get("maxhealth", 0.0)
-	##health = _dic.get("health", 0.0)
-	#UI_instance_path = _dic.get("UI_instance_path", "res://tscns/objs/default.tscn")
 
 func load_addon(_dic):
 	addon_info = _dic.duplicate()
@@ -150,7 +143,6 @@ func item_info_append(key, value):
 	addon_info[item_name + key] = value
 
 func UI_instance() -> Obj_UI:
-	#print(addon_info)
 	var tscn=load(get_addon_info("UI_instance_path"))
 	return tscn.instantiate()
 	

@@ -20,3 +20,17 @@ static func _static_init():
 			"shopkeeper1",
 		],
 	}
+
+	Register_table.NPC_data["guppy"] = {
+		"texture" : "res://images/NPC/guppy.png",
+		"dialogue" : [
+			
+		],
+	}
+
+	Register_table.NPC_data["shoot_master"] = {
+		"texture" : "res://images/NPC/shoot_master.png",
+		"dialogue" : [
+			
+		],
+	}

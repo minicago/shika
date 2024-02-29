@@ -145,6 +145,9 @@ static func _static_init():
 				"reward_NPC" : [
 					"shopkeeper",
 				],
+				"reward_place" : [
+					"shoot_place",
+				],
 				"fail" : "minicago_lose",
 				"next" : "minicago2_2",
 			},
@@ -193,6 +196,7 @@ static func _static_init():
 				"reward_item" : [
 					"radiance",
 				],
+
 				"fail" : "minicago_lose",
 				"next" : "minicago3_2",
 			}
@@ -238,9 +242,6 @@ static func _static_init():
 				"reward_tag" : [
 					"minicago4",
 				],
-				"reward_item" : [
-					"thanks",
-				],
 				"fail" : "minicago_lose",
 				"next" : "minicago4_2",
 			}
@@ -257,7 +258,6 @@ static func _static_init():
 	}
 
 #shopkeeper
-
 	Register_table.dialogue_data["shopkeeper_lose"] = {
 		"text" : "shopkeeper_lose",
 		"button" : [

@@ -160,7 +160,7 @@ static func _static_init():
 			"show_cool": false,
 			"bullet_num" : 8,
 			"bullet_speed" : 500,
-			"damage" : {
+			"bullet_damage" : {
 				"ignore_invincible" : true,
 				"damage" : 1000,
 			},

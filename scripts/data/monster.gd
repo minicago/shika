@@ -43,7 +43,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],
@@ -93,7 +92,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],
@@ -139,7 +137,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"rider",
 		],
 	)
@@ -163,7 +160,9 @@ static func _static_init():
 			"type" : "monster",
 			"boss" : true,
 			"loong" : true,
+			"shoot_cool" : 5,
 			"bump_damage" : {"damage" : 10.0},
+			"bullet_num" : 1,
 
 			"hurt_time" : 0.2,
 			"invincible_time" : 0.2,
@@ -172,11 +171,12 @@ static func _static_init():
 			"power" : 1200.0,
 			"resist" : 0.9,
 			
-			"bullet_damage" : {"damage" : 10,},
+			"bullet_damage" : {"damage" : 15,},
 			
 			"take_damage" : ["take_damage"],
 			"die" : ["die"],
 			"monster_init" : ["loong_init"],
+			"bullet" : "laser",
 			"shoot" : ["shoot_around"],
 		},
 		
@@ -188,7 +188,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"rider",
 		],
 	)
@@ -234,7 +233,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],
@@ -284,7 +282,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],
@@ -333,7 +330,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],
@@ -381,7 +377,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"rider",
 		],

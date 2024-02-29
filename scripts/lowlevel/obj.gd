@@ -25,8 +25,8 @@ func get_real_speed():
 func set_speed(_speed):
 	function.set_speed(_speed)
 
-func set_real_speed(_speed):
-	function.set_real_speed(_speed)
+func set_real_speed(_speed, _spin = false):
+	function.set_real_speed(_speed , _spin)
 
 func get_func_modulate():
 	return function.get_func_modulate()

@@ -34,7 +34,6 @@ static func _static_init():
 		"monster_frequence" : 0.3,
 		"home_position" : Vector2(25000.0, 0),
 		"init_monster" : [
-
 		],
 		"monster_probility" :{
 			"tank" : 1,

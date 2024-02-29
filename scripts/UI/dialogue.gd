@@ -65,6 +65,10 @@ func button_pressed(dic):
 		else : 
 			win_flag = false
 
+	var rate = dic.get("rate", 1.0)
+	if randf() > rate : 
+		win_flag = false
+
 	if win_flag:
 		give_reward(dic)
 		Userdata.all_save()

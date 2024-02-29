@@ -17,10 +17,12 @@ static var take_damage_handler = func(_self : Obj_function, value):
 		var health = _self.get_addon_info("health", 0.0)
 		health -= damage
 		if health < 0 : 
+			damage += health
 			health = 0
 			
 			
 		if health > maxhealth :
+			damage += maxhealth - health
 			health = maxhealth
 		
 		_self.addon_info_append("health", health)
@@ -57,19 +59,21 @@ static var loong_init_handler = func(_self : Obj_function, value):
 				
 static var bullet_common_init_handler = func(_self : Obj_function, value):
 	var _father:Obj_function = value.get("father", null)
+	for key in value :
+		_self.addon_info_append(key,value[key])
 	if _father == null:
-		_self.set_obj_position(value.get("position", Vector2(0, 0)))
-		_self.set_speed(value.get("init_speed", Vector2(0,0) ) )
-		_self.toward = value.get("toward", Vector2(0,0) )
+		_self.set_obj_position(_self.get_addon_info("position", Vector2(0, 0)))
+		_self.set_speed(_self.get_addon_info("bullet_speed", Vector2(0,0) ) )
+		_self.toward = _self.get_addon_info("toward", Vector2(0,0) )
 		_self.addon_info_append("ban_group", value.get("ban_group", []) )
 	else :
 		_self.set_obj_position(_father.get_obj_position() + _father.get_toward() * value.get("offset", 20.0))
-		_self.toward = _father.get_toward()
+		_self.toward = _self.get_addon_info("bullet_speed", Vector2(1800.0, 0)).rotated(_father.get_toward().angle() ).normalized()
 		#print("bullet_speed =", _father.get_toward() * value.get("bullet_speed", 1000.0) + _father.get_real_speed())
-		_self.set_real_speed( value.get("bullet_speed", Vector2(1800.0, 0)).rotated(_father.get_toward().angle() ) + _father.get_real_speed() )
+		_self.set_real_speed( _self.get_addon_info("bullet_speed", Vector2(1800.0, 0)).rotated(_father.get_toward().angle() ) + _father.get_real_speed() )
 		#print("bullet_toward == ", _self.speed)
 		var type = _father.get_addon_info("type", null)
-		if value.get("all_hurt", false):
+		if _self.get_addon_info("all_hurt", false):
 			_self.addon_info_append("ban_group", [ "home", "bullet"] )
 		else :
 			if type == "rider" :
@@ -77,17 +81,29 @@ static var bullet_common_init_handler = func(_self : Obj_function, value):
 			elif type == "monster": 
 				_self.addon_info_append("ban_group", ["monster", "home", "bullet"] )
 			elif type == "bullet" :
-				_self.addon_info_append("ban_group", _father.get_item_info("ban_group", []))
+				_self.addon_info_append("ban_group", _father.get_addon_info("ban_group", []))
 	
-	_self.timer_set("life_time", _self.get_item_info("life_time", 5.0) )
+	_self.timer_set("life_time", _self.get_addon_info("life_time", 5.0) )
 	
-	_self.addon_info_append("damage", value.get("damage", {}) )
+	#_self.addon_info_append("damage", value.get("damage", {}) )
 	
-	if value.get("aim", false):
+	if _self.get_addon_info("aim", false):
 		var world:World = _self.get_father()
 			#print("bullet_speed =", _father.get_toward() * value.get("bullet_speed", 1000.0) + _father.get_real_speed())
-		_self.set_speed( Vector2(value.get("bullet_speed", 1800.0) , 0 ) )
+		_self.set_speed(  _self.get_addon_info("bullet_speed", Vector2(1800.0, 0))  )
 		_self.toward = (world.get_rider().get_obj_position() - _self.get_obj_position()).normalized()
+	if _self.get_addon_info("smart_aim", false):
+		var world:World = _self.get_father()
+			#print("bullet_speed =", _father.get_toward() * value.get("bullet_speed", 1000.0) + _father.get_real_speed())
+		_self.set_speed( _self.get_addon_info("bullet_speed", Vector2(1800.0, 0))  )
+		var dist = (_self.get_obj_position() - world.get_rider().get_obj_position() )
+		var real_spead = world.get_rider().get_real_speed()
+		var bullet_speed =  _self.get_addon_info("bullet_speed", Vector2(1800.0, 0)) .length()
+		var angle = real_spead.angle_to(dist)
+		var sin_angle = sin(angle) / bullet_speed * real_spead.length() 
+		var final_toward = (-dist).rotated(asin(sin_angle))
+		_self.toward = (final_toward).normalized()
+	
 	
 static var die_bomb_handler = func(_self : Obj_function, value):
 	var world:World = _self.get_father()
@@ -99,7 +115,7 @@ static var shoot_around_handler = func(_self : Obj_function, value):
 	var bullet_speed = _self.get_item_info("bullet_speed", 1800.0)
 	for i in range(0, bullet_num):
 		world.instance_bullet(_self.get_item_info("bullet", "bullet") , 
-		{"damage" : _self.get_item_info("damage", {}), "father" : _self , "bullet_speed" : Vector2(bullet_speed, 0 ).rotated(2 * i * PI / bullet_num)} )
+		{"damage" : _self.get_item_info("bullet_damage", {}), "father" : _self , "bullet_speed" : Vector2(bullet_speed, 0 ).rotated(2 * i * PI / bullet_num)} )
 
 static var reborn_handler = func (_self : Obj_function, value):
 	if _self.get_addon_info("go_die", true):

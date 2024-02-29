@@ -22,6 +22,5 @@ texture = ExtResource("2_igo2t")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-6.96296, 32)
 scale = Vector2(0.555556, 2)
-polygon = PackedVector2Array(26.9333, -36, 41.3333, 8, -30.6666, 8, -16.2667, -36)
+polygon = PackedVector2Array(28.8, -20, 14.4, 20, -43.2, 20, -43.2, -20)

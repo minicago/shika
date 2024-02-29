@@ -32,6 +32,9 @@ func set_world_info(value :Dictionary):
 	world_info = value
 	monster_buf = world_info.get("init_monster",[]).duplicate()
 	
+func get_world_info():
+	return world_info
+	
 func set_rider_data(value : Dictionary):
 	rider_data = value
 	instance_home()
@@ -78,15 +81,15 @@ func monster_manager(delta):
 	if monsters.size() >= world_info.get("max_monsters",10):
 		penalty *= 5.0 + (monsters.size() - world_info.get("max_monsters",10))
 
-	if monsters.size() > world_info.get("max_monsters",10) + 3 :
-		for monster in monsters:
-			if monster == null :
-				monsters.erase(monster)
-				break
-			if not monster.get_addon_info("boss", false) :
-				monsters.erase(monster)
-				monster.kill()
-				break
+	#if monsters.size() > world_info.get("max_monsters",10) + 3 :
+		#for monster in monsters:
+			#if monster == null :
+				#monsters.erase(monster)
+				#break
+			#if not monster.get_addon_info("boss", false) :
+				#monsters.erase(monster)
+				#monster.kill()
+				#break
 
 	time_total += delta
 	if time_total > penalty * world_info.get("monster_frequence"):

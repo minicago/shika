@@ -30,7 +30,7 @@ static var spider_AI = func(_self:Obj_function ,delta):
 		
 static var maggot_AI = func(_self:Obj_function ,delta):
 	_self.speed.x += _self.get_item_info("power", 800) * delta
-	_self.speed = _self.speed * exp(- _self.get_item_info("resist") * delta)
+	_self.speed = _self.speed * exp(- _self.get_item_info("resist", 0.9) * delta)
 	
 	
 static var abandon_AI = func(_self:Obj_function ,delta):
@@ -61,6 +61,7 @@ static var shoot_AI = func(_self:Obj_function ,delta):
 		_self.timer_set(_self.item_name + "shoot_cool", _self.get_item_info("shoot_cool", 2.0))
 
 static var loong_AI = func(_self:Obj_function ,delta):
+	
 	if  _self.get_item_info("follow_monster", null) == null:
 		Register_table.AI["shoot"].call(_self, delta)
 		var world:World = _self.get_father()
@@ -89,7 +90,7 @@ static var aim_bullet_AI = func(_self:Obj_function ,delta):
 	var world:World = _self.get_father()
 	if _self.timer_get("aim_bullet_AI",0) == 0:
 		_self.timer_set("aim_bullet_AI", _self.get_item_info("aim_bullet_AI_cool_time",3.0))
-		world.instance_bullet("bullet",{"damage" : _self.get_item_info("bullet_damage", {}) , "father" : _self , "aim" : true})
+		world.instance_bullet("bullet",{"damage" : _self.get_item_info("bullet_damage", {}) , "father" : _self , "smart_aim" : true})
 
 
 static func _static_init():

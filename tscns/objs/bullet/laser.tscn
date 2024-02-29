@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0n3cup1a31wu"]
+
+[ext_resource type="Script" path="res://scripts/UI/obj.gd" id="1_m4qo2"]
+[ext_resource type="Texture2D" uid="uid://c52o65344vlhw" path="res://images/bullet/laser.png" id="2_jpqya"]
+
+[node name="Obj" type="Node2D"]
+scale = Vector2(0.5, 2)
+script = ExtResource("1_m4qo2")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -4000.0
+offset_right = 120.0
+offset_bottom = 0.00415039
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jpqya")
+metadata/_edit_use_anchors_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.694445, 29.3484)
+polygon = PackedVector2Array(161.28, -136.294, 115.2, -15.1286, 69.1199, 0, -46.08, 0, -69.1199, -14.5834, -92.1599, -136.294)

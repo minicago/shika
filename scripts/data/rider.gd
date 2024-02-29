@@ -44,7 +44,6 @@ static func _static_init():
 		],
 		
 		[
-			"once",
 			"box",
 			"home",
 			"monster",
