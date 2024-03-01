@@ -55,3 +55,16 @@ static func dic_format(str:String , dic:Dictionary , prefix = ""):
 		else :
 			str = str.format({prefix + key : dic[key]})
 	return str
+
+static func dic_format_item(str:String , dic:Dictionary , item_name , prefix = ""):
+	#print (str , dic ,prefix)
+	if item_name == "" : return dic_format(str, dic, prefix)
+	for key in dic :
+		if typeof(key) != TYPE_STRING: continue
+		if key[0] != item_name : continue
+		var item_key = key.right(-1)
+		if typeof(dic[key]) == TYPE_DICTIONARY:
+			str = dic_format(str, dic[key] , prefix + item_key + "__")
+		else :
+			str = str.format({prefix + item_key : dic[key]})
+	return str

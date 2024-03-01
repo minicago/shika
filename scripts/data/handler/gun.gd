@@ -1,16 +1,13 @@
 extends Node
 
 static func _static_init():
-	Register_table.handlers["gun"] = func (_self : Obj_function, value) :
-		var bullet_type = _self.get_item_info("bullet_type", "gun")
-		var bullet_num = Userdata.package_item.get("ammo").get(bullet_type,0)
-		_self.item_info_append("displaytext", str(bullet_num) )
-		if Input.is_action_pressed("item"+_self.item_name):
-			if bullet_num <= 0 : return
-			if _self.timer_get(_self.item_name + "cool", 0.0 ) == 0.0:
-				Userdata.package_item.get("ammo")[bullet_type] -= 1
-				var world:World = _self.get_father()
-				world.function.instance_bullet("bullet", {"damage" : _self.get_item_info("damage", {}), "father" : _self} )
-				_self.timer_set(_self.item_name + "cool", _self.get_item_info("cool_time",10.0) )
+	Register_table.handlers["shoot_ammo"] = func (_self : Obj_function, value) :
+		var ammo_type = _self.get_item_info("ammo_type", "gun")
+		var ammo_num = Userdata.package_item.get("ammo").get(ammo_type,0)
+		var bullet_type = _self.get_item_info("bullet_type", "bullet")
+		if ammo_num <= 0 : return
+		Userdata.package_item.get("ammo")[ammo_type] = ammo_num - 1
+		var world:World = _self.get_father()
+		world.function.instance_bullet(bullet_type , {"damage" : _self.get_item_info("damage", {}), "father" : _self} )
 		pass
 

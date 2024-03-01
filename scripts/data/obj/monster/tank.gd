@@ -18,26 +18,33 @@ static func _static_init():
 
 			"type" : "monster",
 			"bump_damage" : {"damage" : 15.0},
-			"bullet_damage" : {"damage" : 15.0},
+			
 
 			"invincible_time" : 0.2,
 			
 			"power" : 1200.0,
 			"resist" : 0.8,
-			"follow_AI_cool_time" : INF,
-			"follow_AI_miss_rate" : 0,
+			"cool_time" : INF,
 			"abandon_dist" : 2000.0,
 			
 			"take_damage" : ["take_damage"],
 			"die" : ["die"],
-		
+			"cool_handler" : ["follow"],
+			
 			"process":[
-				"follow",
 				"maggot",
 				"abandon",
 				"modulate_hurt",
-				"aim_bullet",
+				"cool_boot"
 			],
+			
+			"0bullet_damage" : {"damage" : 5.0},
+			"0cool_handler" : ["aim_bullet"],
+			"0cool_time" : 1.0,
+			"0process" : [
+				"cool_boot",
+			],
+			
 			"bump_handler":[
 				"box",
 				"rider",

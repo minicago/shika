@@ -28,7 +28,7 @@ func win():
 	return get_rider().get_addon_info("win", false)
 	
 func set_world_info(value :Dictionary):
-	world_info = value
+	world_info = value.duplicate(true)
 	monster_buf = world_info.get("init_monster",[]).duplicate()
 	
 func get_world_info(key , value = null):

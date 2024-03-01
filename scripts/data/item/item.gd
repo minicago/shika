@@ -15,9 +15,13 @@ static func _static_init():
 			"cool_time" : 10.0,
 			"blink_dist" : 500.0,
 
-		"process":[
-			"blink",
-		],
+			"cool_handler" : ["blink"],
+			"action_handler" : ["cool_boot"],
+		
+			"process":[
+				"just_action_boot",
+				"show_cool",
+			],
 		}
 	}
 
@@ -34,9 +38,13 @@ static func _static_init():
 			"cool_time" : 5.0,
 			"rush_power" : 400.0,
 		
-		"process":[
-			"rush",
-		],
+			"cool_handler" : ["rush"],
+			"action_handler" : ["cool_boot"],
+		
+			"process":[
+				"just_action_boot",
+				"show_cool",
+			],
 		}
 	}
 
@@ -52,10 +60,14 @@ static func _static_init():
 			"texture" : "res://images/item/radiance.png",
 			"damage" : {"damage" : 5.0, "ignore_invincible" :true , "ignore_ammor" : INF},
 			"show_cool": false,
-		
-		"process":[
-			"burning",
-		],
+			"displaystr" : "{item__damage__damage}",
+			
+			"cool_handler" : ["burning"],
+			
+			"process":[
+				"cool_boot",
+				"show_info",
+			],
 		}
 	}
 	
@@ -72,10 +84,15 @@ static func _static_init():
 			"damage" : {"damage" : 10,  "ignore_invincible" : true, },
 			"show_cool": false,
 			"cool_time" : 0.1,
+			"displaystr" : "{package_item__ammo__gun}", 
 		
-		"process":[
-			"gun",
-		],
+			"cool_handler" : ["shoot_ammo"],
+			"action_handler" : ["cool_boot"],
+			
+			"process":[
+				"action_boot",
+				"show_info",
+			],
 		}
 	}
 
@@ -90,9 +107,9 @@ static func _static_init():
 		"self_dic":{
 			"texture" : "res://images/item/thanks.png",
 		
-		"process":[
-			
-		],
+			"process":[
+				
+			],
 		}
 	}
 
@@ -109,9 +126,9 @@ static func _static_init():
 			"show_cool": false,
 			"gravity" : 200.0,
 		
-		"process":[
-			"gravity",
-		],
+			"process":[
+				"gravity",
+			],
 		}
 	}
 	
@@ -125,17 +142,20 @@ static func _static_init():
 
 		"self_dic":{
 			"texture" : "res://images/item/onemorechance.png",
-			"show_cool": false,
 			"bullet_num" : 8,
 			"bullet_speed" : 500,
 			"bullet_damage" : {
 				"ignore_invincible" : true,
 				"damage" : 1000,
 			},
+			"cool_time" : 99999,
 			"reborn_rate" : 0.5,
-			"go_die_handler" : ["onemorechance"],
+			"reborn_handler" : ["shoot_around"],
+			"cool_handler" : ["reborn_boot"],
+			"go_die_handler" : ["cool_boot"],
 		
 		"process":[
+			"show_cool",
 		],
 		}
 	}
@@ -160,11 +180,11 @@ static func _static_init():
 			},
 			"exact_time" : 4.0,
 			"penalty_time" : 0.3,
-			"loong_heart_reward" : ["take_self_heal"],
-			"loong_heart_penalty" : ["take_self_damage"],
+			"tick_reward" : ["take_self_heal"],
+			"tick_penalty" : ["take_self_damage"],
 		
 		"process":[
-			"loong_heart",
+			"tick_boot",
 		],
 		}
 	}

@@ -23,9 +23,11 @@ func _process(delta):
 		if show_cool:
 			var time1 = father.get_rider().get_addon_info(str(item_num)+"display1",0.0)
 			var time2 = father.get_rider().get_addon_info(str(item_num)+"display2",0.0)
+			#print(item_num," ",time1," ",time2)
 			if time1 == 0.0 : labeltime.visible = false
 			else : labeltime.visible = true
-			labeltime.text = str(snappedf( time1, 0.01))
+			if time1 > 999 : labeltime.text = ""
+			else : labeltime.text = str(snappedf( time1, 0.01))
 			var coolr:float = time1 / (time2 + 0.01)
 			shader.set_shader_parameter("available", true)
 			shader.set_shader_parameter("coolt", coolr)

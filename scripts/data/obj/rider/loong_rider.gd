@@ -35,14 +35,14 @@ static func _static_init():
 			"shoot_cool" : 8,
 			"bullet_num" : 1,
 			"bullet" : "laser",
-			"shoot" : ["shoot_around"],
+			"cool_handler" : ["shoot_around"],
 			"bullet_damage" : {"damage" : 10.0, "ignore_invincible" : true},
 		
 			"process":[
 				"rider_AI",
 				"modulate_invincible",
 				"modulate_hurt",
-				"shoot",
+				"cool_handler",
 			],
 			"bump_handler":[
 				"box",

@@ -19,18 +19,18 @@ static func _static_init():
 			
 			"power" : 1600.0,
 			"resist" : 0.8,
-			"follow_AI_cool_time" : INF,
-			"follow_AI_miss_rate" : 0,
+			"cool_time" : INF,
 			"abandon_dist" : 2000.0,
 			
 			"take_damage" : ["take_damage"],
 			"die" : ["die"],
+			"cool_handler" : ["follow"],
 		
 			"process":[
-				"follow",
 				"maggot",
 				"abandon",
 				"modulate_hurt",
+				"cool_boot",
 			],
 			"bump_handler":[
 				"box",

@@ -117,7 +117,7 @@ static var shoot_around_handler = func(_self : Obj_function, value):
 		world.instance_bullet(_self.get_item_info("bullet", "bullet") , 
 		{"damage" : _self.get_item_info("bullet_damage", {}), "father" : _self , "bullet_speed" : Vector2(bullet_speed, 0 ).rotated(2 * i * PI / bullet_num)} )
 
-static var reborn_handler = func (_self : Obj_function, value):
+static var reborn_boot = func (_self : Obj_function, value):
 	if _self.get_addon_info("go_die", true):
 		if not _self.get_item_info("reborned", false):
 			_self.addon_info_append("go_die", false)
@@ -125,12 +125,8 @@ static var reborn_handler = func (_self : Obj_function, value):
 			{"damage" :- _self.get_addon_info("maxhealth", 0.0) * _self.get_item_info("reborn_rate", 0.0 ) - _self.get_item_info("reborn_value", 0.0 ) } 
 			) 
 			_self.item_info_append("reborned" , true)
-			return true
-	return false
+			_self.call_handler("reborn_handler", {}, false)
 	
-static var onemorechance_handler =  func (_self : Obj_function, value):
-	if Register_table.handlers["reborn"].call(_self, value) :
-		Register_table.handlers["shoot_around"].call(_self, value)
 		
 static var take_self_damage_handler = func (_self : Obj_function, value) :
 	_self.call_handler("take_damage", _self.get_item_info("self_damage", {}) )
@@ -146,7 +142,6 @@ static func _static_init():
 	Register_table.handlers["bullet_common_init"] = bullet_common_init_handler
 	Register_table.handlers["die_bomb"] = die_bomb_handler
 	Register_table.handlers["shoot_around"] = shoot_around_handler
-	Register_table.handlers["reborn"] = reborn_handler
-	Register_table.handlers["onemorechance"] = onemorechance_handler
+	Register_table.handlers["reborn_boot"] = reborn_boot
 	Register_table.handlers["take_self_damage"] = take_self_damage_handler
 	Register_table.handlers["take_self_heal"] = take_self_heal_handler

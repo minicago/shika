@@ -16,7 +16,7 @@ static func _static_init():
 			"type" : "monster",
 			"boss" : true,
 			"loong" : true,
-			"shoot_cool" : 6,
+			"cool_time" : 6,
 			"bump_damage" : {"damage" : 10.0},
 			"bullet_num" : 1,
 
@@ -32,7 +32,7 @@ static func _static_init():
 			"die" : ["die"],
 			"monster_init" : ["loong_init"],
 			"bullet" : "laser",
-			"shoot" : ["shoot_around"],
+			"cool_handler" : ["shoot_around"],
 		
 			"process":[
 				"follow",

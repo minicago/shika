@@ -28,10 +28,10 @@ static func _static_init():
 			"die" : ["die"],
 			"monster_init" : ["loong_init"],
 			
-			"shoot_cool" : 8,
+			"cool_time" : 8,
 			"bullet_num" : 1,
 			"bullet" : "laser",
-			"shoot" : ["shoot_around"],
+			"cool_handler" : ["shoot_around"],
 			"bullet_damage" : {"damage" : 10.0,},
 		
 		"process":[

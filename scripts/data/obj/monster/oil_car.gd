@@ -1,7 +1,7 @@
 extends Node
 static func _static_init():
 #oil_car 
-	Register_table.obj_data["oil_car"] = {		
+	Register_table.obj_data["oil_car"] = {
 		"export_dic":{
 			"texture" : "res://images/monster/oil_car.png",
 		},
@@ -21,8 +21,6 @@ static func _static_init():
 			
 			"power" : 1600.0,
 			"resist" : 0.8,
-			"follow_AI_cool_time" : INF,
-			"follow_AI_miss_rate" : 0,
 			"abandon_dist" : 2000.0,
 			
 			"take_damage" : ["take_damage"],

@@ -38,9 +38,8 @@ vertical_alignment = 1
 
 [node name="Labeltime" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
 offset_top = 24.0
-offset_right = 64.0
+offset_right = 88.0
 offset_bottom = 69.0
 text = "1"
 label_settings = SubResource("LabelSettings_n0q0m")
