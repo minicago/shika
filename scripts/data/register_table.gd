@@ -18,7 +18,6 @@ static var NPC_data : Dictionary = {}
 static var map : Dictionary = {}
 
 static func equip_item(Num : int , dic : Dictionary , item_dic : Dictionary):
-	print(item_dic)
 	for key in item_dic.get("AI_dic", {}):
 		dic["AI_dic"][str(Num) + key] = item_dic["AI_dic"][key]
 	for key in item_dic.get("self_dic",{}):

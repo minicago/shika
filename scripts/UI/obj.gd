@@ -39,6 +39,6 @@ func _process(delta):
 		set_modulate(get_func_modulate())
 	
 func free():
-	get_parent().remove_child(self)
+	lowlevel.all_free()
 
 

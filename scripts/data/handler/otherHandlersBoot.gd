@@ -47,18 +47,15 @@ static var die_call_handler = func(_self : Obj_function, value):
 		monster.set_obj_position(_self.get_obj_position())
 	
 static var loong_init_handler = func(_self : Obj_function, value):
-	_self.addon_info_append("tail",_self)
+	#_self.addon_info_append("tail",_self)
 	var world:World = _self.get_father()
-	for monster:Obj in world.function.monsters:
-		if monster.get_addon_info("loong", false):
-			if monster != _self.lowlevel:
-				_self.addon_info_append("follow_monster" , monster.get_addon_info("tail", null))
-				if monster.get_addon_info("tail", null) == null : break
-				_self.set_obj_position( monster.get_addon_info("tail", null).get_obj_position() - _self.get_item_info("follow_monster", null).get_toward() * _self.get_item_info("follow_offset", 250.0))
-				_self.set_speed(monster.get_addon_info("tail", null).get_speed() )
-				_self.toward = monster.get_addon_info("tail", null).get_toward()
-				monster.addon_info_append("tail",_self)
-				break
+	var followee = world.get_world_info("loong_tail", null)
+	_self.addon_info_append("follow_monster" , followee)
+	world.world_info_append("loong_tail",_self)
+	if followee == null : return
+	_self.set_obj_position( followee.get_obj_position() - _self.get_item_info("follow_monster", null).get_toward() * _self.get_item_info("follow_offset", 250.0))
+	_self.set_speed(followee.get_speed() )
+	_self.toward = followee.get_toward()
 				
 static var bullet_common_init_handler = func(_self : Obj_function, value):
 	var _father:Obj_function = value.get("father", null)

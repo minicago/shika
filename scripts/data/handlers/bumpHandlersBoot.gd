@@ -1,4 +1,5 @@
 extends Node
+class_name BumpHandlerBoot
 
 static var bump_handler_home = func(collidee :Obj_function, collider : Obj):
 	if collider.get_addon_info("type") == "home":
@@ -10,9 +11,10 @@ static var bump_handler_monster = func(collidee :Obj_function, collider : Obj):
 		collider.call_handler("take_damage", collidee.get_item_info("bump_damage", {}))
 		
 static var bump_handler_once = func(collidee :Obj_function, collider : Obj):
-	if not collidee.banlist.get(collider, false):
-		collidee.banlist[collider] = true
-	else : return
+	if collider.get_addon_info("once", false): 
+		if not collidee.banlist.get(collider, false):
+			collidee.banlist[collider] = true
+		else : return
 		
 static var bump_handler_box = func(collidee :Obj_function, collider : Obj):
 	if (collidee.lowlevel.timestamp) < collider.timestamp : return
@@ -29,17 +31,15 @@ static var bump_handler_box = func(collidee :Obj_function, collider : Obj):
 			collider.set_obj_position(collider.get_obj_position() - dist.normalized() * collider.get_addon_info("box", 0.0))
 		
 static var bump_handler_rider = func(collidee : Obj_function, collider : Obj):
-	#print("kill")
 	if collider.get_addon_info("type", "") == "rider":
 		collider.call_handler("take_damage", collidee.get_item_info("bump_damage", {}))
 		
 static var bump_handler_bullet = func(collidee : Obj_function, collider : Obj):
-	#print("bumped")
 	collider.call_handler("take_damage", collidee.get_item_info("damage", {}))
 		
 static var bump_handler_bullet_kill = func(collidee : Obj_function, collider : Obj):
-	#if collidee.get_item_info("damage", {}).get("ignore_invincible",false) or collider.timer_get("invincible", 0.0) == 0.0 :
-	collidee.call_handler("die", {})
+	if not collidee.get_item_info("damage", {}).get("ignore_invincible",false) or collider.timer_get("invincible", 0.0) == 0.0 :
+		collidee.call_handler("die", {})
 
 static func _static_init():
 	Register_table.handlers["home"] = bump_handler_home

@@ -1,7 +1,7 @@
 extends Node
 class_name Obj
 
-var father
+var father : World
 var function : Obj_function
 var UI : Obj_UI
 var alive = true
@@ -11,6 +11,7 @@ func call_handler(name, value):
 	function.call_handler(name, value)
 
 func kill():
+	if get_addon_info("type", "monster") : father.world_info_append( "monster_num", father.get_world_info("monster_num", 0 ) - 1 )
 	alive = false
 
 func get_father():

@@ -20,8 +20,11 @@ func get_home():
 func get_objs() -> Array[Obj]:
 	return UI.get_objs()
 	
-func get_world_info():
-	return function.get_world_info()
+func get_world_info(key , value = null):
+	return function.get_world_info(key,value)
+	
+func world_info_append(key , value):
+	function.world_info_append(key, value)
 	
 func instance_rider():
 	return function.instance_rider()

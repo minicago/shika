@@ -1,6 +1,4 @@
 extends Node
-class_name Home_info
-
 static func _static_init():
 	Register_table.obj_data["home"] = {
 		
@@ -13,11 +11,11 @@ static func _static_init():
 			"type" : "home",
 			"once" : true,
 		
-		"process":[
-		],
-		"bump_handler":[
-			"once",
-		],
+			"process":[
+			],
+			"bump_handler":[
+				"once",
+			],
 		}
 	}
 	print("home function static init done")

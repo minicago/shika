@@ -7,8 +7,11 @@ var lowlevel : World
 @onready var background : TextureRect = $Camera2D/Background
 @onready var shader : ShaderMaterial = background.material
 
-func get_world_info():
-	return lowlevel.get_world_info()
+func get_world_info(key , value = null):
+	return lowlevel.get_world_info(key,value)
+	
+func world_info_append(key , value):
+	lowlevel.world_info_append(key, value)
 
 func get_size_float():
 	return Vector2(size.x,size.y)
@@ -57,8 +60,8 @@ func get_objs() -> Array[Obj]:
 	return ret
 
 func _process(delta):
-	var shader_type = get_world_info().get("shader_type" , 0)
-	shader.set_shader_parameter("shader_type", shader_type)
+	var shader_type = get_world_info("shader_type" , 0)
+	shader.set_shader_parameter("type", shader_type )
 	if lowlevel != null : 
 		function_process(delta)
 		if get_rider() != null :

@@ -102,18 +102,9 @@ func function_process(delta):
 	if toward.length() > 0.5 :
 		set_obj_position(position + speed.rotated(toward.angle()) * delta)
 	pass
-
-func load_addon(_dic):
-	addon_info = _dic.duplicate()
-	
-#func load_AI(_dic):
-	#addon_info["process"] = _dic.duplicate()
-	
-func load_bump_handler(_dic):
-	addon_info["bump_handler"] = _dic.duplicate()
 	
 func load_obj_data(name):
-	load_addon(Register_table.obj_data[name]["addon_dic"])
+	addon_info = Register_table.obj_data[name]["addon_dic"].duplicate(true)
 
 ########################################################################
 # bump

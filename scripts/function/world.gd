@@ -6,7 +6,6 @@ var home : Obj
 var lowlevel : World
 
 var init_flag:bool = true
-var monsters:Array
 var world_info:Dictionary = {}
 var rider_data:Dictionary = {}
 
@@ -32,8 +31,11 @@ func set_world_info(value :Dictionary):
 	world_info = value
 	monster_buf = world_info.get("init_monster",[]).duplicate()
 	
-func get_world_info():
-	return world_info
+func get_world_info(key , value = null):
+	return world_info.get(key,value)
+	
+func world_info_append(key , value):
+	world_info[key] = value
 	
 func set_rider_data(value : Dictionary):
 	rider_data = value
@@ -52,11 +54,14 @@ func instance_home():
 	home.set_obj_position(world_info.get("home_position", Vector2(10000.0, 0)) )
 	
 func instance_monster(name):
+	world_info_append( "monster_num", get_world_info("monster_num", 0 ) + 1 )
 	var monster = Obj.new()
 	monster.obj_init(name,null,lowlevel)
-	monster.set_obj_position
-	(randf_range(1200.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
-	monsters.append(monster)
+	monster.set_obj_position(
+		get_rider().get_obj_position() + monster.get_addon_info("appear_position",
+		monster.get_addon_info("appear_dist", randf_range(1200.0,1500.0)) *
+		get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI)) )
+	)
 	monster.call_handler("monster_init" , {})
 	return monster
 	
@@ -73,24 +78,11 @@ func get_objs() -> Array[Obj]:
 
 func monster_manager(delta):
 	var penalty = 1.0
-	for monster in monsters:
-		if monster == null :
-			monsters.erase(monster)
 	
-	monsters.erase(null)
 
-	if monsters.size() >= world_info.get("max_monsters",10):
-		penalty *= 5.0 + (monsters.size() - world_info.get("max_monsters",10))
+	if get_world_info("monster_num", 0.0) >= world_info.get("max_monsters",10):
+		penalty *= 5.0 + (get_world_info("monster_num", 0.0) - world_info.get("max_monsters",10))
 
-	#if monsters.size() > world_info.get("max_monsters",10) + 3 :
-		#for monster in monsters:
-			#if monster == null :
-				#monsters.erase(monster)
-				#break
-			#if not monster.get_addon_info("boss", false) :
-				#monsters.erase(monster)
-				#monster.kill()
-				#break
 
 	time_total += delta
 	if time_total > penalty * world_info.get("monster_frequence"):
@@ -118,8 +110,6 @@ func function_process(delta):
 
 func all_free():
 	queue_free()
-	for monster in monsters :
-		if monster != null : monster.all_free()
 	rider.all_free()
 	home.all_free()
 
