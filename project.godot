@@ -16,6 +16,7 @@ config/name_localized={
 }
 run/main_scene="res://tscns/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://images/normal/shika.png"
 config/icon="res://images/normal/shika.png"
 

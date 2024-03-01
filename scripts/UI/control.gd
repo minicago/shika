@@ -19,6 +19,10 @@ func execute(line):
 		if list.size() != 2 : return
 		if Register_table.item_data.get(list[1]) != null:
 			Userdata.package_item["package"].append({"name":list[1]})
+	if list[0] == "give_rider" :
+		if list.size() != 2 : return
+		if Register_table.obj_data.get(list[1]) != null:
+			Userdata.riders["riders"].append({"name":list[1]})
 	if list[0] == "erase_tag" :
 		if list.size() != 2 : return
 		Userdata.common_data[list[1]] = false

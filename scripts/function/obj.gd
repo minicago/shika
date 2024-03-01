@@ -13,24 +13,29 @@ var global_polygon:PackedVector2Array = PackedVector2Array()
 var banlist : Dictionary
 #var bump_handler_dic : Dictionary = {}
 var speed : Vector2 = Vector2.ZERO
-var AI_dic : Dictionary = {}
+#var AI_dic : Dictionary = {}
 #var life_time : float = 0.0 
 var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 var item_name = ""
 
-func call_handler(name, value):
-	var tmp = item_name
-	item_name = ""
-	if get_item_info(name, null) != null:
-		for handler in get_item_info(name, null):
-			Register_table.handlers[handler].call(self,value)
-	for i in range(1,7) :
-		item_name = str(i)
+func call_handler(name, value , call_item = true):
+	if call_item :
+		var tmp = item_name
+		item_name = ""
 		if get_item_info(name, null) != null:
 			for handler in get_item_info(name, null):
 				Register_table.handlers[handler].call(self,value)
-	item_name = tmp
+		for i in range(0,10) :
+			item_name = str(i)
+			if get_item_info(name, null) != null:
+				for handler in get_item_info(name, null):
+					Register_table.handlers[handler].call(self,value)
+		item_name = tmp
+	else :
+		if get_item_info(name, null) != null:
+			for handler in get_item_info(name, null):
+				Register_table.handlers[handler].call(self,value)
 
 func kill():
 	lowlevel.kill()
@@ -85,11 +90,15 @@ func get_polygon():
 func function_process(delta):
 	for timer in timers:
 		timers[timer] = max(0, timers[timer] - delta)
-	for function in AI_dic:
-		item_name = function[0]
-		if item_name < "1" or item_name > "6" : item_name = ""
-		AI_dic[function].call(self, delta)
-	item_name = ""
+	call_handler("process", {"delta" : delta})
+	#for function in get_addon_info():
+		#item_name = function[0]
+		#if item_name < "0" or item_name > "9" : 
+			#item_name = ""
+			#Register_table.handlers[function].call(self, {"delta" : delta})
+		#else : 
+			#Register_table.handlers[function.right(-1)].call(self, {"delta" : delta})
+	#item_name = ""
 	if toward.length() > 0.5 :
 		set_obj_position(position + speed.rotated(toward.angle()) * delta)
 	pass
@@ -97,17 +106,14 @@ func function_process(delta):
 func load_addon(_dic):
 	addon_info = _dic.duplicate()
 	
-func load_AI(_dic):
-	AI_dic = _dic.duplicate()
+#func load_AI(_dic):
+	#addon_info["process"] = _dic.duplicate()
 	
 func load_bump_handler(_dic):
 	addon_info["bump_handler"] = _dic.duplicate()
 	
 func load_obj_data(name):
-	#load_normal(Register_table.obj_data[name]["normal_dic"])
 	load_addon(Register_table.obj_data[name]["addon_dic"])
-	load_AI(Register_table.obj_data[name]["AI_dic"])
-	load_bump_handler(Register_table.obj_data[name]["bump_handler_dic"])
 
 ########################################################################
 # bump

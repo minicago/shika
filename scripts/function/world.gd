@@ -54,9 +54,10 @@ func instance_home():
 func instance_monster(name):
 	var monster = Obj.new()
 	monster.obj_init(name,null,lowlevel)
-	monster.set_obj_position(randf_range(1200.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
+	monster.set_obj_position
+	(randf_range(1200.0,1500.0)*get_rider().get_toward().rotated(randf_range(-0.3*PI,0.3*PI))+get_rider().get_obj_position())
 	monsters.append(monster)
-	monster.call_handler("monster_init" , monsters)
+	monster.call_handler("monster_init" , {})
 	return monster
 	
 func instance_bullet(name, dic = {}):

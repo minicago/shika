@@ -23,6 +23,7 @@ func _process(delta):
 	if displayBoard.rider_mode and displayBoard.picked < 0 :
 		displayBoard.picked = Userdata.riders["picked"]
 	
+	if Userdata.riders.get("picked",0) >  Userdata.riders["riders"].size() : Userdata.riders["picked"] = 0
 	var picked_rider = Userdata.riders["riders"][Userdata.riders.get("picked",0)]
 	displayOne.set_show_list([picked_rider])
 	if picked_rider.get("items") == null :picked_rider["items"] = [null,null,null,null,null,null,]

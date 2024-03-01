@@ -32,7 +32,10 @@ func give_reward(dic):
 		
 	for map in dic.get("reward_place", []):
 		Userdata.map[map] = true
-
+		
+	for tag in dic.get("erase_tag", []):
+		Userdata.common_data[tag] = false
+		
 	for ammo in dic.get("reward_ammo", {}):
 		Userdata.package_item["ammo"][ammo] = Userdata.package_item["ammo"].get(ammo, 0) + dic["reward_ammo"][ammo]
 
@@ -98,7 +101,31 @@ func load_from_dic(npc, dic):
 		child.queue_free()
 	for button_dic in dic.get("button",[]):
 		instance_button(button_dic)
+		
+func dialogue_available(npc, dialogue):
+	for no_tag in Register_table.dialogue_data[dialogue].get("no_tag",[]):
+		if Userdata.common_data.get(no_tag, false) : return false
+		
+	for tag in Register_table.dialogue_data[dialogue].get("tag",[]):
+		if not Userdata.common_data.get(tag, false) : return false
+	
+	if Register_table.dialogue_data[dialogue].get("brave", -1) > Userdata.NPC[npc].get("brave", 0): return false
+	
+	return true
 
+func load_as_index(npc ):
+	NPC_name = npc
+	texture.texture = load(Register_table.NPC_data[npc].get("texture","res://images/NPC/taxi_normal.png"))
+	label.text = tr(npc + "_hello")
+	for child in button_box.get_children(true):
+		child.queue_free()
+	var dialogue_list = Register_table.NPC_data[npc].get("dialogue",[])
+	
+	for dialogue in dialogue_list:
+		if dialogue_available(npc ,dialogue):
+			if randf() <= Register_table.dialogue_data.get("weight", 1):
+				instance_button({"text": dialogue+"_index",  "next" : dialogue})
+	instance_button({"text": "goodbye"})
 #func _ready():
 	#load_from_dic(Register_table.dialogue_data["help"])
 	
