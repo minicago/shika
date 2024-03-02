@@ -20,7 +20,6 @@ static func _static_init():
 			
 			"bump_damage" : {"damage" : 10.0},
 			
-			"follow_AI_cool_time" : 0.0,
 			"power" : 1200.0,
 			"resist" : 0.9,
 			
@@ -28,17 +27,41 @@ static func _static_init():
 			"die" : ["die"],
 			"monster_init" : ["loong_init"],
 			
-			"cool_time" : 8,
-			"bullet_num" : 1,
-			"bullet" : "laser",
-			"cool_handler" : ["shoot_around"],
-			"bullet_damage" : {"damage" : 10.0,},
-		
+			
+			"0bullet_num" : 1,
+			"0bullet" : "laser",
+			
+			"0cool_time" : 8,
+			"0cool_handler" : ["shoot_bullet"],
+			"0bullet_damage" : {"damage" : 10.0,},
+			
+			"0value" : 0.5 * PI,
+			"0value_name" : "max_rotate_rate",
+			"0follow_rider_handler" : ["cool_boot","set_value"],
+			
+			"1value" : 4 * PI,
+			"1value_name" : "max_rotate_rate",
+			"1follow_other_handler" : ["set_value"],
+			
+			"2value" : Vector2(300.0, 0.0),
+			"2value_name" : "speed",
+			"2straight_handler" : ["add_value_delta"],
+			
+			"3value" : Vector2(600.0, 0.0),
+			"3value_name" : "speed",
+			"3close_handler" : ["add_value_delta"],
+			
+			"close_dist" : 1200.0,
+			
 		"process":[
 			"follow",
 			"maggot",
-			"loong",
 			"modulate_hurt",
+			
+			"follow_boot",
+			"straight_boot",
+			"close_boot",
+			"loong",
 		],
 		"bump_handler":[
 			"rider",

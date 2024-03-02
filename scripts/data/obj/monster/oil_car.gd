@@ -24,10 +24,17 @@ static func _static_init():
 			"abandon_dist" : 2000.0,
 			
 			"take_damage" : ["take_damage"],
-			"die" : ["die_bomb","die"],
-		
+			
+			"bullet" : "bomb",
+			"all_hurt" : true,
+			
+			"die" : ["shoot_bullet","die"],
+			"handler_name" : "die",
+			"close_handler" : ["call_handler"],
+			"close_dist" : 300.0,
+			
 			"process":[
-				"self_bomb",
+				"close_boot",
 				"follow",
 				"maggot",
 				"abandon",

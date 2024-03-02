@@ -46,7 +46,7 @@ static func _static_init():
 	#load_json(Register_table.obj_data,"res://scripts/data/obj/monster/")
 	#print(Register_table.obj_data["spider"])
 	register_file("res://scripts/data/handler")
-	register_file("res://scripts/data/mod")
+	register_file("user://mod/scripts")
 	infoboot()
 	
 	

@@ -19,23 +19,25 @@ var timers : Dictionary = {}
 var modulate : Color = Color(1.0,1.0,1.0)
 var item_name = ""
 
-func call_handler(name, value , call_item = true):
-	if call_item :
+func call_handler(name, value , call_root = true):
+	if call_root :
 		var tmp = item_name
 		item_name = ""
-		if get_item_info(name, null) != null:
-			for handler in get_item_info(name, null):
-				Register_table.handlers[handler].call(self,value)
-		for i in range(0,10) :
-			item_name = str(i)
-			if get_item_info(name, null) != null:
-				for handler in get_item_info(name, null):
-					Register_table.handlers[handler].call(self,value)
+		call_handler(name, value , false)
 		item_name = tmp
 	else :
+		var tmp = item_name
 		if get_item_info(name, null) != null:
 			for handler in get_item_info(name, null):
 				Register_table.handlers[handler].call(self,value)
+		
+		for i in range(0,10) :
+			item_name = tmp + str(i)
+			if get_item_info(name, null) != null:
+				
+				call_handler(name, value , false)
+		item_name = tmp
+		
 
 func kill():
 	lowlevel.kill()

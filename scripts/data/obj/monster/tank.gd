@@ -39,8 +39,9 @@ static func _static_init():
 			],
 			
 			"0bullet_damage" : {"damage" : 5.0},
-			"0cool_handler" : ["aim_bullet"],
+			"0cool_handler" : ["shoot_bullet"],
 			"0cool_time" : 1.0,
+			"0smart_aim" : true,
 			"0process" : [
 				"cool_boot",
 			],

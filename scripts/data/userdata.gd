@@ -55,7 +55,7 @@ static func all_load():
 	if version.get("version",0) < 1:
 		reset_file()
 	else :
-		
+
 		load_file("user://package_item.txt", package_item)
 		load_file("user://common_data.txt", common_data)
 		load_file("user://riders.txt", riders)

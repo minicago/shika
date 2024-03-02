@@ -1,6 +1,6 @@
 extends Node
 static func _static_init():
-    Register_table.obj_data["loong_rider"] = {
+	Register_table.obj_data["loong_rider"] = {
 		"export_dic":{
 			"texture" : "res://images/bike/loong_rider.png",
 			"descript" : "loong_rider_descript",
@@ -32,18 +32,21 @@ static func _static_init():
 			"take_damage" : ["take_damage"],
 			"die" : ["die"],
 			
-			"shoot_cool" : 8,
-			"bullet_num" : 1,
-			"bullet" : "laser",
-			"cool_handler" : ["shoot_around"],
-			"bullet_damage" : {"damage" : 10.0, "ignore_invincible" : true},
+
 		
 			"process":[
 				"rider_AI",
 				"modulate_invincible",
 				"modulate_hurt",
-				"cool_handler",
+				
 			],
+			"0cool_time" : 8,
+			"0bullet_num" : 1,
+			"0bullet" : "laser",
+			"0cool_handler" : ["shoot_bullet"],
+			"0bullet_damage" : {"damage" : 10.0, "ignore_invincible" : true},			
+			"0process":["cool_boot",],
+			
 			"bump_handler":[
 				"box",
 				"home",

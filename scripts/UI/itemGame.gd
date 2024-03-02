@@ -9,9 +9,6 @@ var textureloaded = false
 @export var item_num : int
 @export var fatherUI : World_UI
 
-
-
-
 func _process(delta):
 	var father = fatherUI.lowlevel
 	if father != null:
